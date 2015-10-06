@@ -1,0 +1,23 @@
+<%= form_for :article, url: {action: "update"}, method: :patch do |f| %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :body %>
+		<%= f.text_field :body %>
+	</p>
+	<p>
+		<%= f.label :rating %>
+		<%= f.radio_button(:rating, 1) %>
+		<%= f.radio_button(:rating, 2) %>
+		<%= f.radio_button(:rating, 3) %>
+		<%= f.radio_button(:rating, 4) %>
+		<%= f.radio_button(:rating, 5) %>(1 to 5 stars)
+	</p>
+
+	<%= f.submit %>
+<% end %>
+
+<%= link_to "All_Articles", articles_path(@article.id) %>
+<%= link_to "cancel", article_path(@article.id) %>

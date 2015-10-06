@@ -3,26 +3,24 @@
 	<br><br>
 <div class="main">
 
-
 	<table>
 		<th>Title</th>
 		<th>Body</th>
 		<th>Rating</th>
 		<th><th><th>
 
-		<% @articles.each do |a| %>
+		<% @articles.each do |article| %>
 			<tr>
-				<td><%= a.title %></td>
-				<td><%= a.body %></td>
-				<td><%= a.rating %> Stars</td>
-				<td>Show</td>
-				<td>Edit</td>
-				<td>Delete</td>
+				<td><%= article.title %></td>
+				<td><%= article.body %></td>
+				<td><%= article.rating %> Stars</td>
+				<td><%= link_to("Show", article_path(article.id))%></td>
+				<td><%= link_to("Edit", edit_article_path(article.id))%></td>
+				<td><%= link_to "Delete", article, method: :delete, data: {confirm: 'Are you sure?'} %></td>
 			</tr>
 		<% end %>
 	</table>
 
-	<%= link_to("New", new_article_path) %>
-
-
 </div>
+<p><p>
+<%= link_to("New", new_article_path) %>
