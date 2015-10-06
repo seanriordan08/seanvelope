@@ -5,19 +5,24 @@
 
 
 	<table>
-		<th>Clients</th>
-		<th>Projects</th>
-		<th>Projections</th>
+		<th>Title</th>
+		<th>Body</th>
+		<th>Rating</th>
+		<th><th><th>
 
 		<% @articles.each do |a| %>
 			<tr>
-				<td>a.title</td>
-				<td>a.body</td>
-				<td>a.rating</td>
+				<td><%= a.title %></td>
+				<td><%= a.body %></td>
+				<td><%= a.rating %> Stars</td>
+				<td>Show</td>
+				<td>Edit</td>
+				<td>Delete</td>
 			</tr>
-
 		<% end %>
 	</table>
+
+	<%= link_to("New", new_article_path) %>
 
 
 </div>
