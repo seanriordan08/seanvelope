@@ -1,4 +1,4 @@
-app_name: telemark
+app_name: seanvelope
 deploy_directory: "/home/{{ deploy_user }}/apps/{{ app_name }}"
 
 mysql_db_name: "{{ app_name }}"

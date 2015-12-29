@@ -3,6 +3,6 @@ deploy_user: deployer
 gh_pubkey_user: seanriordan08
 domain_name: seanvelope.com
 rails_env: production
-webserver_name: sandbox-1.seanvelope.com
+webserver_name: seanvelope.com
 mysql_root_password: root
 mysql_db_password: root

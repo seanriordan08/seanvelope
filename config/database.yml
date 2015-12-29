@@ -18,7 +18,7 @@ default: &default
 
 development:
   <<: *default
-  database: telemark_development
+  database: seanvelope_development
   username: root
   password: root
 
@@ -27,7 +27,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: telemark_test
+  database: seanvelope_test
   username: root
   password: root
 
@@ -52,6 +52,6 @@ test:
 #
 production:
   <<: *default
-  database: telemark_production
-  username: telemark
-  password: <%= ENV['TELEMARK_DATABASE_PASSWORD'] %>
+  database: seanvelope_production
+  username: seanvelope
+  password: <%= ENV['SEANVELOPE_DATABASE_PASSWORD'] %>
