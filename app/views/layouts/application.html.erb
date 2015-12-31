@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 	<head>
 		<title>Seanvelope</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,12 +7,12 @@
 		<%= csrf_meta_tags %>
 	</head>
 
-	<%= render partial: "shared/nav_bar" %>
-
-	<%= render partial: "shared/image_box" %>
-
 	<body>
-		<%= yield %>
+		<div class="container">
+			<%= render partial: "shared/nav_bar.html.erb" %>
+			<%= render partial: "shared/image_box.html.erb" %>
+			<%= yield %>
+		</div>
 	</body>
 
 </html>
