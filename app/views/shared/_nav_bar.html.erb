@@ -1,0 +1,45 @@
+<div class="header">
+	<ul class="float_left">
+		<li class="logo_text">Seanvelope</li>
+	</ul>
+
+	<ul class="nav_links">
+		<div id="hamburger-menu">
+			<span></span><span></span><span></span><span></span>
+		</div>
+		<li id="nav_services" class="nav">Services</li>
+		<li id="nav_about" class="nav">About</li>
+		<li id="nav_pricing" class="nav">Pricing</li>
+		<%# if current_user %>
+			<!--<li id="nav_signout" class="nav"><%#= link_to("Logout #{current_user.first_name}", destroy_user_session_path, :method => :delete) %> <%=  %></li>-->
+		<%# else %>
+			<!--<li id="nav_signin" class="nav">Sign In</li>-->
+		<%# end %>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#nav_signin").on("click", function() {
+			if ($('#sign_in_form').is(":visible")){
+				$('#sign_in_form').fadeOut(100);
+			} else {
+				$('#sign_in_form').fadeIn(200).attr('tabindex', -1).focus();
+			}
+		});
+
+		$(document).mouseup(function (e)
+		{
+			var container = $('#sign_in_form');
+			if (!container.is(e.target) // if the target of the click isn't the container...
+				&& container.has(e.target).length === 0) // ... nor a descendant of the container
+			{
+				container.fadeOut(300);
+			}
+		});
+
+		<% if flash[:error] %>
+			$('#nav_signin').trigger("click");
+		<% end %>
+	});
+</script>

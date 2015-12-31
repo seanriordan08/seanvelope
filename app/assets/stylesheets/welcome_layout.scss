@@ -4,6 +4,90 @@
 
 $green: #BADA55;
 
+@font-face {
+  font-family: "Hetilica";
+  src: url("/assets/hetilica.ttf") format("truetype");
+}
+
+@mixin cover(){
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html {
+  width: 100%;
+}
+
+.float_left {
+  float: left;
+}
+
+.float_right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
 body {
-  background-color: $green;
+  width: 100%;
+  height: 100%;
+  background: transparent url("road_bg.png") no-repeat 0 0 fixed;
+  @include cover;
+  overflow-y: scroll;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: auto;
+  bottom: auto;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  ul {
+    padding: 15px 10px;
+    list-style: none;
+    li {
+      display: inline;
+      cursor: pointer;
+      &:before {
+        padding: 0 10px;
+        color: whitesmoke;
+        content: " | ";
+      }
+      &:nth-child(2):before {
+        content: "";
+      }
+      &:hover {
+        color: #888;
+      }
+    }
+    #nav_signout {
+      color: whitesmoke;
+      &:before {
+        content: "";
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+  .logo_text {
+    font-family: "Hetilica", sans-serif;
+    font-size: 5em;
+    color: rgba(255,255,255,.8);
+    &:before {
+      content: "";
+    }
+  }
+  .nav_links {
+    padding-right: 40px;
+    float: right;
+  }
 }
