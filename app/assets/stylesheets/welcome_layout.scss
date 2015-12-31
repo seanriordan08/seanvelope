@@ -91,3 +91,19 @@ body {
     float: right;
   }
 }
+
+.image_box {
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  overflow: auto;
+  right: 0;
+  bottom: 50px;
+
+  .pic {
+    margin: 10px;
+    img {
+      border-radius: 100px;
+    }
+  }
+}
