@@ -45,14 +45,15 @@ body {
   width: 100%;
   height: auto;
   padding-left: 10px;
-  color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 3;
+  z-index: 4;
   .logo_img {
     position: relative;
     display: inline;
     vertical-align: middle;
-    border: 5px solid $seanvelope_white;
+    border: 5px solid #333;
+    box-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    opacity: 0.8;
     border-radius: 55px;
   }
   .logo_text {
@@ -61,14 +62,9 @@ body {
     vertical-align: middle;
     font-family: "virgo", sans-serif;
     font-size: 7em;
-    color: $seanvelope_white;
-    &:before {
-      content: "";
-    }
-  }
-  .nav_links {
-    padding-right: 40px;
-    float: right;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    color: #222;
+    opacity: 0.5;
   }
 }
 
@@ -82,4 +78,36 @@ body {
   background: -webkit-linear-gradient(180deg, rgba(0,0,0,.3), transparent);
   background:    -moz-linear-gradient(180deg, rgba(0,0,0,.3), transparent);
   background:         linear-gradient(180deg, rgba(0,0,0,.3), transparent);
+}
+
+.panel {
+  position: relative;
+  width: 500px;
+  min-height: 500px;
+  z-index: 3;
+}
+.panel-fixed {
+  z-index: 1;
+}
+.panel-inner {
+  padding: 1em;
+  width: 100%;
+}
+.panel-fixed .panel-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.panel-one {
+  background-color: rgba(0,0,0,.5);
+}
+
+.panel-two {
+  background-color: rgba(0,0,0,.1)
+}
+
+.panel-three {
+  background-color: rgba(0,0,0,.5)
 }
