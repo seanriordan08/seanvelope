@@ -39,48 +39,26 @@ body {
 
 .header {
   position: fixed;
-  top: -20px;
+  top: 0;
   left: 0;
   bottom: auto;
   width: 100%;
   height: auto;
+  padding-left: 10px;
   color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 3;
-  img {
+  .logo_img {
+    position: relative;
+    display: inline;
+    vertical-align: middle;
     border: 5px solid $seanvelope_white;
     border-radius: 55px;
   }
-  ul {
-    padding: 15px 10px;
-    list-style: none;
-    li {
-      display: inline;
-      cursor: pointer;
-      &:before {
-        padding: 0 10px;
-        color: whitesmoke;
-        content: " | ";
-      }
-      &:nth-child(2):before {
-        content: "";
-      }
-      &:hover {
-        color: #888;
-      }
-    }
-    #nav_signout {
-      color: whitesmoke;
-      &:before {
-        content: "";
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-    }
-  }
   .logo_text {
+    position: relative;
+    display: inline;
+    vertical-align: middle;
     font-family: "virgo", sans-serif;
     font-size: 7em;
     color: $seanvelope_white;
