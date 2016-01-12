@@ -1,0 +1,196 @@
+@font-face {
+  font-family: "virgo";
+  src: url("/assets/virgo.ttf") format("truetype");
+}
+/* line 26, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+html {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* line 31, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.float_left {
+  float: left;
+}
+
+/* line 35, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.float_right {
+  float: right;
+}
+
+/* line 39, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.center {
+  text-align: center;
+}
+
+/* line 43, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+h1 {
+  margin: 10px 0;
+}
+
+/* line 47, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent 30%), url("/assets/road_bg.png") no-repeat 0 0 fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+/* line 56, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  width: 100%;
+  height: auto;
+  padding-left: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 4;
+}
+/* line 66, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.header .logo_img {
+  position: relative;
+  display: inline;
+  vertical-align: middle;
+  border: 5px solid #333;
+  box-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  opacity: 0.8;
+  border-radius: 55px;
+}
+/* line 75, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.header .logo_text {
+  position: relative;
+  display: inline;
+  vertical-align: middle;
+  font-family: "virgo", sans-serif;
+  font-size: 7em;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  color: #222;
+  opacity: 0.5;
+}
+
+/* line 87, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.sidebar {
+  position: fixed;
+  margin: 180px 0 0 3%;
+  padding: 1em;
+  float: right;
+  width: 28%;
+  min-height: 600px;
+  text-align: center;
+  color: rgba(250, 250, 250, 0.8);
+  font-family: 'Lora', serif;
+  font-size: 1.4em;
+  z-index: 3;
+  background: -moz-linear-gradient(top, rgba(50, 50, 50, 0.85), transparent);
+  background: -webkit-linear-gradient(top, rgba(50, 50, 50, 0.85), transparent);
+}
+/* line 100, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.sidebar h1 {
+  font-family: 'Roboto', serif;
+}
+
+/* line 105, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+#galaxy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  width: 100%;
+  height: 40%;
+  background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent);
+  background: -moz-linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent);
+}
+
+/* line 117, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.thumbnail {
+  display: inline-block;
+  width: 100%;
+}
+/* line 120, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.thumbnail #frame {
+  display: block;
+  width: 800px;
+  height: 520px;
+  border: 1px solid #333;
+  -moz-transform: scale(0.2);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.2);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.2);
+  -webkit-transform-origin: 0 0;
+}
+
+/* line 134, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel {
+  position: relative;
+  margin: 180px 3% 0 0;
+  float: right;
+  width: 60%;
+  min-height: 600px;
+  font-family: 'Lora', serif;
+  font-size: 1.4em;
+  z-index: 3;
+}
+/* line 143, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel h1 {
+  font-family: 'Roboto', serif;
+}
+
+/* line 148, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel-inner {
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 153, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel-fixed {
+  z-index: 1;
+}
+/* line 155, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel-fixed .panel-inner {
+  position: fixed;
+  top: 180px;
+  right: 3%;
+  width: 60%;
+  min-height: 600px;
+  border-radius: 3px;
+  color: rgba(250, 250, 250, 0.8);
+  background: -moz-linear-gradient(top, rgba(50, 50, 50, 0.85), transparent);
+  background: -webkit-linear-gradient(top, rgba(50, 50, 50, 0.85), transparent);
+  z-index: 2;
+}
+/* line 165, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel-fixed .panel-inner h1 {
+  font-family: 'Roboto', serif;
+}
+
+/* line 171, /Users/seanriordan08/Desktop/seanvelope/app/assets/stylesheets/welcome_layout.scss */
+.panel-queued {
+  color: rgba(0, 0, 0, 0.3);
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
