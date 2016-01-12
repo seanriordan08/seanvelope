@@ -27,8 +27,7 @@
 <script>
 
 	$(document).ready(function(){
-		$(".panel").addClass("panel-queued");
-		$(".panel").first().removeClass("panel-queued");
+		$(".panel").addClass("panel-queued").first().removeClass("panel-queued").first().addClass("panel-fixed");
 	});
 
 	$(function() {
@@ -59,16 +58,24 @@
 				otherwise we compare if the y position is in between
 				two panels
 				*/
+				if ((panels.eq(i).offset().top < 180) < 180) {
+					panels.eq(i).removeClass("panel-queued");
+				} else {
+					panels.eq(i).addClass("panel-queued");
+				}
 				if ((i === l - 1) || (y >= panelsY[i] && y <= panelsY[i+1])) {
 					break;
 				}
 			}
 
 			// Update classes
-
 			panels.not(':eq(' + i + ')').removeClass('panel-fixed');
 			panels.eq(i).addClass('panel-fixed');
-			panels.eq(i - 1).removeClass('panel-queued');
+			if ((panels.eq(i).offset().top < 180) < 180) {
+				panels.eq(i).removeClass("panel-queued");
+			} else {
+				panels.eq(i).addClass("panel-queued");
+			}
 		}
 
 	});

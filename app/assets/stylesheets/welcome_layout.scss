@@ -87,21 +87,23 @@ body {
   min-height: 500px;
   z-index: 3;
 }
-.panel-fixed {
-  z-index: 1;
-}
+
 .panel-inner {
   padding: 1em;
   width: 100%;
 }
-.panel-fixed .panel-inner {
-  position: fixed;
-  top: 180px;
-  left: auto;
-  width: 500px;
-  min-height: 500px;
-  background-color: rgba(50,50,50,.5);
-  z-index: 2;
+
+.panel-fixed {
+  z-index: 1;
+  .panel-inner {
+    position: fixed;
+    top: 180px;
+    left: auto;
+    width: 500px;
+    min-height: 500px;
+    z-index: 2;
+    background-color: rgba(50,50,50,.5);
+  }
 }
 
 .panel-queued {
