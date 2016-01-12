@@ -5,6 +5,12 @@
 
 $seanvelope_white: rgba(255,255,255,.8);
 
+@mixin border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 @mixin cover(){
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -32,6 +38,7 @@ html {
 body {
   width: 100%;
   min-height: 100%;
+  margin: 0;
   background: -webkit-linear-gradient(90deg, rgba(0,0,0,.5), transparent 30%), url("/assets/road_bg.png") no-repeat 0 0 fixed;
   @include cover;
   overflow-y: scroll;
@@ -84,30 +91,31 @@ body {
   position: relative;
   margin: 180px auto 0 auto;
   width: 500px;
-  min-height: 500px;
+  min-height: 300px;
   z-index: 3;
 }
 
 .panel-inner {
   padding: 1em;
-  width: 100%;
+  @include border-box;
 }
 
 .panel-fixed {
   z-index: 1;
+  width: 500px;
   .panel-inner {
     position: fixed;
     top: 180px;
     left: auto;
     width: 500px;
-    min-height: 500px;
+    min-height: 300px;
+    border-radius: 3px;
+    color: rgba(250,250,250,.8);
+    background-color: rgba(50,50,50,.8);
     z-index: 2;
-    background-color: rgba(50,50,50,.5);
   }
 }
 
 .panel-queued {
-  background-color: rgba(50,50,50,.3);
+  color: rgba(0,0,0,.3);
 }
-
-*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }

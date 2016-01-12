@@ -1,22 +1,29 @@
 <div class="main">
 
-	<div class="panel">
+	<div class="panel panel-fixed">
 		<div class="panel-inner">
 			<h1>Lorem ipsum dolor sit amet #1</h1>
 			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
 		</div>
 	</div>
 
-	<div class="panel">
+	<div class="panel panel-queued">
 		<div class="panel-inner">
 			<h1>Lorem ipsum dolor sit amet #2</h1>
 			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
 		</div>
 	</div>
 
-	<div class="panel">
+	<div class="panel panel-queued">
 		<div class="panel-inner">
 			<h1>Lorem ipsum dolor sit amet #3</h1>
+			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
+		</div>
+	</div>
+
+	<div class="panel panel-queued">
+		<div class="panel-inner">
+			<h1>Lorem ipsum dolor sit amet #4</h1>
 			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
 		</div>
 	</div>
@@ -25,10 +32,6 @@
 
 
 <script>
-
-	$(document).ready(function(){
-		$(".panel").addClass("panel-queued").first().removeClass("panel-queued").first().addClass("panel-fixed");
-	});
 
 	$(function() {
 		// Set up vars
@@ -58,11 +61,6 @@
 				otherwise we compare if the y position is in between
 				two panels
 				*/
-				if ((panels.eq(i).offset().top < 180) < 180) {
-					panels.eq(i).removeClass("panel-queued");
-				} else {
-					panels.eq(i).addClass("panel-queued");
-				}
 				if ((i === l - 1) || (y >= panelsY[i] && y <= panelsY[i+1])) {
 					break;
 				}
@@ -71,11 +69,6 @@
 			// Update classes
 			panels.not(':eq(' + i + ')').removeClass('panel-fixed');
 			panels.eq(i).addClass('panel-fixed');
-			if ((panels.eq(i).offset().top < 180) < 180) {
-				panels.eq(i).removeClass("panel-queued");
-			} else {
-				panels.eq(i).addClass("panel-queued");
-			}
 		}
 
 	});
