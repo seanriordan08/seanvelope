@@ -82,6 +82,7 @@ body {
 
 .panel {
   position: relative;
+  margin: 180px auto 0 auto;
   width: 500px;
   min-height: 500px;
   z-index: 3;
@@ -95,21 +96,16 @@ body {
 }
 .panel-fixed .panel-inner {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 180px;
+  left: auto;
+  width: 500px;
+  min-height: 500px;
+  background-color: rgba(50,50,50,.5);
   z-index: 2;
 }
 
-.panel-one {
-  background-color: rgba(0,0,0,.5);
-}
-
-.panel-two {
-  background-color: rgba(0,0,0,.1)
-}
-
-.panel-three {
-  background-color: rgba(0,0,0,.5)
+.panel-queued {
+  background-color: rgba(50,50,50,.3);
 }
 
 *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }

@@ -1,44 +1,75 @@
 <div class="main">
 
-	<!--<table>-->
-		<!--<th>Title</th>-->
-		<!--<th>Body</th>-->
-		<!--<th>Rating</th>-->
-		<!--<th><th><th>-->
-
-		<!--<%# @articles.each do |article| %>-->
-			<!--<tr>-->
-				<!--<td><%#= article.title %></td>-->
-				<!--<td><%#= article.body %></td>-->
-				<!--<td><%#= article.rating %> Stars</td>-->
-				<!--<td><%#= link_to("Show", article_path(article.id))%></td>-->
-				<!--<td><%#= link_to("Edit", edit_article_path(article.id))%></td>-->
-				<!--<td><%#= link_to "Delete", article, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
-			<!--</tr>-->
-		<!--<%# end %>-->
-	<!--</table>-->
-
-	<div class="panel panel-one">
+	<div class="panel">
 		<div class="panel-inner">
-			<h1>Lorem ipsum dolor sit amet</h1>
+			<h1>Lorem ipsum dolor sit amet #1</h1>
 			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
 		</div>
 	</div>
 
-	<div class="panel panel-two">
+	<div class="panel">
 		<div class="panel-inner">
-			<h2>Lorem ipsum dolor sit amet</h2>
+			<h1>Lorem ipsum dolor sit amet #2</h1>
 			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
 		</div>
 	</div>
 
-	<div class="panel panel-three">
+	<div class="panel">
 		<div class="panel-inner">
-			<h3>Lorem ipsum dolor sit amet</h3>
+			<h1>Lorem ipsum dolor sit amet #3</h1>
 			<p>Donec id ipsum odio. Cras accumsan consectetur nibh, vitae pretium dui hendrerit sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac orci elit. Nunc faucibus eros vulputate purus aliquam vel blandit ligula pharetra.</p>
 		</div>
 	</div>
 
 </div>
-<p><p>
-<%#= link_to("New", new_article_path) %>
+
+
+<script>
+
+	$(document).ready(function(){
+		$(".panel").addClass("panel-queued");
+		$(".panel").first().removeClass("panel-queued");
+	});
+
+	$(function() {
+		// Set up vars
+		var _window = $(window),
+			panels = $('.panel'),
+			panelsY = [];
+
+		// Cache position of each panel
+		$.each(panels, function(i, el) {
+			const position = panels.eq(i).offset().top - 180;
+			panelsY.push(position);
+		});
+
+		// Bind our function to window scroll
+		_window.bind('scroll', function() {
+			updateWindow();
+		});
+
+		// Update the window
+		function updateWindow() {
+			var y = _window.scrollTop();
+
+			// Loop through our panel positions
+			for (i = 0, l = panels.length; i < l; i++) {
+				/*
+				Firstly, we break if we're checking our last panel,
+				otherwise we compare if the y position is in between
+				two panels
+				*/
+				if ((i === l - 1) || (y >= panelsY[i] && y <= panelsY[i+1])) {
+					break;
+				}
+			}
+
+			// Update classes
+
+			panels.not(':eq(' + i + ')').removeClass('panel-fixed');
+			panels.eq(i).addClass('panel-fixed');
+			panels.eq(i - 1).removeClass('panel-queued');
+		}
+
+	});
+</script>
