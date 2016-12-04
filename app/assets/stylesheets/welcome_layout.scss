@@ -66,8 +66,6 @@ body {
   width: 100%;
   min-height: 100%;
   margin: 0;
-  background: -webkit-linear-gradient(90deg, rgba(0,0,0,.5), transparent 30%), url("/assets/road_bg.png") no-repeat 0 0 fixed;
-  @include cover;
   overflow-y: scroll;
 }
 
