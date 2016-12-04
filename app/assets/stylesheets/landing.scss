@@ -39,6 +39,9 @@
       margin-left: -4px;
       background-color: $blue;
       z-index: 1;
+      canvas {
+        //position: absolute;
+      }
     }
     .accent_title {
       position: absolute;
