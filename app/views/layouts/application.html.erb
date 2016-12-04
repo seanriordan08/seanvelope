@@ -4,7 +4,7 @@
 		<title>Seanvelope</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Permanent+Marker|Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Permanent+Marker|Anton|Abel" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<%= csrf_meta_tags %>
 	</head>
@@ -14,7 +14,29 @@
       <div class="section_one">
         <div class="about_me_pic"></div>
         <div class="about_me_stats">
-          <canvas id="myChart" width="400" height="400"></canvas>
+          <div class="stats">
+            Skill Profile
+            <div class="stat">
+              <div class="stat_title">Ruby</div>
+              <div class="stat_bar"><div class="ruby"></div></div>
+            </div>
+            <div class="stat">
+              <div class="stat_title">Html/Sass</div>
+              <div class="stat_bar"><div class="design"></div></div>
+            </div>
+            <div class="stat">
+              <div class="stat_title">Javascript</div>
+              <div class="stat_bar"><div class="javascript"></div></div>
+            </div>
+            <div class="stat">
+              <div class="stat_title">Automated Testing</div>
+              <div class="stat_bar"><div class="testing"></div></div>
+            </div>
+            <div class="stat">
+              <div class="stat_title">DevOps</div>
+              <div class="stat_bar"><div class="dev_ops"></div></div>
+            </div>
+          </div>
         </div>
         <div class="badge">
           <div class="subsection_name">

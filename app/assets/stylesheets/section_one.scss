@@ -1,0 +1,98 @@
+.section_one {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .about_me_pic {
+    display: inline-block;
+    min-width: 100px;
+    width: 400px;
+    height: 100%;
+    background: transparent image-url("seanvelope_selfie.jpg") no-repeat;
+    background-size: cover;
+    z-index: 1;
+    .selfie_img {
+      position: relative;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: auto;
+      z-index: 1;
+    }
+  }
+  .about_me_stats {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    width: 400px;
+    height: 100%;
+    margin-left: -4px;
+    background-color: $blue;
+    .stats {
+      position: absolute;
+      top: 200px;
+      width: 100%;
+      margin: 10px;
+      font-family: 'Abel', sans-serif;
+      font-size: 24px;
+      color: $white;
+      .stat {
+        margin-top: 10px;
+        .stat_title {
+          font-family: 'Abel', sans-serif;
+          font-size: 18px;
+          color: $white;
+        }
+        .stat_bar {
+          position: relative;
+          width: 90%;
+          height: 15px;
+          margin-top: 5px;
+          background-color: rgba(255,255,255,.3);
+          border-radius: 8px;
+          .stat_level {
+            position: absolute;
+            height: 15px;
+            background-color: rgba(255,255,255,.6);
+            border-radius: inherit;
+          }
+          .ruby {@extend .stat_level; width: 65%}
+          .design {@extend .stat_level; width: 75%}
+          .javascript {@extend .stat_level; width: 60%}
+          .testing {@extend .stat_level; width: 80%}
+          .dev_ops {@extend .stat_level; width: 45%}
+        }
+      }
+    }
+  }
+  .accent_title {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    font-size: 22vw;
+    line-height: 41px;
+    z-index: 1;
+    color: rgba(239, 239, 239, .5);
+  }
+  .badge {
+    position: relative;
+    bottom: 15px;
+    display: inline-block;
+    margin: 10px;
+    .subsection_name {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 50px;
+      line-height: 48px;
+    }
+    .subsection_slogan {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+    }
+  }
+  .process_column {
+    background-color: rgba(255,255,255,.5);
+  }
+
+}
