@@ -1,0 +1,57 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+$white: #F1FFFA;
+$black: #1C2321;
+$blue: #3083c1;
+$brown: #37393A;
+$green: #A7CEC6;
+
+.blue_text {
+  color: $blue;
+}
+.blue_bg {
+  background-color: $blue;
+}
+.black_text {
+  color: $black;
+}
+.white_bg {
+  background-color: $white;
+}
+.green_bg {
+  background-color: $green;
+}
+.brown_bg {
+  background-color: $brown;
+}
+.black_bg {
+  background-color: $black;
+}
+
+html {
+  height: 100%;
+}
+body{
+  height: 100%;
+  color: $black;
+  overflow-x: hidden;
+}
