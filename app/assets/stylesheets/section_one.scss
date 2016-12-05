@@ -20,6 +20,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: visible;
   .about_me_pic {
     display: inline-block;
     min-width: 100px;
@@ -48,7 +49,7 @@
     background-color: $blue;
     .stats {
       position: absolute;
-      top: 200px;
+      top: 250px;
       width: 95%;
       margin: 10px 0 0 45px;
       font-family: 'Abel', sans-serif;
@@ -84,7 +85,22 @@
       }
     }
     .description {
-
+      position: absolute;
+      bottom: 100px;
+      width: 300px;
+      height: 200px;
+      margin: 10px 0 0 50px;
+      line-height: 20px;
+      color: $white;
+      //background-color: rgba(255,255,255,.1);
+      border-radius: 5px;
+      z-index: 1;
+      h2 {
+        margin-bottom: 20px;
+        font-family: 'Abel', sans-serif;
+        font-size: 24px;
+        color: $white;
+      }
     }
   }
   .accent_title {
@@ -121,7 +137,7 @@
 
   .sidebar {
     position: absolute;
-    top: 200px;
+    top: 120px;
     right: 0;
     display: inline-block;
     width: 28%;
@@ -139,7 +155,7 @@
       display: inline-block;
       width: 70%;
       height: auto;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       text-align: center;
       .wrap {
         width: 100%;
@@ -156,8 +172,9 @@
       }
       a.caption {
         display: block;
+        font-family: 'Abel', sans-serif;
         text-decoration: none;
-        color: $white;
+        color: $black;
         margin: 10px 0 0 0;
       }
     }
