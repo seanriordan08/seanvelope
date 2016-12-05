@@ -1,0 +1,238 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+/* line 1, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 28, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.blue_text {
+  color: #114aaa;
+}
+
+/* line 31, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.blue_bg {
+  background-color: #114aaa;
+}
+
+/* line 34, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.black_text {
+  color: #1C2321;
+}
+
+/* line 37, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.white_bg {
+  background-color: #F1FFFA;
+}
+
+/* line 40, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.green_bg {
+  background-color: #A7CEC6;
+}
+
+/* line 43, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.brown_bg {
+  background-color: #37393A;
+}
+
+/* line 46, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+.black_bg {
+  background-color: #1C2321;
+}
+
+/* line 50, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+html {
+  height: 100%;
+}
+
+/* line 53, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/global.scss */
+body {
+  height: 100%;
+  color: #1C2321;
+  overflow-x: hidden;
+}
+
+/* line 2, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/landing.scss */
+.color_box {
+  display: inline-block;
+  text-align: left;
+  width: 20px;
+  height: 37px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* line 10, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/landing.scss */
+.main {
+  height: 100%;
+}
+/* line 13, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/landing.scss */
+.main .section_two {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* line 17, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/landing.scss */
+.main .section_two .image_column {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  height: 100%;
+  width: auto;
+}
+
+/* line 1, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* line 5, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_pic {
+  display: inline-block;
+  min-width: 100px;
+  width: 400px;
+  height: 100%;
+  background: transparent url(/assets/seanvelope_selfie-a4b572837b37f64f5e1afa0360c916f8ef880c3d0a6479539490892ea1e319ff.jpg) no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+/* line 13, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_pic .selfie_img {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  z-index: 1;
+}
+/* line 23, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats {
+  position: relative;
+  display: inline-block;
+  min-width: 100px;
+  width: 400px;
+  height: 100%;
+  margin-left: -4px;
+  background-color: #114aaa;
+}
+/* line 31, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats {
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  margin: 10px;
+  font-family: 'Abel', sans-serif;
+  font-size: 24px;
+  color: #F1FFFA;
+}
+/* line 39, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat {
+  margin-top: 10px;
+}
+/* line 41, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_title {
+  font-family: 'Abel', sans-serif;
+  font-size: 18px;
+  color: #F1FFFA;
+}
+/* line 46, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar {
+  position: relative;
+  width: 90%;
+  height: 15px;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+/* line 53, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar .stat_level, .section_one .about_me_stats .stats .stat .stat_bar .ruby, .section_one .about_me_stats .stats .stat .stat_bar .design, .section_one .about_me_stats .stats .stat .stat_bar .javascript, .section_one .about_me_stats .stats .stat .stat_bar .testing, .section_one .about_me_stats .stats .stat .stat_bar .dev_ops {
+  position: absolute;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: inherit;
+}
+/* line 59, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar .ruby {
+  width: 65%;
+}
+/* line 60, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar .design {
+  width: 75%;
+}
+/* line 61, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar .javascript {
+  width: 60%;
+}
+/* line 62, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar .testing {
+  width: 80%;
+}
+/* line 63, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .about_me_stats .stats .stat .stat_bar .dev_ops {
+  width: 45%;
+}
+/* line 68, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .accent_title {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  display: inline-block;
+  font-family: 'Anton', sans-serif;
+  font-size: 22vw;
+  line-height: 41px;
+  z-index: 1;
+  color: rgba(239, 239, 239, 0.5);
+}
+/* line 79, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .badge {
+  position: relative;
+  bottom: 15px;
+  display: inline-block;
+  margin: 10px;
+}
+/* line 84, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .badge .subsection_name {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+  line-height: 48px;
+}
+/* line 89, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .badge .subsection_slogan {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+}
+/* line 94, /Users/seanriordan08/Desktop/code/seanvelope/app/assets/stylesheets/section_one.scss */
+.section_one .process_column {
+  background-color: rgba(255, 255, 255, 0.5);
+}

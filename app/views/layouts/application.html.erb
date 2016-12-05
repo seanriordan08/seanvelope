@@ -12,7 +12,15 @@
 	<body>
 		<div class="main">
       <div class="section_one">
-        <div class="about_me_pic"></div>
+        <div class="about_me_pic">
+          <div class="badge">
+            <div class="subsection_name">
+              Sean Riordan
+            </div>
+            <div class="subsection_slogan">Ruby developer, based in Denver, CO</div>
+            <div class="subsection_description"></div>
+          </div>
+        </div>
         <div class="about_me_stats">
           <div class="stats">
             Skill Profile
@@ -29,7 +37,7 @@
               <div class="stat_bar"><div class="javascript"></div></div>
             </div>
             <div class="stat">
-              <div class="stat_title">Automated Testing</div>
+              <div class="stat_title">Rspec Testing</div>
               <div class="stat_bar"><div class="testing"></div></div>
             </div>
             <div class="stat">
@@ -38,16 +46,10 @@
             </div>
           </div>
         </div>
-        <div class="badge">
-          <div class="subsection_name">
-            Sean Riordan
-          </div>
-          <div class="subsection_slogan">A ruby developer, based in Denver, CO</div>
-          <div class="subsection_description"></div>
-        </div>
         <div class="accent_title">
           SEANVELOPE
         </div>
+        <div class="sidebar"><%= render partial: 'shared/sidebar' %></div>
       </div>
       <div class="section_two">
         <div class=""></div>
