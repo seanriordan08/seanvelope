@@ -20,10 +20,9 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  overflow: auto;
   .about_me_pic {
     display: inline-block;
-    min-width: 100px;
     width: 25%;
     height: 100%;
     background: transparent image-url("seanvelope_selfie.jpg") no-repeat;
@@ -48,6 +47,7 @@
       background-color: rgba(0,0,0,.5);
       color: $white;
       .subsection_name {
+        width: 100%;
         font-family: 'Permanent Marker', cursive;
         font-size: 3vw;
         line-height: 48px;
@@ -58,17 +58,16 @@
       }
     }
   }
-  .about_me_stats {
+  .pro_stats {
     position: relative;
     display: inline-block;
-    min-width: 100px;
     width: 25%;
     height: 100%;
     margin-left: -4px;
     background-color: $blue;
     .stats {
       position: absolute;
-      bottom: 240px;
+      bottom: 265px;
       left: 12%;
       width: 75%;
       font-family: 'Abel', sans-serif;
@@ -103,9 +102,9 @@
         }
       }
     }
-    .description {
+    .about_me {
       position: absolute;
-      bottom: 0;
+      bottom: 15px;
       left: 12%;
       width: 75%;
       height: 200px;
