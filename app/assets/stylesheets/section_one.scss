@@ -1,4 +1,6 @@
 
+$stat_heading: 1.5vw;
+
 @mixin iframe_scale($aspect) {
   -moz-transform: scale($aspect);
   -moz-transform-origin: 0 0;
@@ -72,13 +74,14 @@
       left: 12%;
       width: 75%;
       font-family: 'Roboto', sans-serif;
-      font-size: 24px;
+      font-size: $stat_heading;
       color: $white;
+      overflow: hidden;
       .stat {
         margin-top: 15px;
         .stat_title {
           font-family: 'Roboto', sans-serif;
-          font-size: 18px;
+          font-size: 1.2vw;
           color: $white;
         }
         .stat_bar {
@@ -105,15 +108,26 @@
       left: 12%;
       width: 75%;
       height: 200px;
-      line-height: 20px;
       color: $white;
       border-radius: 5px;
       z-index: 1;
       h2 {
         margin-bottom: 20px;
         font-family: 'Roboto', sans-serif;
-        font-size: 24px;
+        font-size: $stat_heading;
         color: $white;
+      }
+      .about_me_content {
+        @media screen and (max-width: 1270px) {
+          font-size: 1.3vw;
+          line-height: 12px;
+        }
+        @media screen and (min-width: 1271px) and (max-width: 1590px) {
+          font-size: 1.2vw;
+        }
+        @media screen and (min-width: 1591px) {
+          font-size: 1.1em;
+        }
       }
     }
   }
