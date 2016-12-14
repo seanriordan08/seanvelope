@@ -95,11 +95,7 @@
             border-radius: inherit;
             box-shadow: 1px 0 1px 0 rgb(85, 85, 85);
           }
-          .ruby {@extend .stat_level; width: 75%}
-          .design {@extend .stat_level; width: 75%}
-          .javascript {@extend .stat_level; width: 60%}
-          .testing {@extend .stat_level; width: 80%}
-          .dev_ops {@extend .stat_level; width: 45%}
+          .ruby, .design, .javascript, .testing, .dev_ops {@extend .stat_level; width: 5%}
         }
       }
     }
