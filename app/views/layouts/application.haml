@@ -1,0 +1,53 @@
+!!!
+%html{:lang => "en-US"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Seanvelope
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:href => "https://fonts.googleapis.com/css?family=EB+Garamond|Permanent+Marker|Roboto:700", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    = csrf_meta_tags
+  %body
+    .main
+      .section_one
+        .about_me_pic
+          .badge
+            .subsection_name
+              Sean Riordan
+            .subsection_slogan Developer, based in Denver, CO
+            .subsection_description
+        .pro_stats
+          .stats
+            Skill Profile
+            .stat
+              .stat_title Ruby
+              .stat_bar
+                .ruby
+            .stat
+              .stat_title Html/Sass
+              .stat_bar
+                .design
+            .stat
+              .stat_title Javascript
+              .stat_bar
+                .javascript
+            .stat
+              .stat_title Rspec Testing
+              .stat_bar
+                .testing
+            .stat
+              .stat_title DevOps
+              .stat_bar
+                .dev_ops
+          .about_me
+            %h2 About Me
+            .about_me_content
+              Sean has been building web apps professionally for 3 years. When he's not sketching out a
+              new site, or volunteering, you'll find him crafting the perfect barleywine with his home
+              brewing escapades, or sparking wires while upgrading his kitchen lighting.
+        .accent_title
+          SEANVELOPE
+      = yield
+    .section_two
+      .sidebar
