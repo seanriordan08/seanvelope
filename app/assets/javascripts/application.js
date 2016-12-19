@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-notify
 //= require jquery-ui
 //= require turbolinks
 //= require Chart
-
 //= require self_stats
 //= require_tree .

@@ -1,0 +1,24 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.questions {
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  background-color: $white;
+  .question_form {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
+    z-index: 1;
+    .form_email {}
+    .form_question {}
+  }
+}
