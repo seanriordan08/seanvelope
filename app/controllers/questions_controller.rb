@@ -9,8 +9,7 @@ class QuestionsController < ApplicationController
     if @question.save
       flash.now[:success] = "success"
     else
-      flash.now[:error] = @question.errors.full_messages
-      render nothing: true
+      flash.now[:error] = @question.errors.full_messages[0]
     end
 
     respond_to do |format|
