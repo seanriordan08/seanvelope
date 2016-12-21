@@ -24,32 +24,53 @@ $stat_heading: 1.5vw;
   height: 100%;
   overflow-x: hidden;
   .about_me_pic {
+    position: relative;
     display: inline-block;
     width: 25%;
     height: 100%;
     margin: -4px;
-    background: transparent image-url("seanvelope_selfie.jpg") no-repeat;
+    background: rgba(255,255,255,.8) image-url("seanvelope_selfie.jpg") no-repeat;
     background-size: cover;
     z-index: 1;
     .selfie_img {
-      position: relative;
+      position: absolute;
       display: inline-block;
       top: 0;
+      bottom: 0;
       left: 0;
-      height: 100%;
-      width: auto;
+      right: 0;
+      background: transparent image-url("seanvelope_selfie.jpg") no-repeat;
+      background-size: cover;
       z-index: 1;
+    }
+    .selfie_overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+    .selfie_circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.1);
     }
     .badge {
       position: absolute;
       bottom: 0;
       left: 0;
+      right: 0;
       display: inline-block;
-      width: inherit;
       padding: 15px 40px;
       background-color: rgba(0,0,0,.5);
       color: $white;
       border-radius: 0;
+      z-index: 1;
       .subsection_name {
         width: 100%;
         font-family: 'Permanent Marker', cursive;

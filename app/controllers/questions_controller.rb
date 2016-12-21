@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create(question_params)
     if @question.save
-      flash.now[:success] = "success"
+      flash.now[:success] = 'Got it, thanks'
     else
       flash.now[:error] = @question.errors.full_messages[0]
     end
