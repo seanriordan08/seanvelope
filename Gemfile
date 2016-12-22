@@ -7,6 +7,7 @@ gem 'rails', '4.2.4'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise', '~> 4.2'
 gem 'chart-js-rails'
 gem 'haml-rails', '~> 0.9.0'
 
@@ -18,6 +19,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap-growl-rails'
+gem 'material_icons', '~> 2.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

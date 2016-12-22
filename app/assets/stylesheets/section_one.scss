@@ -146,7 +146,7 @@ $stat_heading: 1.5vw;
           line-height: 18px;
         }
         @media screen and (min-width: 1271px) and (max-width: 1590px) {
-          font-size: 1.2vw;
+          font-size: 1vw;
         }
         @media screen and (min-width: 1591px) {
           font-size: 1.1em;
@@ -215,4 +215,15 @@ $stat_heading: 1.5vw;
     }
   }
 
+  .login_link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    margin: 5px 10px;
+    z-index: 2;
+    button {
+      font-size: 0;
+    }
+  }
 }
