@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :articles
   resources :questions, only: [:new, :create]
 
+  get 'basin_metrics/dashboard' => 'basin_metrics/dashboard#index'
+
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
