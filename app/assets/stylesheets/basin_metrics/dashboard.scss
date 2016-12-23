@@ -44,8 +44,13 @@ $bar_width: 80px;
       position: absolute;
       display: inline-block;
       right: 20px;
+      cursor: pointer;
       .user_name {
-        height: auto;
+        display: inline-block;
+        position: relative;
+        bottom: 10px;
+        font-size: 18px;
+        margin: 0 10px;
       }
     }
   }
