@@ -15,18 +15,34 @@ $bar_width: 80px;
   background-color: $basin_black;
 
   .navbar {
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 0;
+    left: 80px;
     right: 0;
     height: $bar_width;
+    margin: 0;
+    padding-top: 21px;
+    color: $basin_white;
     background-color: $basin_ltblack;
+    .overview {
+      position: absolute;
+      display: inline-block;
+      left: 20px;
+    }
     .title {
-      padding-top: 28px;
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      right: 80px;
       text-align: center;
-      font-family: "Roboto";
+      font-family: 'Raleway', sans-serif;
       font-size: 19px;
-      color: $basin_white;
+      line-height: 37px;
+    }
+    .logout {
+      position: absolute;
+      display: inline-block;
+      right: 100px;
     }
   }
 
