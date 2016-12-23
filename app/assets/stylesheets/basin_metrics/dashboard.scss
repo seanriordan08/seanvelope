@@ -17,13 +17,14 @@ $bar_width: 80px;
   .navbar {
     position: relative;
     top: 0;
-    left: 80px;
-    right: 0;
+    left: $bar_width;
+    width: calc(100% - 80px);
     height: $bar_width;
     margin: 0;
     padding-top: 21px;
     color: $basin_white;
     background-color: $basin_ltblack;
+    border-radius: 0;
     .overview {
       position: absolute;
       display: inline-block;
@@ -33,7 +34,7 @@ $bar_width: 80px;
       position: absolute;
       display: inline-block;
       left: 0;
-      right: 80px;
+      width: 100%;
       text-align: center;
       font-family: 'Raleway', sans-serif;
       font-size: 19px;
@@ -42,7 +43,10 @@ $bar_width: 80px;
     .logout {
       position: absolute;
       display: inline-block;
-      right: 100px;
+      right: 20px;
+      .user_name {
+        height: auto;
+      }
     }
   }
 
