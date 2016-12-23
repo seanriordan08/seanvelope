@@ -2,7 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$basin_white: #CCDBDC;
+$basin_black: #243038;
+$basin_ltblack: #2D3D47;
+$basin_gray: #364A56;
+$basin_primary: #298889;
 
 .dashboard {
-  background-color: #888;
+  height: 100%;
+  background-color: $basin_black;
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: $basin_ltblack;
+    z-index: 1;
+
+    ul {
+      width: 100%;
+      li {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid $basin_white;
+      }
+      .actionable {
+        cursor: pointer;
+        &:hover {
+          background-color: $basin_gray;
+        }
+      }
+    }
+
+  }
 }
