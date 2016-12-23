@@ -8,17 +8,37 @@ $basin_ltblack: #2D3D47;
 $basin_gray: #364A56;
 $basin_primary: #298889;
 
+$bar_width: 80px;
+
 .dashboard {
   height: 100%;
   background-color: $basin_black;
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $bar_width;
+    background-color: $basin_ltblack;
+    .title {
+      padding-top: 28px;
+      text-align: center;
+      font-family: "Roboto";
+      font-size: 19px;
+      color: $basin_white;
+    }
+  }
 
   .sidebar {
     position: absolute;
     top: 0;
     left: 0;
-    width: 80px;
+    width: $bar_width;
     height: 100%;
+    border-right: 1px solid $basin_black;
     background-color: $basin_ltblack;
+    box-shadow: -1px 0 2px 0 #000;
     z-index: 1;
 
     ul {
@@ -26,9 +46,15 @@ $basin_primary: #298889;
       li {
         width: 100%;
         height: 80px;
-        border-bottom: 1px solid $basin_white;
+        padding: 23px 0;
+        text-align: center;
+      }
+      .logo_icon {
+        color: $basin_primary;
+        cursor: default;
       }
       .actionable {
+        color: $basin_white;
         cursor: pointer;
         &:hover {
           background-color: $basin_gray;
