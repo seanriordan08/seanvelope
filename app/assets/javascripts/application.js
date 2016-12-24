@@ -17,4 +17,5 @@
 //= require turbolinks
 //= require Chart
 //= require self_stats
+//= require sidebar
 //= require_tree .

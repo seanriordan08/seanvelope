@@ -1,0 +1,17 @@
+
+.tab_panel {
+  position: absolute;
+  left: 79px;
+  opacity: 0;
+  width: 100px;
+  height: auto;
+  border-left: 1px solid $basin_highlight;
+  color: $basin_white;
+  background-color: $basin_ltblack;
+  box-shadow: 1px 1px 2px 0 #1C1C1C;
+  z-index: 2;
+
+  ul {
+    list-style: none;
+  }
+}
