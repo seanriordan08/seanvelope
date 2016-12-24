@@ -50,8 +50,24 @@ $bar_width: 80px;
         display: inline-block;
         position: relative;
         bottom: 10px;
+        font-family: 'Raleway', sans-serif;
         font-size: 18px;
-        margin: 0 10px;
+        margin: 10px 10px 0;
+        color: $basin_white;
+        a {
+          color: $basin_white;
+          transition: .15s;
+          &:hover {
+            transition: .15s;
+            color: $basin_primary;
+          }
+          &:link {
+            text-decoration: none;
+            span, i {
+              vertical-align:middle;
+            }
+          }
+        }
       }
     }
   }
