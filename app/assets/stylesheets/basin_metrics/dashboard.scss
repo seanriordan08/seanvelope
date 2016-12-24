@@ -8,69 +8,13 @@ $basin_black: #243038;
 $basin_ltblack: #2D3D47;
 $basin_gray: #364A56;
 $basin_primary: #298889;
+$basin_highlight: #33A8AA;
 
 $bar_width: 80px;
 
 .dashboard {
   height: 100%;
   background-color: $basin_black;
-
-  .navbar {
-    position: relative;
-    top: 0;
-    left: $bar_width;
-    width: calc(100% - 80px);
-    height: $bar_width;
-    margin: 0;
-    padding-top: 21px;
-    color: $basin_white;
-    background-color: $basin_ltblack;
-    border-radius: 0;
-    .overview {
-      position: absolute;
-      display: inline-block;
-      left: 20px;
-    }
-    .title {
-      position: absolute;
-      display: inline-block;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      font-family: 'Raleway', sans-serif;
-      font-size: 19px;
-      line-height: 37px;
-    }
-    .logout {
-      position: absolute;
-      display: inline-block;
-      right: 20px;
-      cursor: pointer;
-      .user_name {
-        display: inline-block;
-        position: relative;
-        bottom: 10px;
-        font-family: 'Raleway', sans-serif;
-        font-size: 18px;
-        margin: 10px 10px 0;
-        color: $basin_white;
-        a {
-          color: $basin_white;
-          transition: .15s;
-          &:hover {
-            transition: .15s;
-            color: $basin_primary;
-          }
-          &:link {
-            text-decoration: none;
-            span, i {
-              vertical-align:middle;
-            }
-          }
-        }
-      }
-    }
-  }
 
   .sidebar {
     position: absolute;
@@ -90,6 +34,8 @@ $bar_width: 80px;
         height: 80px;
         padding: 23px 0;
         text-align: center;
+        border-right: 3px solid transparent;
+        transition: .18s;
       }
       .logo_icon {
         color: $basin_primary;
