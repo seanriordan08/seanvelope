@@ -21,3 +21,19 @@ first_names.each_with_index do |first_name, index|
     role: user_role
   ).find_or_create_by!(email: "#{first_name}@example.com")
 end
+
+# Add customers
+customer_names = %w(slawson oxy spotted_hawk oasis wpx whiting qep stat_oil)
+customer_names.each do |n|
+  BasinMetrics::Customer.create_with(
+    name: n
+  ).find_or_create_by!(name: "#{n}")
+end
+
+# Add districts
+customer_names = %w(williston rock_springs vernal farmington longmont casper powell riverton)
+customer_names.each do |n|
+  BasinMetrics::District.create_with(
+    name: n
+  ).find_or_create_by!(name: "#{n}")
+end
