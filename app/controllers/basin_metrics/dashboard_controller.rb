@@ -4,5 +4,6 @@ class BasinMetrics::DashboardController < ApplicationController
 
   def index
     @customers = BasinMetrics::Customer.all
+    @districts = BasinMetrics::District.all
   end
 end

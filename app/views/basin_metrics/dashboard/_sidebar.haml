@@ -18,7 +18,7 @@
             %span Customers
           - @customers.each do |c|
             %li
-              %span= c.name
+              %span= c.name.titleize
     %li.actionable
       .districts_icon
         = material_icon.place.md_36
@@ -26,6 +26,9 @@
         %ul
           %li
             %span Districts
+          - @districts.each do |c|
+            %li
+              %span= c.name.titleize
     %li.actionable
       .wells_icon
         = material_icon.my_location.md_36
