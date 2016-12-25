@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161223213408) do
   end
 
   create_table "parts", force: :cascade do |t|
+    t.string   "type",       limit: 255, null: false
     t.string   "name",       limit: 255, null: false
     t.integer  "number",     limit: 4,   null: false
     t.integer  "size",       limit: 4
