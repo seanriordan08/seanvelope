@@ -1,0 +1,17 @@
+
+.main_pane {
+  position: relative;
+  top: 0;
+  left: $bar_width;
+  width: calc(100% - 80px);
+  height: 100%;
+  color: $basin_white;
+  background-color: $basin_black;
+  border-radius: 0;
+  .option_pane {
+    text-align: right;
+    padding: 5px 10px;
+    height: calc($bar_width/2);
+    background-color: $basin_ltblack;
+  }
+}
