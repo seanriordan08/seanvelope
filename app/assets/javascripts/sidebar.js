@@ -10,8 +10,8 @@ $(document).on('page:change', function() {
       console.log('wells_icon');
       $.ajax({
         method: 'get',
-        url: '/basin_metrics/wells',
-        dataType: 'script'
+        url: "/basin_metrics/wells",
+        dataType: 'script text'
       });
     }
   });

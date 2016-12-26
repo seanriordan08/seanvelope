@@ -146,6 +146,9 @@ GEM
     ref (2.0.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    ruby-haml-js (0.0.5)
+      execjs
+      sprockets (>= 2.0.0)
     ruby_parser (3.8.2)
       sexp_processor (~> 4.1)
     sass (3.4.18)
@@ -207,6 +210,7 @@ DEPENDENCIES
   mysql2
   pry
   rails (= 4.2.4)
+  ruby-haml-js (~> 0.0.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

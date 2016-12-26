@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise', '~> 4.2'
 gem 'chart-js-rails'
 gem 'haml-rails', '~> 0.9.0'
+gem 'ruby-haml-js', '~> 0.0.5'
 
 gem 'coffee-rails', '~> 4.1.0'
 gem 'execjs'
