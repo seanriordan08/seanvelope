@@ -6,6 +6,14 @@ $(document).on('page:change', function() {
     hideTabPanels(el);
     toggleTabSelection(el);
 
+    if (el.find('.wells_icon').length > 0){
+      console.log('wells_icon');
+      $.ajax({
+        method: 'get',
+        url: '/basin_metrics/wells',
+        dataType: 'script'
+      });
+    }
   });
 });
 
