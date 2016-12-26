@@ -1,17 +1,31 @@
 
+$bar_total_height: calc(#{$bar_width} + #{$option_height});
+
 .main_pane {
   position: relative;
   top: 0;
   left: $bar_width;
   width: calc(100% - 80px);
-  height: 100%;
+  height: calc(100% - #{$bar_total_height});
   color: $basin_white;
   background-color: $basin_black;
   border-radius: 0;
   .option_pane {
     text-align: right;
-    padding: 5px 10px;
-    height: calc($bar_width/2);
+    padding: 10px;
+    height: $option_height;
     background-color: $basin_ltblack;
+  }
+
+  .focus_pane {
+    position: relative;
+    background-color: #AAA;
+    height: 50%;
+  }
+
+  .widget_pane {
+    position: relative;
+    background-color: #888;
+    height: 50%;
   }
 }
