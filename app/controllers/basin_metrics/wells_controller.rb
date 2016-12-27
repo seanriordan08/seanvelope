@@ -2,6 +2,7 @@ class BasinMetrics::WellsController < ApplicationController
 
   def index
     @wells = BasinMetrics::Well.all
+    @wells = @wells.map(&:attributes).to_json.html_safe
 
     @test = "the test"
     respond_to do |format|
