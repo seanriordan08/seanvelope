@@ -14,4 +14,9 @@ class BasinMetrics::WellsController < ApplicationController
     @well = BasinMetrics::Well.new
   end
 
+  def create
+    binding.pry
+    @well = BasinMetrics::Well.create(name: params[:name], number: params[:number])
+  end
+
 end

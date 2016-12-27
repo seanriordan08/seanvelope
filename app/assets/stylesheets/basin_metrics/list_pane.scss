@@ -1,0 +1,16 @@
+
+.list_pane {
+  padding: 10px;
+
+  .list_options {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    text-align: left;
+  }
+
+  .well_record {
+    padding-bottom: 5px;
+    border-bottom: 1px solid $basin_gray;
+  }
+}

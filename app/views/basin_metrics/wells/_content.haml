@@ -1,5 +1,8 @@
 - wells_object = JSON.parse(wells)
 
 - if wells_object.present?
-  - wells_object.each do |well|
-    = well['name']
+  .well_record
+    - wells_object.each do |well|
+      = well['name']
+- else
+  No Wells Added

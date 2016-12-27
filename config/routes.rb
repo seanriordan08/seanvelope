@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'basin_metrics/dashboard' => 'basin_metrics/dashboard#index'
   get 'basin_metrics/wells' => 'basin_metrics/wells#index'
+  get 'basin_metrics/wells' => 'basin_metrics/wells#create'
+  post 'basin_metrics/wells' => 'basin_metrics/wells#create'
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

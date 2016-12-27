@@ -1,4 +1,6 @@
 
 .list_pane
+  .list_options
+    = link_to "Add Well", { controller: 'basin_metrics/wells', action: 'new' }, remote: true
   .content
     list pane
