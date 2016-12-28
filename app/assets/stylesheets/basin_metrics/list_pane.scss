@@ -6,7 +6,8 @@ $record_height: 25px;
     position: relative;
     padding: 10px;
     background-color: $basin_black;
-    height: 50%;
+    min-height: 50%;
+    height: auto;
 
     .list_options {
       display: inline-block;
