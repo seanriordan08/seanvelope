@@ -18,6 +18,17 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
+table    { display: table; width: 100% }
+tr       { display: table-row }
+thead    { display: table-header-group }
+tbody    { display: table-row-group; width: inherit }
+tfoot    { display: table-footer-group }
+col      { display: table-column }
+colgroup { display: table-column-group }
+td, th   { display: table-cell }
+caption  { display: table-caption }
+
 //coolors.co/114aaa-37393a-a7cec6-f1fffa-1c2321
 $white: #FFF;
 $black: #1C2321;

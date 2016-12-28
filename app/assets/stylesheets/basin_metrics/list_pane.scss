@@ -19,6 +19,10 @@ $record_height: 25px;
       }
     }
 
+    .well_heading {
+      padding-right: 10px;
+    }
+
     .no_record {
       height: $record_height;
       line-height: $record_height;
@@ -27,7 +31,8 @@ $record_height: 25px;
 
     .well_record {
       @extend .no_record;
-      border-bottom: 1px solid $basin_gray;
+      padding-right: 10px;
+      border-bottom: 1px solid $basin_ltblack;
 
       &:hover {
         background-color: $basin_gray;

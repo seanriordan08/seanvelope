@@ -1,10 +1,7 @@
 module WellsHelper
 
-  def get_customers
-    customer_ids = BasinMetrics::Customer.all.map(&:id)
-    customer_names = BasinMetrics::Customer.all.map(&:name)
-
-    build_customer_options(customer_ids, customer_names)
+  def get_customer(id)
+    BasinMetrics::Customer.find(id)
   end
 
   def get_customers
@@ -12,6 +9,10 @@ module WellsHelper
     customer_names = BasinMetrics::Customer.all.map(&:name)
 
     build_options(customer_ids, customer_names)
+  end
+
+  def get_district(id)
+    BasinMetrics::District.find(id)
   end
 
   def get_districts
