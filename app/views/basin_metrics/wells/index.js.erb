@@ -1,4 +1,4 @@
 
-var indexView = "<%= j(render partial: 'content', locals: { wells: @wells }) %>";
+var indexView = "<%= j(render partial: 'index', locals: { wells: JSON.parse(@wells) }) %>";
 
-$('.list_pane .content').empty().append(indexView);
+$('.list_pane').empty().append(indexView);

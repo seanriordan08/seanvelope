@@ -16,7 +16,9 @@
 //= require jquery-ui
 //= require turbolinks
 //= require Chart
+
 //= require self_stats
+//= require list_pane
 //= require sidebar
 
 //= require_tree .

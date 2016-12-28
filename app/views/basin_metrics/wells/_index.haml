@@ -1,0 +1,12 @@
+
+.list_options
+  = link_to "Add Well", basin_metrics_wells_new_path, remote: true
+
+.list_content
+  - if wells.present?
+    .well_record
+      - wells.each do |well|
+        = well['name']
+  - else
+    .no_record
+      No Wells Added!

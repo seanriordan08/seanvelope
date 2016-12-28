@@ -1,16 +1,35 @@
 
-.list_pane {
-  padding: 10px;
+$record_height: 25px;
 
-  .list_options {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    text-align: left;
-  }
+.main_pane {
+  .list_pane {
+    position: relative;
+    padding: 10px;
+    background-color: $basin_black;
+    height: 50%;
 
-  .well_record {
-    padding-bottom: 5px;
-    border-bottom: 1px solid $basin_gray;
+    .list_options {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      text-align: left;
+    }
+
+    .no_record {
+      height: $record_height;
+      line-height: $record_height;
+      padding-bottom: 5px;
+    }
+
+    .well_record {
+      @extend .no_record;
+      border-bottom: 1px solid $basin_gray;
+
+      &:hover {
+        background-color: $basin_gray;
+        cursor: pointer;
+      }
+    }
+
   }
 }

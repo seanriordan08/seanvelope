@@ -1,0 +1,7 @@
+.list_options
+  = form_for BasinMetrics::Well.new, :method => :post, html: {class: 'form_class'} do |f|
+    = f.text_field "name"
+    = f.text_field "number"
+    = f.label :cemented, 'cemented?'
+    = f.check_box :cemented
+    = f.submit "Submit"
