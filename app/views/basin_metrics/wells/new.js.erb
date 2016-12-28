@@ -2,3 +2,23 @@
 var newView = "<%= j(render partial: 'form') %>";
 
 $('.list_pane .list_options').empty().append(newView);
+
+
+
+var confirmation_success = "<%=j(flash.now[:success])%>";
+var confirmation_error = "<%=j(flash.now[:error])%>";
+
+if (confirmation_success != '') {
+  $.notify({
+    message: "<%=j(flash.now[:success])%>"
+  },{
+    type: 'success'
+  });
+}
+if (confirmation_error != '') {
+  $.notify({
+    message: "<%=j(flash.now[:error])%>"
+  },{
+    type: 'danger'
+  });
+}

@@ -1,8 +1,8 @@
 class BasinMetrics::WellsController < ApplicationController
 
+  before_action :get_wells
+
   def index
-    @wells = BasinMetrics::Well.all
-    @wells = @wells.map(&:attributes).to_json.html_safe
 
     respond_to do |format|
       format.js { render layout: false }
@@ -16,8 +16,31 @@ class BasinMetrics::WellsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @well = BasinMetrics::Well.create(name: params[:name], number: params[:number])
+    @well = BasinMetrics::Well.new(well_params)
+
+    if @well.save
+      respond_to do |format|
+        format.js { render 'index', layout: false }
+      end
+    else
+      flash.now[:error] = @well.errors.full_messages.first
+      respond_to do |format|
+        format.js { render 'new', layout: false }
+      end
+    end
+
+
+  end
+
+  private
+
+  def well_params
+    params.require(:basin_metrics_well).permit(:name, :number, :pump_running, :cemented, :customer_id, :district_id)
+  end
+
+  def get_wells
+    @wells = BasinMetrics::Well.all
+    @wells = @wells.map(&:attributes).to_json.html_safe
   end
 
 end

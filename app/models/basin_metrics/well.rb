@@ -5,4 +5,6 @@ class BasinMetrics::Well < ActiveRecord::Base
 
   has_many :basin_metrics_parts, :class_name => 'BasinMetrics::Part'
 
+  validates :number, uniqueness: true
+
 end

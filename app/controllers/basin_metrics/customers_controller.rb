@@ -1,6 +1,6 @@
 class BasinMetrics::DashboardController < ApplicationController
 
   def index
-    @cutomers = Customer.all
+    @cutomers = BasinMetrics::Customer.all
   end
 end

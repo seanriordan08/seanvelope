@@ -2,3 +2,23 @@
 var indexView = "<%= j(render partial: 'index', locals: { wells: JSON.parse(@wells) }) %>";
 
 $('.list_pane').empty().append(indexView);
+
+
+
+var confirmation_success = "<%=j(flash.now[:success])%>";
+var confirmation_error = "<%=j(flash.now[:error])%>";
+
+if (confirmation_success != '') {
+  $.notify({
+    message: "<%=j(flash.now[:success])%>"
+  },{
+    type: 'success'
+  });
+}
+if (confirmation_error != '') {
+  $.notify({
+    message: "<%=j(flash.now[:error])%>"
+  },{
+    type: 'danger'
+  });
+}
