@@ -1,23 +1,24 @@
 
-.list_options
-  = link_to "+ Add Well", basin_metrics_wells_new_path, remote: true
+.list_pane
+  .list_options
+    = link_to "+ Add Well", basin_metrics_wells_new_path, remote: true
 
-.list_content
-  - if wells.present?
-    %table
-      - wells.first.except!('id', 'revenue').keys.each do |key|
-        %th.well_heading= key
-      - wells.each do |well|
-        %tr.well_record
-          %td.record_attribute= well['name']
-          %td.record_attribute= well['number']
-          %td.record_attribute= well['pump_running']
-          %td.record_attribute= well['cemented']
-          %td.record_attribute= get_customer(well['customer_id'].to_i).name
-          %td.record_attribute= get_district(well['district_id'].to_i).name
-          %td.record_attribute= well['comments']
-          %td.record_attribute= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
-          %td.record_attribute= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
-  - else
-    .no_record
-      No Wells Added!
+  .list_content
+    - if wells.present?
+      %table
+        - wells.first.except!('id', 'revenue').keys.each do |key|
+          %th.well_heading= key
+        - wells.each do |well|
+          %tr.well_record
+            %td.record_attribute= well['name']
+            %td.record_attribute= well['number']
+            %td.record_attribute= well['pump_running']
+            %td.record_attribute= well['cemented']
+            %td.record_attribute= get_customer(well['customer_id'].to_i).name
+            %td.record_attribute= get_district(well['district_id'].to_i).name
+            %td.record_attribute= well['comments']
+            %td.record_attribute= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
+            %td.record_attribute= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
+    - else
+      .no_record
+        No Wells Added!

@@ -5,7 +5,7 @@ $(document).on('page:change', function() {
     var el = $(this);
     hideTabSelections(el);
     hideTabPanels(el);
-    emptyListPanel();
+    emptyMainPanel();
     toggleTabSelection(el);
 
     if (el.find('.wells_icon').length > 0){
@@ -37,6 +37,6 @@ function toggleTabSelection(el){
   }
 }
 
-function emptyListPanel(){
-  $('.list_pane').trigger('list_panel_empty');
+function emptyMainPanel(){
+  $('.main_pane').trigger('main_pane:empty');
 }
