@@ -19,6 +19,7 @@ class BasinMetrics::WellsController < ApplicationController
     @well = BasinMetrics::Well.new(well_params)
 
     if @well.save
+      get_wells
       respond_to do |format|
         format.js { render 'index', layout: false }
       end
