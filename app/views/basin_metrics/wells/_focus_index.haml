@@ -1,8 +1,14 @@
 
-%canvas(id="myChart" style="height:100%")
+%canvas(id="myChart" width="1500px" height="1500px")
 
 :javascript
-  var ctx = document.getElementById("myChart");
+  var dyn_width = $('.focus_pane').width() + 'px'
+  $('canvas').attr('height', dyn_width);
+
+  var dyn_height = $('.focus_pane').height() + 'px'
+  $('canvas').attr('height', dyn_height);
+
+  var ctx = $("#myChart");
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -30,6 +36,7 @@
       }]
     },
     options: {
+      responsive: true,
       scales: {
         yAxes: [{
           ticks: {
