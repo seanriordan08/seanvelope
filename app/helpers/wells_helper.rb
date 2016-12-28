@@ -16,6 +16,14 @@ module WellsHelper
     customer_names.join("\",\"")
   end
 
+  def get_customer_well_counts
+    customers = BasinMetrics::Customer.all
+    well_count = customers.collect do |c|
+      BasinMetrics::Well.where(customer_id: c).size
+    end
+    well_count.join(',')
+  end
+
   def get_district(id)
     BasinMetrics::District.find(id)
   end

@@ -8,6 +8,10 @@
   var dyn_height = $('.focus_pane').height() + 'px'
   $('canvas').attr('height', dyn_height);
 
+  var well_counts = "#{get_customer_well_counts}".split(",").map(Number);
+  console.log(data);
+  console.log(thing);
+
   var ctx = $("#myChart");
   var myChart = new Chart(ctx, {
     type: 'bar',
@@ -15,7 +19,7 @@
       labels: ["#{get_customers_string}"],
       datasets: [{
         label: 'Well Count',
-        data: [12, 19, 3, 5, 2, 3],
+        data: well_counts,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
