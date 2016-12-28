@@ -11,9 +11,8 @@ module WellsHelper
     build_options(customer_ids, customer_names)
   end
 
-  def get_customers_string
-    customer_names = BasinMetrics::Customer.all.map(&:name)
-    customer_names.join("\",\"")
+  def get_customer_names
+    BasinMetrics::Customer.all.collect(&:name)
   end
 
   def get_customer_well_counts
@@ -21,7 +20,6 @@ module WellsHelper
     well_count = customers.collect do |c|
       BasinMetrics::Well.where(customer_id: c).size
     end
-    well_count.join(',')
   end
 
   def get_district(id)
