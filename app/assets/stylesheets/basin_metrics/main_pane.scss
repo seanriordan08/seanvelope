@@ -10,12 +10,6 @@ $bar_total_height: calc(#{$bar_width} + #{$option_height});
   color: $basin_white;
   background-color: $basin_black;
   border-radius: 0;
-  .option_pane {
-    text-align: right;
-    padding: 10px;
-    height: $option_height;
-    background-color: $basin_ltblack;
-  }
 
   .focus_pane {
     position: relative;

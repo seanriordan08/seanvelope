@@ -3,7 +3,6 @@ class BasinMetrics::WellsController < ApplicationController
   before_action :get_wells
 
   def index
-
     respond_to do |format|
       format.js { render layout: false }
     end
