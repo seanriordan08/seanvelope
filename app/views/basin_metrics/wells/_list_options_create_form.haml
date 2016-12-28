@@ -6,7 +6,7 @@
     = f.check_box :pump_running
     = f.label :cemented, 'cemented?'
     = f.check_box :cemented
-    = f.select :customer_id, options_for_select(get_customers)
-    = f.select :district_id, options_for_select(get_districts)
+    = f.select :customer_id, options_for_select(get_customers_options)
+    = f.select :district_id, options_for_select(get_districts_options)
     = f.submit "Submit"
     = link_to "cancel", '/basin_metrics/wells', remote: true

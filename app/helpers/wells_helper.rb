@@ -4,24 +4,28 @@ module WellsHelper
     BasinMetrics::Customer.find(id)
   end
 
-  def get_customers
+  def get_customers_options
     customer_ids = BasinMetrics::Customer.all.map(&:id)
     customer_names = BasinMetrics::Customer.all.map(&:name)
 
     build_options(customer_ids, customer_names)
   end
 
+  def get_customers_string
+    customer_names = BasinMetrics::Customer.all.map(&:name)
+    customer_names.join("\",\"")
+  end
+
   def get_district(id)
     BasinMetrics::District.find(id)
   end
 
-  def get_districts
+  def get_districts_options
     district_ids = BasinMetrics::District.all.map(&:id)
     district_names = BasinMetrics::District.all.map(&:name)
 
     build_options(district_ids, district_names)
   end
-
 
   private
 

@@ -12,9 +12,9 @@
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: ["#{get_customers_string}"],
       datasets: [{
-        label: '# of Votes',
+        label: 'Well Count',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

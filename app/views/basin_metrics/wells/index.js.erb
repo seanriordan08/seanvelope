@@ -1,7 +1,7 @@
 
 var focusPartial = "<%= j(render partial: 'basin_metrics/dashboard/focus_pane') %>";
 var listPartial = "<%= j(render partial: 'basin_metrics/dashboard/list_pane') %>";
-var indexFocusPartial = "<%= j(render partial: 'focus_index') %>";
+var indexFocusPartial = "<%= j(render partial: 'focus_index', locals: { wells: JSON.parse(@wells) }) %>";
 var indexListPartial = "<%= j(render partial: 'list_index', locals: { wells: JSON.parse(@wells) }) %>";
 
 // clear and build main pane
