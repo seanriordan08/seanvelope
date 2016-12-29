@@ -10,6 +10,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise', '~> 4.2'
 gem 'chart-js-rails'
 gem 'haml-rails', '~> 0.9.0'
+gem 'humanize_boolean', '~> 0.0.2'
+gem 'to_boolean', '~> 1.0', '>= 1.0.2'
 
 gem 'coffee-rails', '~> 4.1.0'
 gem 'execjs'

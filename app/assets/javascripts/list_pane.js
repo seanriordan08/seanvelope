@@ -26,7 +26,14 @@ function attributeRecordHighlights() {
 
 function attributeContentEditable() {
   var changes_made = false;
+  var all_ommitted_attributes = getOmittedAttributes();
+
   $(document).on('click', 'td.record_attribute', function() {
+    if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0) {
+      console.log('omitted!');
+      return;
+    }
+
     $(this).keydown(function(){ changes_made = true; });
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
   }).on('blur', 'td.record_attribute', function(){
@@ -45,4 +52,11 @@ function attributeContentEditable() {
       changes_made = false
     }
   });
+}
+
+function getOmittedAttributes() {
+  var omitted_well_attributes = ['pump_running','cemented','complete'];
+
+  var omitted_global_attributes = ['customer_id','district_id', 'created_at', 'updated_at'];
+  return omitted_global_attributes.concat(omitted_well_attributes);
 }
