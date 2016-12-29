@@ -72,17 +72,17 @@ ActiveRecord::Schema.define(version: 20161223213408) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wells", force: :cascade do |t|
-    t.string   "name",         limit: 255,                 null: false
-    t.string   "number",       limit: 255,                 null: false
-    t.boolean  "pump_running",             default: false, null: false
-    t.boolean  "cemented",                 default: false, null: false
+    t.string   "name",         limit: 255,                  null: false
+    t.string   "number",       limit: 255,                  null: false
+    t.boolean  "pump_running",             default: false,  null: false
+    t.boolean  "cemented",                 default: false,  null: false
     t.integer  "revenue",      limit: 4
-    t.integer  "customer_id",  limit: 4,                   null: false
-    t.integer  "district_id",  limit: 4,                   null: false
+    t.integer  "customer_id",  limit: 4,                    null: false
+    t.integer  "district_id",  limit: 4,                    null: false
     t.boolean  "complete",                 default: false
-    t.string   "comments",     limit: 255
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "comments",     limit: 255, default: "none"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "wells", ["customer_id", "district_id"], name: "index_wells_on_customer_id_and_district_id", using: :btree

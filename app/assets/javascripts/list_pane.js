@@ -30,16 +30,24 @@ function attributeContentEditable() {
   var all_ommitted_attributes = getNonEditableAttributes();
 
   $(document).on('click', 'td.record_attribute', function() {
+    var that = $(this);
     if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0)
       return;
 
-    $(this).keydown(function(){ changes_made = true; });
+    $(this).keydown(function(){
+      changes_made = true;
+    });
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
   }).on('blur', 'td.record_attribute', function(){
     $(this).off("keydown");
-    $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
+    var content = cleanNulls($(this).text());
+    if (content != null){
+      $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
+    } else {
+      content = 'none';
+    }
+
     if (changes_made) {
-      var content = $(this).text();
       sendUpdate($(this), content);
       changes_made = false
     }
@@ -69,6 +77,18 @@ function attributeContentCheckable() {
 }
 
 //Helpers
+
+function cleanNulls(text) {
+  var new_text = text;
+  new_text = $.trim(new_text).toLowerCase();
+  if ((new_text == 'none') || (new_text == '') || (new_text == 'n/a') || (new_text == 'na')){
+    new_text = null;
+    return new_text;
+  } else {
+    return text;
+  }
+
+}
 
 function sendUpdate(el, content){
   var well_id = el.closest('.well_record').data("wellid");

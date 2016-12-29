@@ -26,7 +26,7 @@
           %td.record_attribute{'data-name':'complete'}
             = check_box_tag('well_complete', 'true', well['complete'].to_boolean)
             %span= well['complete'].humanize
-          %td.record_attribute{'data-name':'comments'}= well['comments']
+          %td.record_attribute.comment{'data-name':'comments'}= (well['comments'].nil?) ? 'none' : well['comments']
           %td.record_attribute{'data-name':'created_at'}= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute{'data-name':'updated_at'}= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_well_delete_path(well['id']), method: :delete, remote: true)

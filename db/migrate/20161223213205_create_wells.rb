@@ -10,7 +10,7 @@ class CreateWells < ActiveRecord::Migration
       t.integer :district_id, null: false
       t.index [:customer_id, :district_id]
       t.boolean :complete, default: false
-      t.string :comments
+      t.string :comments, default: nil
 
       t.timestamps null: false
     end
