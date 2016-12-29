@@ -1,6 +1,7 @@
 
 .list_options
-  = link_to "+ Add Well", basin_metrics_wells_new_path, remote: true
+  .title WELLS
+  = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true)
 
 .list_content
   - if wells.present?

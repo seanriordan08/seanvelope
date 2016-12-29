@@ -4,19 +4,48 @@ $record_height: 25px;
 .main_pane {
   .list_pane {
     position: relative;
-    padding: 10px;
     background-color: $basin_black;
     min-height: 50%;
     height: auto;
+    margin: 0 0 0 2%;
+    padding: 10px 2% 0 0;
 
     .list_options {
       display: inline-block;
       width: 100%;
-      height: auto;
-      text-align: left;
+      margin-bottom: 5px;
+      height: $record_height;
+      line-height: $record_height;
 
-      .well_form input, .well_form select{
-        color: $basin_black;
+      .title {
+        position: relative;
+        float: left;
+        text-align: left;
+        margin-right: 10px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 19px;
+        vertical-align: middle;
+      }
+
+      a {
+        float: left;
+      }
+
+      .well_form {
+        float: left;
+        margin-left: 25px;
+        input, select {
+          color: $basin_white;
+          background-color: $basin_ltblack;
+          border: 1px solid $basin_gray;
+        }
+        a, input {
+          position: relative;
+          vertical-align: middle;
+          float: none;
+          height: 23px;
+          line-height: 100%;
+        }
       }
     }
 
@@ -36,7 +65,7 @@ $record_height: 25px;
       border-bottom: 1px solid $basin_ltblack;
 
       &:hover {
-        background-color: $basin_gray;
+        background-color: $basin_ltblack;
         cursor: pointer;
       }
     }
