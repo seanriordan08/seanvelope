@@ -6,8 +6,11 @@
 .list_content
   - if wells.present?
     %table
-      - wells.first.except!('id', 'revenue').keys.each do |key|
-        %th.well_heading= key
+      - wells.first.keys.each do |key|
+        - if (key == 'id') || (key == 'revenue')
+          - next
+        - else
+          %th.well_heading= key
       - wells.each do |well|
         %tr.well_record
           %td.record_attribute= well['name']
@@ -19,7 +22,7 @@
           %td.record_attribute= well['comments']
           %td.record_attribute= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
-          %td.remove_circle #{material_icon.remove_circle_outline}
+          %td.remove_circle= link_to(material_icon.remove_circle_outline, "/basin_metrics/wells/#{well['id']}", method: :delete, remote: true)
   - else
     .no_record
       No Wells Added!

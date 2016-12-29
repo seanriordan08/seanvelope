@@ -19,6 +19,7 @@ class BasinMetrics::WellsController < ApplicationController
 
     if @well.save
       get_wells
+      flash.now[:success] = 'Well created'
       respond_to do |format|
         format.js { render 'index', layout: false }
       end
@@ -28,14 +29,30 @@ class BasinMetrics::WellsController < ApplicationController
         format.js { render 'new', layout: false }
       end
     end
+  end
 
+  def destroy
+    # binding.pry
+    @well = BasinMetrics::Well.find(well_params[:id])
 
+    if @well.destroy
+      get_wells
+      flash.now[:success] = 'Well deleted'
+      respond_to do |format|
+        format.js { render 'index', layout: false }
+      end
+    else
+      flash.now[:error] = @well.errors.full_messages.first
+      respond_to do |format|
+        format.js { render 'index', layout: false }
+      end
+    end
   end
 
   private
 
   def well_params
-    params.require(:basin_metrics_well).permit(:name, :number, :pump_running, :cemented, :customer_id, :district_id)
+    params.permit(:id, :name, :number, :pump_running, :cemented, :customer_id, :district_id)
   end
 
   def get_wells
