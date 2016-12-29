@@ -3,6 +3,7 @@ $(document).on('page:change', function() {
   wellRecordHighlights();
   attributeRecordHighlights();
   attributeContentEditable();
+  attributeContentCheckable();
 
 });
 
@@ -29,10 +30,8 @@ function attributeContentEditable() {
   var all_ommitted_attributes = getOmittedAttributes();
 
   $(document).on('click', 'td.record_attribute', function() {
-    if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0) {
-      console.log('omitted!');
+    if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0)
       return;
-    }
 
     $(this).keydown(function(){ changes_made = true; });
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
@@ -40,17 +39,45 @@ function attributeContentEditable() {
     $(this).off("keydown");
     $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
     if (changes_made) {
-      var well_id = $(this).closest('.well_record').data("wellid");
-      var param_key = $(this).data("name");
       var content = $(this).text();
-      $.ajax({
-        method: 'PUT',
-        url: "/basin_metrics/wells/" + well_id,
-        data: param_key + '=' + content,
-        dataType: 'script'
-      });
+      sendUpdate($(this), content);
       changes_made = false
     }
+  });
+}
+
+function attributeContentCheckable() {
+  var changes_made = false;
+  $(document).on('click', "td.record_attribute input[type='checkbox']", function() {
+    var text_state = $(this).next('span').text();
+    if (text_state == 'Yes'){
+      text_state = 'No';
+      $(this).attr('value', 'false');
+    } else if (text_state == 'No') {
+      text_state = 'Yes';
+      $(this).attr('value', 'true');
+    }
+    $(this).next('span').text(text_state);
+    changes_made = true;
+  }).on('mouseleave', 'td.record_attribute', function() {
+    if (changes_made) {
+      var content = $(this).find('input').attr('value');
+      sendUpdate($(this), content);
+    }
+    changes_made = false;
+  });
+}
+
+//Helpers
+
+function sendUpdate(el, content){
+  var well_id = el.closest('.well_record').data("wellid");
+  var param_key = el.data("name");
+  $.ajax({
+    method: 'PUT',
+    url: "/basin_metrics/wells/" + well_id,
+    data: param_key + '=' + content,
+    dataType: 'script'
   });
 }
 
