@@ -22,7 +22,7 @@
           %td.record_attribute= well['comments']
           %td.record_attribute= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
-          %td.remove_circle= link_to(material_icon.remove_circle_outline, "/basin_metrics/wells/#{well['id']}", method: :delete, remote: true)
+          %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_well_delete_path(well['id']), method: :delete, remote: true)
   - else
     .no_record
       No Wells Added!

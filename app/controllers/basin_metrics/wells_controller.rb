@@ -32,7 +32,6 @@ class BasinMetrics::WellsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @well = BasinMetrics::Well.find(well_params[:id])
 
     if @well.destroy
@@ -52,7 +51,11 @@ class BasinMetrics::WellsController < ApplicationController
   private
 
   def well_params
-    params.permit(:id, :name, :number, :pump_running, :cemented, :customer_id, :district_id)
+    if params[:basin_metrics_well]
+      params.require(:basin_metrics_well).permit(:name, :number, :pump_running, :cemented, :customer_id, :district_id)
+    else
+      params.permit(:id, :name, :number, :pump_running, :cemented, :customer_id, :district_id)
+    end
   end
 
   def get_wells

@@ -77,8 +77,10 @@ $record_height: 25px;
           vertical-align: middle;
           line-height: 100%;
           border-bottom: none;
-          &:hover {
-            color: rgb(211,60,55);
+          text-align: center;
+          a{
+            color: $basin_dkwhite;
+            &:hover {color: $basin_red;}
           }
         }
       }
