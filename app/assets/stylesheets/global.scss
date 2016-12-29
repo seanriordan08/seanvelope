@@ -28,7 +28,7 @@ tbody    { display: table-row-group; width: inherit }
 tfoot    { display: table-footer-group }
 col      { display: table-column }
 colgroup { display: table-column-group }
-td, th   { display: table-cell }
+td, th   { display: table-cell; padding: 2px 5px; }
 caption  { display: table-caption }
 
 //coolors.co/114aaa-37393a-a7cec6-f1fffa-1c2321

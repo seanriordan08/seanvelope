@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'basin_metrics/wells' => 'basin_metrics/wells#index'
   get 'basin_metrics/wells/new' => 'basin_metrics/wells#new'
   post 'basin_metrics/wells' => 'basin_metrics/wells#create'
+  put 'basin_metrics/wells/:id' => 'basin_metrics/wells#update'
   delete 'basin_metrics/wells/:id' => 'basin_metrics/wells#destroy', as: 'basin_metrics_well_delete'
 
   # You can have the root of your site routed with "root"

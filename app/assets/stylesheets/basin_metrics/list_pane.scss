@@ -83,12 +83,13 @@ $record_height: 25px;
             &:hover {color: $basin_red;}
           }
         }
+        .record_attribute {
+          position: relative;
+          vertical-align: middle;
+          background-color: transparent;
+        }
       }
 
-      .record_attribute {
-        position: relative;
-        vertical-align: middle;
-      }
 
     }
 

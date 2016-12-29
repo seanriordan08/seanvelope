@@ -31,6 +31,23 @@ class BasinMetrics::WellsController < ApplicationController
     end
   end
 
+  def update
+    @well = BasinMetrics::Well.find(well_params[:id])
+    # binding.pry
+
+    if @well.update(well_params)
+      get_wells
+      respond_to do |format|
+        format.js { render 'index', layout: false }
+      end
+    else
+      flash.now[:error] = @well.errors.full_messages.first
+      respond_to do |format|
+        format.js { render 'index', layout: false }
+      end
+    end
+  end
+
   def destroy
     @well = BasinMetrics::Well.find(well_params[:id])
 
