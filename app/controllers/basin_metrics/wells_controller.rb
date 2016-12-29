@@ -70,7 +70,7 @@ class BasinMetrics::WellsController < ApplicationController
     if params[:basin_metrics_well]
       params.require(:basin_metrics_well).permit(:name, :number, :pump_running, :cemented, :customer_id, :district_id)
     else
-      params.permit(:id, :name, :number, :pump_running, :cemented, :customer_id, :district_id)
+      params.permit(:id, :name, :number, :pump_running, :cemented, :customer_id, :district_id, :complete)
     end
   end
 
