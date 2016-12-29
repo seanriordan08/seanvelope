@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20161223213408) do
     t.integer  "revenue",      limit: 4
     t.integer  "customer_id",  limit: 4,                   null: false
     t.integer  "district_id",  limit: 4,                   null: false
+    t.boolean  "complete",                 default: false
     t.string   "comments",     limit: 255
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false

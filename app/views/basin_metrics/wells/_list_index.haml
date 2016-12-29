@@ -19,6 +19,7 @@
           %td.record_attribute{'data-name':'cemented'}= well['cemented']
           %td.record_attribute{'data-name':'customer_id'}= get_customer(well['customer_id'].to_i).name
           %td.record_attribute{'data-name':'district_id'}= get_district(well['district_id'].to_i).name
+          %td.record_attribute{'data-name':'complete'}= well['complete']
           %td.record_attribute{'data-name':'comments'}= well['comments']
           %td.record_attribute{'data-name':'created_at'}= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute{'data-name':'updated_at'}= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")

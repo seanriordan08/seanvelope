@@ -33,7 +33,6 @@ class BasinMetrics::WellsController < ApplicationController
 
   def update
     @well = BasinMetrics::Well.find(well_params[:id])
-    # binding.pry
 
     if @well.update(well_params)
       get_wells

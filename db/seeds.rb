@@ -31,9 +31,21 @@ customer_names.each do |n|
 end
 
 # Add districts
-customer_names = %w(williston rock_springs vernal farmington longmont casper powell riverton)
-customer_names.each do |n|
+district_names = %w(williston rock_springs vernal farmington longmont casper powell riverton)
+district_names.each do |n|
   BasinMetrics::District.create_with(
     name: n
   ).find_or_create_by!(name: "#{n}")
+end
+
+# Add wells
+well_names = %w(iron_bank golden saetz_fed)
+well_numbers = %w(6-14-56 3-45-75H 432-1-1HTF)
+well_names.each_with_index do |name, index|
+  BasinMetrics::Well.create_with(
+    name: name,
+    number: well_numbers[index],
+    customer_id: rand(1..customer_names.size),
+    district_id: rand(1..district_names.size)
+  ).find_or_create_by!(name: "#{name}")
 end
