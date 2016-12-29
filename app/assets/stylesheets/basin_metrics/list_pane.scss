@@ -49,25 +49,45 @@ $record_height: 25px;
       }
     }
 
-    .well_heading {
-      padding-right: 10px;
-    }
+    .list_content {
 
-    .no_record {
-      height: $record_height;
-      line-height: $record_height;
-      padding-bottom: 5px;
-    }
-
-    .well_record {
-      @extend .no_record;
-      padding-right: 10px;
-      border-bottom: 1px solid $basin_ltblack;
-
-      &:hover {
-        background-color: $basin_ltblack;
-        cursor: pointer;
+      .well_heading {
+        padding-right: 10px;
       }
+
+      .no_record {
+        height: $record_height;
+        line-height: $record_height;
+        padding-bottom: 5px;
+      }
+
+      .well_record {
+        @extend .no_record;
+        padding-right: 10px;
+        border-bottom: 1px solid $basin_ltblack;
+
+        &:hover {
+          background-color: $basin_ltblack;
+          cursor: pointer;
+        }
+
+        .remove_circle {
+          visibility: hidden;
+          position: relative;
+          vertical-align: middle;
+          line-height: 100%;
+          border-bottom: none;
+          &:hover {
+            color: rgb(211,60,55);
+          }
+        }
+      }
+
+      .record_attribute {
+        position: relative;
+        vertical-align: middle;
+      }
+
     }
 
   }

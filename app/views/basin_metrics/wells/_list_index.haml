@@ -19,6 +19,7 @@
           %td.record_attribute= well['comments']
           %td.record_attribute= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
+          %td.remove_circle #{material_icon.remove_circle_outline}
   - else
     .no_record
       No Wells Added!

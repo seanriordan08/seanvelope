@@ -19,6 +19,7 @@
 
 //= require self_stats
 //= require main_pane
+//= require list_pane
 //= require sidebar
 
 //= require_tree .
