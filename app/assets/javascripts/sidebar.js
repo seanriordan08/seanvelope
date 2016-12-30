@@ -34,7 +34,7 @@ function toggleTabSelection(el){
     el.css({borderRight:'3px solid transparent'}).removeClass('selected');
   } else {
     el.css({borderRight:'3px solid #33A8AA'}).addClass('selected');
-    toggleTabPanel(el);
+    toggleTabMenu(el);
   }
 }
 
