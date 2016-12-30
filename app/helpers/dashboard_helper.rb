@@ -16,4 +16,12 @@ module DashboardHelper
     !BasinMetrics::Well.exists?(1)
   end
 
+  def wells_exist?
+    BasinMetrics::Well.exists?(1)
+  end
+
+  def parts_exist?
+    BasinMetrics::Part.exists?(1)
+  end
+
 end

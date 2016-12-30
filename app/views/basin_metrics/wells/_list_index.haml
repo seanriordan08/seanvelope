@@ -8,7 +8,7 @@
     Please add some Customers first
   - elsif districts_missing?
     Please add some Districts first
-  - elsif wells_missing?
+  - elsif wells_exist?
     %table.list_table
       - wells.first.keys.each do |key|
         - if (key == 'id') || (key == 'revenue')

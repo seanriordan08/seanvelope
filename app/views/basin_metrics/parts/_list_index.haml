@@ -6,7 +6,7 @@
 .list_content
   - if wells_missing?
     Please add some Wells first
-  - elsif parts.present?
+  - elsif parts_exist?
     %table.list_table
       - parts.first.keys.each do |key|
         - if key == 'id'

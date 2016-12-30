@@ -5,11 +5,18 @@ $(document).on('page:change', function() {
     var el = $(this);
     hideTabSelections(el);
     hideTabMenus(el);
-    emptyMainPane();
     toggleTabSelection(el);
 
-    activateMainPane(el);
+    var customer_selected = el.find('.customers_icon').length;
+    var district_selected = el.find('.districts_icon').length;
+
+    if ((customer_selected == 0) && (district_selected == 0)){
+      emptyMainPane();
+      activateMainPane(el);
+    }
   });
+
+  $('.maps_icon').click();
 });
 
 function hideTabSelections(el){
@@ -37,12 +44,12 @@ function emptyMainPane(){
 
 function activateMainPane(el) {
   var context = 'dashboard';
+  if (el.find('.maps_icon').length > 0)
+    context = 'maps';
   if (el.find('.wells_icon').length > 0)
     context = 'wells';
   if (el.find('.parts_icon').length > 0)
     context = 'parts';
-  if (el.find('.maps_icon').length > 0)
-    context = 'maps';
   $.ajax({
     method: 'get',
     url: "/basin_metrics/" + context,
