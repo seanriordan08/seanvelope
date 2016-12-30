@@ -1,4 +1,4 @@
-class MapsController < ApplicationController
+class BasinMetrics::MapsController < ApplicationController
 
   def index
     respond_to do |format|

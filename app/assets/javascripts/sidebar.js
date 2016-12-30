@@ -1,6 +1,7 @@
 
 $(document).on('page:change', function() {
   $('.sidebar li').on('click', function() {
+    console.log('hit');
     var el = $(this);
     hideTabSelections(el);
     hideTabMenus(el);
@@ -40,6 +41,8 @@ function activateMainPane(el) {
     context = 'wells';
   if (el.find('.parts_icon').length > 0)
     context = 'parts';
+  if (el.find('.maps_icon').length > 0)
+    context = 'maps';
   $.ajax({
     method: 'get',
     url: "/basin_metrics/" + context,

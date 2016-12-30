@@ -1,31 +1,14 @@
 
-.list_options
-  .title PARTS
-  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless get_wells.blank?
+%div{id:'map', style:'width: 100%; height: 100%;'}
 
-.list_content
-  - if get_wells.blank?
-    Please add some Wells first
-  - elsif parts.present?
-    %table.list_table
-      - parts.first.keys.each do |key|
-        - if key == 'id'
-          - next
-        - else
-          %th.part_heading= key
-      - parts.each_with_index do |part|
-        %tr.part_record{'data-partid': part['id']}
-          %td.record_attribute{'data-name':'name'}= part['name']
-          %td.record_attribute{'data-name':'type'}= part['type']
-          %td.record_attribute{'data-name':'number'}= part['number']
-          %td.record_attribute{'data-name':'size'}= part['size']
-          %td.record_attribute{'data-name':'quantity'}= part['quantity']
-          %td.record_attribute{'data-name':'revenue'}= part['revenue']
-          %td.record_attribute{'data-name':'date_sold'}= part['date_sold'].to_time.strftime("%Y %b %e,%l:%M %p")
-          %td.record_attribute{'data-name':'well_id'}= get_well(part['well_id'].to_i).number
-          %td.record_attribute{'data-name':'created_at'}= part['created_at'].to_time.strftime("%Y %b %e,%l:%M %p")
-          %td.record_attribute{'data-name':'updated_at'}= part['updated_at'].to_time.strftime("%Y %b %e,%l:%M %p")
-          %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
-  - else
-    .no_record
-      No Parts Added yet - Go ahead and add some!
+:javascript
+  mapboxgl.accessToken = 'pk.eyJ1Ijoic2VhbnJpb3JkYW4wOCIsImEiOiIzNkNFYU9RIn0.KhqSWKKY_vnHXk8ffEtgCw';
+  var start = [-105.501212,44.278496]
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v9',
+    center: start,
+    zoom: 60,
+    hash: true,
+    maxZoom: 60
+  });
