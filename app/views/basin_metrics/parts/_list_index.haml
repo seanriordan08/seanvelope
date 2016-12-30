@@ -19,9 +19,10 @@
           %td.record_attribute{'data-name':'size'}= part['size']
           %td.record_attribute{'data-name':'quantity'}= part['quantity']
           %td.record_attribute{'data-name':'revenue'}= part['revenue']
+          %td.record_attribute{'data-name':'date_sold'}= part['date_sold'].to_time.strftime("%Y %b %e,%l:%M %p")
           %td.record_attribute{'data-name':'well_id'}= get_well(part['well_id'].to_i).number
-          %td.record_attribute{'data-name':'created_at'}= part['created_at'].to_time.strftime("%b %e,%l:%M %p")
-          %td.record_attribute{'data-name':'updated_at'}= part['updated_at'].to_time.strftime("%b %e,%l:%M %p")
+          %td.record_attribute{'data-name':'created_at'}= part['created_at'].to_time.strftime("%Y %b %e,%l:%M %p")
+          %td.record_attribute{'data-name':'updated_at'}= part['updated_at'].to_time.strftime("%Y %b %e,%l:%M %p")
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
   - else
     .no_record

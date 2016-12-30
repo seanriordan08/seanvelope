@@ -34,15 +34,16 @@ ActiveRecord::Schema.define(version: 20161223213408) do
   end
 
   create_table "parts", force: :cascade do |t|
-    t.string   "name",       limit: 255,             null: false
-    t.string   "type",       limit: 255,             null: false
-    t.string   "number",     limit: 255,             null: false
+    t.string   "name",       limit: 255,                                 null: false
+    t.string   "type",       limit: 255,                                 null: false
+    t.string   "number",     limit: 255,                                 null: false
     t.string   "size",       limit: 255
     t.integer  "quantity",   limit: 4,   default: 0
     t.integer  "revenue",    limit: 4,   default: 0
+    t.datetime "date_sold",              default: '2016-12-30 08:56:56'
     t.integer  "well_id",    limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
   end
 
   create_table "questions", force: :cascade do |t|

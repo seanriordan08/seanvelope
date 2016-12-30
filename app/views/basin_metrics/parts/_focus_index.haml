@@ -10,12 +10,12 @@
 
   var ctx = $("#partsChart");
   var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-      labels: #{get_customer_names},
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       datasets: [{
-        label: 'Well Count',
-        data: #{get_customer_well_counts},
+        label: 'Plugs Sold 2016',
+        data: #{get_monthly_plug_quantities},
         backgroundColor: #{get_background_colors},
         borderColor: #{get_border_colors},
         borderWidth: 1
@@ -23,6 +23,7 @@
     },
     options: {
       responsive: true,
+      responsiveAnimationDuration: 1000,
       maintainAspectRatio: false,
       scaleFontColor: "#fff",
       scales: {

@@ -7,6 +7,7 @@ class CreateParts < ActiveRecord::Migration
       t.string :size
       t.integer :quantity, default: 0
       t.integer :revenue, default: 0
+      t.datetime  :date_sold, default: DateTime.now
       t.integer :well_id
 
       t.timestamps null: false
