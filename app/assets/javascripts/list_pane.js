@@ -93,11 +93,12 @@ function cleanNulls(text) {
 }
 
 function sendUpdate(el, content){
-  var well_id = el.closest('.well_record').data("wellid");
+  var context = getContext(el);
+  var context_id = el.closest('.'+ context +'_record').data(context + 'id');
   var param_key = el.data("name");
   $.ajax({
     method: 'PUT',
-    url: "/basin_metrics/wells/" + well_id,
+    url: '/basin_metrics/' + context + 's/' + context_id,
     data: param_key + '=' + content,
     dataType: 'script'
   });
@@ -108,4 +109,13 @@ function getNonEditableAttributes() {
 
   var omitted_global_attributes = ['customer_id','district_id', 'created_at', 'updated_at'];
   return omitted_global_attributes.concat(omitted_well_attributes);
+}
+
+function getContext(el) {
+  var el_class = el.closest('tr').attr('class');
+  if (el_class.includes('well')){
+    return 'well';
+  } else if (el_class.includes('part')){
+    return 'part';
+  }
 }
