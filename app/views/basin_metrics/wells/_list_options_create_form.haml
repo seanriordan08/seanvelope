@@ -1,7 +1,7 @@
 
 .title WELLS
 
-= form_for BasinMetrics::Well.new, :method => :post, html: {class: 'well_form'}, remote: true do |f|
+= form_for BasinMetrics::Well.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
   = f.text_field "name", placeholder: "well name"
   = f.text_field "number", placeholder: "well number"
   = f.label :pump_running, 'pump_running?'

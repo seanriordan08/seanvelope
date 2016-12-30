@@ -1,0 +1,28 @@
+
+.list_options
+  .title PARTS
+  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
+
+.list_content
+  - if parts.present?
+    %table
+      - parts.first.keys.each do |key|
+        - if key == 'id'
+          - next
+        - else
+          %th.part_heading= key
+      - parts.each_with_index do |part|
+        %tr.part_record{'data-partid': part['id']}
+          %td.record_attribute{'data-name':'name'}= part['name']
+          %td.record_attribute{'data-name':'type'}= part['type']
+          %td.record_attribute{'data-name':'number'}= part['number']
+          %td.record_attribute{'data-name':'size'}= part['size']
+          %td.record_attribute{'data-name':'quantity'}= part['quantity']
+          %td.record_attribute{'data-name':'revenue'}= part['revenue']
+          %td.record_attribute{'data-name':'well_id'}= get_well(part['well_id'].to_i).number
+          %td.record_attribute{'data-name':'created_at'}= part['created_at'].to_time.strftime("%b %e,%l:%M %p")
+          %td.record_attribute{'data-name':'updated_at'}= part['updated_at'].to_time.strftime("%b %e,%l:%M %p")
+          %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
+  - else
+    .no_record
+      No Parts Added!

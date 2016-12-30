@@ -3,17 +3,11 @@ $(document).on('page:change', function() {
   $('.sidebar li').on('click', function() {
     var el = $(this);
     hideTabSelections(el);
-    hideTabPanels(el);
-    emptyMainPanel();
+    hideTabMenus(el);
+    emptyMainPane();
     toggleTabSelection(el);
 
-    if (el.find('.wells_icon').length > 0){
-      $.ajax({
-        method: 'get',
-        url: "/basin_metrics/wells",
-        dataType: 'script text'
-      });
-    }
+    activateMainPane(el);
   });
 });
 
@@ -36,6 +30,19 @@ function toggleTabSelection(el){
   }
 }
 
-function emptyMainPanel(){
+function emptyMainPane(){
   $('.main_pane').trigger('main_pane:empty');
+}
+
+function activateMainPane(el) {
+  var context = 'dashboard';
+  if (el.find('.wells_icon').length > 0)
+    context = 'wells';
+  if (el.find('.parts_icon').length > 0)
+    context = 'parts';
+  $.ajax({
+    method: 'get',
+    url: "/basin_metrics/" + context,
+    dataType: 'script text'
+  });
 }

@@ -31,7 +31,7 @@ $record_height: 25px;
         float: left;
       }
 
-      .well_form {
+      .create_line_form {
         float: left;
         margin-left: 25px;
         input, select {
@@ -51,7 +51,7 @@ $record_height: 25px;
 
     .list_content {
 
-      .well_heading {
+      .list_heading {
         padding-right: 10px;
       }
 
@@ -61,7 +61,7 @@ $record_height: 25px;
         padding-bottom: 5px;
       }
 
-      .well_record {
+      .list_record {
         @extend .no_record;
         padding-right: 10px;
         border-bottom: 1px solid $basin_ltblack;
@@ -83,19 +83,24 @@ $record_height: 25px;
             &:hover {color: $basin_red;}
           }
         }
+
         .record_attribute {
           position: relative;
           vertical-align: middle;
           background-color: transparent;
         }
+      }
+
+      .well_record {
+        @extend .list_record;
         .comment {
           color: $basin_ltgray;
           font-style: italic;
         }
+       }
+      .part_record {
+        @extend .list_record;
       }
-
-
     }
-
   }
 }

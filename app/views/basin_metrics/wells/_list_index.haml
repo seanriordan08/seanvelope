@@ -10,7 +10,7 @@
         - if (key == 'id') || (key == 'revenue')
           - next
         - else
-          %th.well_heading= key
+          %th.list_heading= key
       - wells.each_with_index do |well|
         %tr.well_record{'data-wellid': well['id']}
           %td.record_attribute{'data-name':'name'}= well['name']

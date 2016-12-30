@@ -22,10 +22,6 @@ module WellsHelper
     end
   end
 
-  def get_district(id)
-    BasinMetrics::District.find(id)
-  end
-
   def get_districts_options
     district_ids = BasinMetrics::District.all.map(&:id)
     district_names = BasinMetrics::District.all.map(&:name)
@@ -53,8 +49,8 @@ module WellsHelper
 
   def build_options(ids, names)
     options = []
-    ids.each_with_index do |c_id, index|
-      options << [names[index], c_id]
+    ids.each_with_index do |id, index|
+      options << [names[index], id]
     end
     options
   end

@@ -1,5 +1,5 @@
 
-%canvas(id="wellsChart" width="1500px" height="1500px")
+%canvas(id="partsChart" width="1500px" height="1500px")
 
 :javascript
   var dyn_width = $('.focus_pane').width() + 'px'
@@ -8,7 +8,7 @@
   var dyn_height = $('.focus_pane').height() + 'px'
   $('canvas').attr('height', dyn_height);
 
-  var ctx = $("#wellsChart");
+  var ctx = $("#partsChart");
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

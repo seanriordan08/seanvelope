@@ -7,11 +7,18 @@ Rails.application.routes.draw do
   resources :questions, only: [:new, :create]
 
   get 'basin_metrics/dashboard' => 'basin_metrics/dashboard#index'
+
   get 'basin_metrics/wells' => 'basin_metrics/wells#index'
   get 'basin_metrics/wells/new' => 'basin_metrics/wells#new'
   post 'basin_metrics/wells' => 'basin_metrics/wells#create'
   put 'basin_metrics/wells/:id' => 'basin_metrics/wells#update'
   delete 'basin_metrics/wells/:id' => 'basin_metrics/wells#destroy', as: 'basin_metrics_well_delete'
+
+  get 'basin_metrics/parts' => 'basin_metrics/parts#index'
+  get 'basin_metrics/parts/new' => 'basin_metrics/parts#new'
+  post 'basin_metrics/parts' => 'basin_metrics/parts#create'
+  put 'basin_metrics/parts/:id' => 'basin_metrics/parts#update'
+  delete 'basin_metrics/parts/:id' => 'basin_metrics/parts#destroy', as: 'basin_metrics_part_delete'
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
