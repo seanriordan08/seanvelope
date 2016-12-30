@@ -5,23 +5,23 @@ module DashboardHelper
   end
 
   def customers_missing?
-    !BasinMetrics::Customer.exists?(1)
+    !BasinMetrics::Customer.exists?
   end
 
   def districts_missing?
-    !BasinMetrics::District.exists?(1)
+    !BasinMetrics::District.exists?
   end
 
   def wells_missing?
-    !BasinMetrics::Well.exists?(1)
+    !BasinMetrics::Well.exists?
   end
 
   def wells_exist?
-    BasinMetrics::Well.exists?(1)
+    BasinMetrics::Well.exists?
   end
 
   def parts_exist?
-    BasinMetrics::Part.exists?(1)
+    BasinMetrics::Part.exists?
   end
 
 end
