@@ -4,7 +4,9 @@
   = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
 
 .list_content
-  - if parts.present?
+  - if get_wells.blank?
+    Please add some WELLS, then add PARTS
+  - elsif parts.present?
     %table.list_table
       - parts.first.keys.each do |key|
         - if key == 'id'

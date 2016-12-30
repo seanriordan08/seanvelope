@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20161223213408) do
     t.string   "size",       limit: 255
     t.integer  "quantity",   limit: 4,   default: 0
     t.integer  "revenue",    limit: 4,   default: 0
-    t.datetime "date_sold",              default: '2016-12-30 08:56:56'
+    t.datetime "date_sold",              default: '2015-12-31 00:00:00'
     t.integer  "well_id",    limit: 4
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false

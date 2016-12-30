@@ -1,7 +1,8 @@
 module PartsHelper
 
   def get_well(id)
-    BasinMetrics::Well.find(id)
+    binding.pry
+    BasinMetrics::Well.where(id: id).first
   end
 
   def get_parts_options

@@ -4,4 +4,10 @@ module DashboardHelper
     BasinMetrics::District.find(id)
   end
 
+  def get_wells
+    BasinMetrics::Well.find_each do |well|
+      well
+    end
+  end
+
 end
