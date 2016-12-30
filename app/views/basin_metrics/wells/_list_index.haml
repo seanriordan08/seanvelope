@@ -1,10 +1,14 @@
 
 .list_options
   .title WELLS
-  = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true)
+  = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true) unless (customers_missing? || districts_missing?)
 
 .list_content
-  - if wells.present?
+  - if customers_missing?
+    Please add some Customers first
+  - elsif districts_missing?
+    Please add some Districts first
+  - elsif wells_exist?
     %table.list_table
       - wells.first.keys.each do |key|
         - if (key == 'id') || (key == 'revenue')
@@ -32,4 +36,4 @@
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_well_delete_path(well['id']), method: :delete, remote: true)
   - else
     .no_record
-      No Wells Added!
+      No Wells Added yet - Go ahead and add some!

@@ -1,0 +1,8 @@
+
+var indexMainPartial = "<%= j(render partial: 'list_index', locals: { parts: JSON.parse(@parts) }) %>";
+
+// clear and build main pane
+$('.main_pane').html(focusPartial).append(listPartial);
+
+
+triggerNotification("<%=j(flash.now[:success])%>", "<%=j(flash.now[:error])%>");

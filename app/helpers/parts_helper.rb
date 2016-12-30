@@ -1,7 +1,6 @@
 module PartsHelper
 
   def get_well(id)
-    binding.pry
     BasinMetrics::Well.where(id: id).first
   end
 

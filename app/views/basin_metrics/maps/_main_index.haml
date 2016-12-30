@@ -1,10 +1,10 @@
 
 .list_options
   .title PARTS
-  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless wells_missing?
+  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless get_wells.blank?
 
 .list_content
-  - if wells_missing?
+  - if get_wells.blank?
     Please add some Wells first
   - elsif parts.present?
     %table.list_table

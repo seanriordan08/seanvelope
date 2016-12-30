@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'basin_metrics/dashboard' => 'basin_metrics/dashboard#index'
 
+  get 'basin_metrics/maps' => 'basin_metrics/maps#index'
+
   get 'basin_metrics/wells' => 'basin_metrics/wells#index'
   get 'basin_metrics/wells/new' => 'basin_metrics/wells#new'
   post 'basin_metrics/wells' => 'basin_metrics/wells#create'
