@@ -9,20 +9,4 @@ $('.main_pane').html(focusPartial).append(listPartial);
 $('.list_pane').html(indexListPartial);
 $('.focus_pane').html(indexFocusPartial);
 
-var confirmation_success = "<%=j(flash.now[:success])%>";
-var confirmation_error = "<%=j(flash.now[:error])%>";
-
-if (confirmation_success != '') {
-  $.notify({
-    message: "<%=j(flash.now[:success])%>"
-  },{
-    type: 'success'
-  });
-}
-if (confirmation_error != '') {
-  $.notify({
-    message: "<%=j(flash.now[:error])%>"
-  },{
-    type: 'danger'
-  });
-}
+triggerNotification("<%=j(flash.now[:success])%>", "<%=j(flash.now[:error])%>");

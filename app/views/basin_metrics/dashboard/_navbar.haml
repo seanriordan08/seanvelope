@@ -5,4 +5,4 @@
   .logout
     .user_name
       - if current_user
-        = link_to("<span>Logout #{current_user.first_name.downcase.titleize}</span> #{material_icon.input.md_36}".html_safe, destroy_user_session_path, :method => :delete)
+        = link_to("<span>Logout #{current_user.first_name.downcase.titleize}</span> &nbsp #{material_icon.input.md_36}".html_safe, destroy_user_session_path, :method => :delete)
