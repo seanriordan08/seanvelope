@@ -5,7 +5,7 @@
 
 .list_content
   - if parts.present?
-    %table
+    %table.list_table
       - parts.first.keys.each do |key|
         - if key == 'id'
           - next

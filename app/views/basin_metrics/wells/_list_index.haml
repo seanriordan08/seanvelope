@@ -5,7 +5,7 @@
 
 .list_content
   - if wells.present?
-    %table
+    %table.list_table
       - wells.first.keys.each do |key|
         - if (key == 'id') || (key == 'revenue')
           - next

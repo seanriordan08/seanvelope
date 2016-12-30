@@ -97,10 +97,12 @@ $record_height: 25px;
           color: $basin_ltgray;
           font-style: italic;
         }
-       }
+      }
+
       .part_record {
         @extend .list_record;
       }
+
     }
   }
 }

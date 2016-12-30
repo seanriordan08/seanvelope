@@ -1,17 +1,17 @@
 $(document).on('page:change', function() {
 
-  wellRecordHighlights();
+  listRecordHighlights();
   attributeRecordHighlights();
   attributeContentEditable();
   attributeContentCheckable();
 
 });
 
-function wellRecordHighlights() {
-  $(document).on("mouseenter", '.well_record', function (event) {
+function listRecordHighlights() {
+  $(document).on("mouseenter", '.list_table tr', function (event) {
     var remove_circle = $(this).find('td.remove_circle');
     remove_circle.css("visibility", "visible");
-  }).on("mouseleave", '.well_record', function () {
+  }).on("mouseleave", '.list_table tr', function () {
     var remove_circle = $(this).find('td.remove_circle');
     remove_circle.css("visibility", "hidden");
   });
