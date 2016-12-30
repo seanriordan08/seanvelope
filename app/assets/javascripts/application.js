@@ -16,7 +16,6 @@
 //= require jquery-ui
 //= require turbolinks
 //= require Chart
-//= require mapbox
 
 //= require self_stats
 //= require main_pane

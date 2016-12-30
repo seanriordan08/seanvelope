@@ -8,7 +8,7 @@
     %link{:href => "https://fonts.googleapis.com/css?family=EB+Garamond|Permanent+Marker|Roboto:700|Raleway:300", :rel => "stylesheet"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{href:'https://api.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.css', rel:'stylesheet'}
-    %script{src:'https://api.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.js'}
+    %script{src:"https://api.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.js?cache_bust=#{rand(0..999)}"}
     = csrf_meta_tags
   %body
     = yield

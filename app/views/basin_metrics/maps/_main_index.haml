@@ -3,12 +3,15 @@
 
 :javascript
   mapboxgl.accessToken = 'pk.eyJ1Ijoic2VhbnJpb3JkYW4wOCIsImEiOiIzNkNFYU9RIn0.KhqSWKKY_vnHXk8ffEtgCw';
-  var start = [-105.501212,44.278496]
+  var start = [-102.802,47.874]
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: start,
-    zoom: 60,
-    hash: true,
-    maxZoom: 60
+    zoom: 8,
+    hash: true
   });
+
+  var marker = new mapboxgl.Marker()
+  .setLngLat([30.5, 50.5])
+  .addTo(map);
