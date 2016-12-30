@@ -43,6 +43,7 @@ function attributeContentEditable() {
     var content = cleanNulls($(this).text());
     if (content != null){
       $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
+      $('.comment').css({color:'#56717d'});
     } else {
       content = 'none';
     }
