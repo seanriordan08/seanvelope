@@ -1,7 +1,6 @@
 
 $(document).on('page:change', function() {
   $('.sidebar li').on('click', function() {
-    console.log('hit');
     var el = $(this);
     hideTabSelections(el);
     hideTabMenus(el);
