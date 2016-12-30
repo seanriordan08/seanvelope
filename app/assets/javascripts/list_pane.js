@@ -49,8 +49,9 @@ function attributeContentEditable() {
 
     if (changes_made) {
       sendUpdate($(this), content);
-      changes_made = false
+      changes_made = false;
     }
+
   });
 }
 

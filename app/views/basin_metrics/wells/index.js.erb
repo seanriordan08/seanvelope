@@ -9,6 +9,8 @@ $('.main_pane').html(focusPartial).append(listPartial);
 $('.list_pane').html(indexListPartial);
 $('.focus_pane').html(indexFocusPartial);
 
+condenseText();
+
 var confirmation_success = "<%=j(flash.now[:success])%>";
 var confirmation_error = "<%=j(flash.now[:error])%>";
 
@@ -25,4 +27,14 @@ if (confirmation_error != '') {
   },{
     type: 'danger'
   });
+}
+
+function condenseText() {
+//  debugger;
+  var comment = $('.comment');
+  if (comment.text().length > 30){
+    var shortened = comment.text();
+    shortened = shortened.substring(0,20);
+    comment.text(shortened + "...");
+  }
 }
