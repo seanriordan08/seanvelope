@@ -8,7 +8,7 @@ class CreateParts < ActiveRecord::Migration
       t.integer :quantity, default: 1
       t.integer :revenue, default: 0
       t.datetime  :date_sold, default: '2016-12-30 00:00:00'
-      t.integer :well_id
+      t.references :well, index: true, foreign_key: true
 
       t.timestamps null: false
     end

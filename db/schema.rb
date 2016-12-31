@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20161223213408) do
     t.datetime "updated_at",                                             null: false
   end
 
+  add_index "parts", ["well_id"], name: "index_parts_on_well_id", using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.string   "email",      limit: 255
     t.string   "question",   limit: 255
@@ -79,15 +81,20 @@ ActiveRecord::Schema.define(version: 20161223213408) do
     t.string   "number",       limit: 255,                 null: false
     t.boolean  "pump_running",             default: false, null: false
     t.boolean  "cemented",                 default: false, null: false
-    t.integer  "revenue",      limit: 4
-    t.integer  "customer_id",  limit: 4,                   null: false
-    t.integer  "district_id",  limit: 4,                   null: false
+    t.integer  "revenue",      limit: 4,   default: 0
     t.boolean  "complete",                 default: false
     t.string   "comments",     limit: 255
+    t.integer  "customer_id",  limit: 4
+    t.integer  "district_id",  limit: 4
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
 
   add_index "wells", ["customer_id", "district_id"], name: "index_wells_on_customer_id_and_district_id", using: :btree
+  add_index "wells", ["customer_id"], name: "index_wells_on_customer_id", using: :btree
+  add_index "wells", ["district_id"], name: "index_wells_on_district_id", using: :btree
 
+  add_foreign_key "parts", "wells"
+  add_foreign_key "wells", "customers"
+  add_foreign_key "wells", "districts"
 end
