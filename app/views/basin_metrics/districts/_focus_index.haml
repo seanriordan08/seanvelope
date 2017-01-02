@@ -1,2 +1,47 @@
 
-[empty for now]
+%canvas(id="districtsChart" width="1500px" height="1500px")
+
+:javascript
+  var dyn_width = $('.focus_pane').width() + 'px'
+  $('canvas').attr('height', dyn_width);
+
+  var dyn_height = $('.focus_pane').height() + 'px'
+  $('canvas').attr('height', dyn_height);
+
+  var ctx = $("#districtsChart");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: #{get_district_names},
+      datasets: [{
+        label: 'Customer Count by District',
+        data: #{get_customer_well_counts},
+        backgroundColor: #{get_background_colors},
+        borderColor: #{get_border_colors},
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      responsiveAnimationDuration: 1000,
+      maintainAspectRatio: false,
+      scaleFontColor: "#fff",
+      scales: {
+        xAxes: [{
+          gridLines: {
+            display: true,
+          },
+          ticks: {
+            beginAtZero:true,
+            fontColor: "#9faeaf"
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            beginAtZero:true,
+            fontColor: "#9faeaf"
+          }
+        }]
+      }
+    }
+  });

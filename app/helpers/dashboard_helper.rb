@@ -1,5 +1,9 @@
 module DashboardHelper
 
+  def get_district_names
+    BasinMetrics::District.all.collect(&:name)
+  end
+
   def get_district(id)
     BasinMetrics::District.find(id)
   end
@@ -10,6 +14,10 @@ module DashboardHelper
 
   def get_customer(id)
     BasinMetrics::Customer.find(id)
+  end
+
+  def get_customer_names
+    BasinMetrics::Customer.all.collect(&:name)
   end
 
   def customers_missing?

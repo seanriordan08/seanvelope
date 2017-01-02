@@ -7,10 +7,6 @@ module WellsHelper
     build_options(customer_ids, customer_names)
   end
 
-  def get_customer_names
-    BasinMetrics::Customer.all.collect(&:name)
-  end
-
   def get_customer_well_counts
     customers = BasinMetrics::Customer.all
     well_count = customers.collect do |c|

@@ -1,6 +1,6 @@
 class BasinMetrics::Customer < ActiveRecord::Base
 
-  has_many :wells, :class_name => 'BasinMetrics::Well'
+  has_many :wells, :class_name => 'BasinMetrics::Well', dependent: :destroy
   has_many :districts, :class_name => 'BasinMetrics::District', through: :wells
 
   validates :name, presence: true
