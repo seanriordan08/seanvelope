@@ -1,14 +1,7 @@
 
-.title WELLS
+.title CUSTOMERS
 
-= form_for BasinMetrics::Well.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
-  = f.text_field "name", placeholder: "well name"
-  = f.text_field "number", placeholder: "well number"
-  = f.label :pump_running, 'pump_running?'
-  = f.check_box :pump_running
-  = f.label :cemented, 'cemented?'
-  = f.check_box :cemented
-  = f.select :customer_id, options_for_select(get_customers_options)
-  = f.select :district_id, options_for_select(get_districts_options)
+= form_for BasinMetrics::Customer.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
+  = f.text_field "name", placeholder: "customer name"
   = f.submit "Submit"
-  = link_to "cancel", '/basin_metrics/wells', remote: true
+  = link_to "cancel", '/basin_metrics/customers', remote: true

@@ -1,0 +1,7 @@
+
+.title DISTRICTS
+
+= form_for BasinMetrics::District.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
+  = f.text_field "name", placeholder: "district name"
+  = f.submit "Submit"
+  = link_to "cancel", '/basin_metrics/districts', remote: true

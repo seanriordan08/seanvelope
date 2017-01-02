@@ -16,6 +16,10 @@ module DashboardHelper
     !BasinMetrics::Customer.exists?
   end
 
+  def districts_exist?
+    BasinMetrics::District.exists?
+  end
+
   def districts_missing?
     !BasinMetrics::District.exists?
   end

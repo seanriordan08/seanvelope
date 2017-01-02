@@ -6,13 +6,11 @@ $(document).on('page:change', function() {
     hideTabMenus(el);
     //toggleTabSelection(el);
 
+    // Omit tabs
     //var customer_selected = el.find('.customers_icon').length;
-    var district_selected = el.find('.districts_icon').length;
 
-    if ((district_selected == 0)){
-      emptyMainPane();
-      activateMainPane(el);
-    }
+    emptyMainPane();
+    activateMainPane(el);
   });
 
   $('.maps_icon').click();
@@ -47,6 +45,8 @@ function activateMainPane(el) {
     context = 'maps';
   if (el.find('.customers_icon').length > 0)
     context = 'customers';
+  if (el.find('.districts_icon').length > 0)
+    context = 'districts';
   if (el.find('.wells_icon').length > 0)
     context = 'wells';
   if (el.find('.parts_icon').length > 0)

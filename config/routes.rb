@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   put 'basin_metrics/customers/:id' => 'basin_metrics/customers#update'
   delete 'basin_metrics/customers/:id' => 'basin_metrics/customers#destroy', as: 'basin_metrics_customer_delete'
 
+  get 'basin_metrics/districts' => 'basin_metrics/districts#index'
+  get 'basin_metrics/districts/new' => 'basin_metrics/districts#new'
+  post 'basin_metrics/districts' => 'basin_metrics/districts#create'
+  put 'basin_metrics/districts/:id' => 'basin_metrics/districts#update'
+  delete 'basin_metrics/districts/:id' => 'basin_metrics/districts#destroy', as: 'basin_metrics_district_delete'
+
   get 'basin_metrics/wells' => 'basin_metrics/wells#index'
   get 'basin_metrics/wells/new' => 'basin_metrics/wells#new'
   post 'basin_metrics/wells' => 'basin_metrics/wells#create'
