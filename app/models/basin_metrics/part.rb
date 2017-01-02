@@ -1,7 +1,7 @@
 class BasinMetrics::Part < ActiveRecord::Base
   self.inheritance_column = nil #Disable STI for 'type' column
 
-  belongs_to :basin_metrics_well, :class_name => 'BasinMetrics::Well'
+  belongs_to :well, :class_name => 'BasinMetrics::Well'
 
   validates :name, presence: true
   validates :type, presence: true

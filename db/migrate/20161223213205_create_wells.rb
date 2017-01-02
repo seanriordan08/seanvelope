@@ -9,7 +9,7 @@ class CreateWells < ActiveRecord::Migration
       t.index [:customer_id, :district_id]
       t.boolean :complete, default: false
       t.string :comments
-      t.references :customer, index: true, foreign_key: true
+      t.references :customers, index: true, foreign_key: true
       t.references :district, index: true, foreign_key: true
 
       t.timestamps null: false

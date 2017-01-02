@@ -4,12 +4,12 @@ $(document).on('page:change', function() {
     var el = $(this);
     hideTabSelections(el);
     hideTabMenus(el);
-    toggleTabSelection(el);
+    //toggleTabSelection(el);
 
-    var customer_selected = el.find('.customers_icon').length;
+    //var customer_selected = el.find('.customers_icon').length;
     var district_selected = el.find('.districts_icon').length;
 
-    if ((customer_selected == 0) && (district_selected == 0)){
+    if ((district_selected == 0)){
       emptyMainPane();
       activateMainPane(el);
     }
@@ -45,6 +45,8 @@ function activateMainPane(el) {
   var context = 'dashboard';
   if (el.find('.maps_icon').length > 0)
     context = 'maps';
+  if (el.find('.customers_icon').length > 0)
+    context = 'customers';
   if (el.find('.wells_icon').length > 0)
     context = 'wells';
   if (el.find('.parts_icon').length > 0)

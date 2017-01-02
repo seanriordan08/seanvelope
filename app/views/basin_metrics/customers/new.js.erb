@@ -1,0 +1,6 @@
+
+var newView = "<%= j(render partial: 'list_options_create_form') %>";
+
+$('.list_pane .list_options').empty().append(newView);
+
+triggerNotification("<%=j(flash.now[:success])%>", "<%=j(flash.now[:error])%>");

@@ -1,0 +1,22 @@
+
+.list_options
+  .title CUSTOMERS
+  = link_to(material_icon.add_circle_outline, basin_metrics_customers_new_path, remote: true)
+
+.list_content
+  - if customers_exist?
+    %table.list_table
+      - customers.first.keys.each do |key|
+        - if (key == 'id') || (key == 'revenue')
+          - next
+        - else
+          %th.list_heading= key
+      - customers.each_with_index do |customer|
+        %tr.customer_record{'data-customerid': customer['id']}
+          %td.record_attribute{'data-name':'name'}= customer['name']
+          %td.record_attribute{'data-name':'created_at'}= customer['created_at'].to_time.strftime("%b %e,%l:%M %p")
+          %td.record_attribute{'data-name':'updated_at'}= customer['updated_at'].to_time.strftime("%b %e,%l:%M %p")
+          %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_customer_delete_path(customer['id']), method: :delete, remote: true)
+  - else
+    .no_record
+      No Customers Added yet - Go ahead and add some!

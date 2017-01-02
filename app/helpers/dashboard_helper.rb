@@ -4,6 +4,14 @@ module DashboardHelper
     BasinMetrics::District.find(id)
   end
 
+  def customers_exist?
+    BasinMetrics::Customer.exists?
+  end
+
+  def get_customer(id)
+    BasinMetrics::Customer.find(id)
+  end
+
   def customers_missing?
     !BasinMetrics::Customer.exists?
   end

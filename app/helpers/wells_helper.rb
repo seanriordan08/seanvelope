@@ -1,9 +1,5 @@
 module WellsHelper
 
-  def get_customer(id)
-    BasinMetrics::Customer.find(id)
-  end
-
   def get_customers_options
     customer_ids = BasinMetrics::Customer.all.map(&:id)
     customer_names = BasinMetrics::Customer.all.map(&:name)

@@ -91,6 +91,10 @@ $record_height: 25px;
         }
       }
 
+      .customer_record {
+        @extend .list_record;
+      }
+
       .well_record {
         @extend .list_record;
         .comment {

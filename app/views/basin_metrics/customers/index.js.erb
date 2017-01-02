@@ -1,0 +1,12 @@
+
+var focusPartial = "<%= j(render partial: 'basin_metrics/dashboard/focus_pane') %>";
+var listPartial = "<%= j(render partial: 'basin_metrics/dashboard/list_pane') %>";
+var indexFocusPartial = "<%= j(render partial: 'focus_index', locals: { customers: JSON.parse(@customers) }) %>";
+var indexListPartial = "<%= j(render partial: 'list_index', locals: { customers: JSON.parse(@customers) }) %>";
+
+// clear and build main pane
+$('.main_pane').html(focusPartial).append(listPartial);
+$('.list_pane').html(indexListPartial);
+$('.focus_pane').html(indexFocusPartial);
+
+triggerNotification("<%=j(flash.now[:success])%>", "<%=j(flash.now[:error])%>");
