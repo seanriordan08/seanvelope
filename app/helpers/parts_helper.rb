@@ -1,5 +1,24 @@
 module PartsHelper
 
+  def get_part_headings
+    base_headings = BasinMetrics::Part.first
+    base_headings = base_headings.attribute_names
+    omittions = %w(id created_at updated_at)
+
+    base_headings.insert(1, 'customer')
+    omittions.each do |omit_value|
+      base_headings.delete_at(base_headings.index(omit_value))
+    end
+
+    base_headings
+  end
+
+  def get_part_customer_name(part_id)
+    well_id = BasinMetrics::Part.where(id: part_id).first.well_id
+    customer_id = BasinMetrics::Well.where(id: well_id).first.customer_id
+    BasinMetrics::Customer.find(customer_id).name.titleize
+  end
+
   def get_well(id)
     BasinMetrics::Well.where(id: id).first
   end
