@@ -50,18 +50,18 @@ well_names.each_with_index do |name, index|
   ).find_or_create_by!(name: "#{name}")
 end
 
-# Add plugs
-plug_numbers = %w(1234 5678 9876 6543 8076 2837 8374 9374 6996 3636 9797 4545)
-plug_types = %w(8k_trufrak 10k_trufrac 12k_fracshield)
-plug_revenue = %w(500 1000 1500)
-plug_numbers.each_with_index do |number|
+# Add parts
+part_numbers = %w(1234 5678 9876 6543 8076 2837 8374 9374 6996 3636 9797 4545)
+part_types = %w(8k_trufrak 10k_trufrac 12k_fracshield)
+part_revenue = %w(500 1000 1500)
+part_numbers.each_with_index do |number|
   BasinMetrics::Part.create_with(
     name: 'plug',
-    type: plug_types[rand(0..2)],
-    number: plug_numbers[rand(0..2)],
+    type: part_types[rand(0..2)],
+    number: part_numbers[rand(0..2)],
     size: '4.5',
     quantity: rand(2..70),
-    revenue: plug_revenue[rand(0..2)],
+    revenue: part_revenue[rand(0..2)],
     date_sold: (DateTime.now - (rand(1..340).days)),
     well_id: rand(1..3)
   ).find_or_create_by!(number: "#{number}")

@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 20161223213408) do
     t.datetime "updated_at",                               null: false
   end
 
-  add_index "wells", ["customer_id", "district_id"], name: "index_wells_on_customer_id_and_district_id", using: :btree
   add_index "wells", ["customer_id"], name: "index_wells_on_customer_id", using: :btree
   add_index "wells", ["district_id"], name: "index_wells_on_district_id", using: :btree
 

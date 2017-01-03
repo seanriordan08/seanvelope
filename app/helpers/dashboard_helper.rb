@@ -1,7 +1,11 @@
 module DashboardHelper
 
+  def get_context
+    request.env['REQUEST_PATH'].split('/').last.singularize.titleize
+  end
+
   def get_district_names
-    BasinMetrics::District.all.collect(&:name)
+    BasinMetrics::District.all.order(:name).collect(&:name)
   end
 
   def get_district(id)

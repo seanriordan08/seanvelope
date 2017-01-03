@@ -8,10 +8,13 @@ module WellsHelper
   end
 
   def get_customer_well_counts
+    well_x_label = 'Customer'
+    well_y_label = 'Count'
     customers = BasinMetrics::Customer.all
-    well_count = customers.collect do |c|
+    well_count_array = customers.collect do |c|
       BasinMetrics::Well.where(customer_id: c).size
     end
+    {array: well_count_array, x_label: well_x_label, y_label: well_y_label}
   end
 
   def get_districts_options

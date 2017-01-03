@@ -4,7 +4,7 @@ $(document).on('page:change', function() {
     var el = $(this);
     hideTabSelections(el);
     hideTabMenus(el);
-    //toggleTabSelection(el);
+    toggleTabSelection(el);
 
     // Omit tabs
     //var customer_selected = el.find('.customers_icon').length;
@@ -31,7 +31,7 @@ function toggleTabSelection(el){
     el.css({borderRight:'3px solid transparent'}).removeClass('selected');
   } else {
     el.css({borderRight:'3px solid #33A8AA'}).addClass('selected');
-    toggleTabMenu(el);
+    //toggleTabMenu(el);
   }
 }
 
