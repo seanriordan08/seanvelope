@@ -1,7 +1,7 @@
 module DashboardHelper
 
   def get_context
-    request.env['REQUEST_PATH'].split('/').last.singularize.titleize
+    request.env['PATH_INFO'].split('/').last.singularize.titleize
   end
 
   def get_district_names

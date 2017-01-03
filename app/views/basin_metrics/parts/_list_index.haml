@@ -12,15 +12,24 @@
         %th.part_heading= heading
       - parts.each_with_index do |part|
         %tr.part_record{'data-partid': part['id']}
-          %td.record_attribute= get_part_customer_name(part['id'])
-          %td.record_attribute{'data-name':'name'}= part['name']
-          %td.record_attribute{'data-name':'type'}= part['type']
-          %td.record_attribute{'data-name':'number'}= part['number']
-          %td.record_attribute{'data-name':'size'}= part['size']
-          %td.record_attribute{'data-name':'quantity'}= part['quantity']
-          %td.record_attribute{'data-name':'revenue'}= part['revenue']
-          %td.record_attribute{'data-name':'date_sold'}= part['date_sold'].to_time.strftime("%Y %b %e,%l:%M %p")
-          %td.record_attribute{'data-name':'well_id'}= get_well(part['well_id'].to_i).number
+          %td.record_attribute
+            %div= get_part_customer_name(part['id'])
+          %td.record_attribute{'data-name':'name'}
+            %div= part['name']
+          %td.record_attribute{'data-name':'type'}
+            %div= part['type']
+          %td.record_attribute{'data-name':'number'}
+            %div= part['number']
+          %td.record_attribute{'data-name':'size'}
+            %div= part['size']
+          %td.record_attribute{'data-name':'quantity'}
+            %div= part['quantity']
+          %td.record_attribute{'data-name':'revenue'}
+            %div= part['revenue']
+          %td.record_attribute{'data-name':'date_sold'}
+            %div= part['date_sold'].to_time.strftime("%Y %b %e,%l:%M %p")
+          %td.record_attribute{'data-name':'well_id'}
+            %div= get_well(part['well_id'].to_i).number
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
   - else
     .no_record

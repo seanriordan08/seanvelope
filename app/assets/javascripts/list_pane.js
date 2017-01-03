@@ -29,8 +29,8 @@ function attributeContentEditable() {
   var changes_made = false;
   var all_ommitted_attributes = getNonEditableAttributes();
 
-  $(document).on('click', 'td.record_attribute', function() {
-    var that = $(this);
+  $(document).on('click', 'td.record_attribute div', function() {
+    console.log('hit');
     if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0)
       return;
 
@@ -38,7 +38,7 @@ function attributeContentEditable() {
       changes_made = true;
     });
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
-  }).on('blur', 'td.record_attribute', function(){
+  }).on('blur', 'td.record_attribute div', function(){
     $(this).off("keydown");
     var content = cleanNulls($(this).text());
     if (content != null){
@@ -71,8 +71,8 @@ function attributeContentCheckable() {
     changes_made = true;
   }).on('mouseleave', 'td.record_attribute', function() {
     if (changes_made) {
-      var content = $(this).find('input').attr('value');
-      sendUpdate($(this), content);
+      var new_content = $(this).find('input').attr('value');
+      sendUpdate($(this), new_content);
     }
     changes_made = false;
   });
@@ -92,14 +92,16 @@ function cleanNulls(text) {
 
 }
 
-function sendUpdate(el, content){
+function sendUpdate(el, new_content){
   var context = getContext(el);
-  var context_id = el.closest('.'+ context +'_record').data(context + 'id');
-  var param_key = el.data("name");
+  var record = el.closest('.'+ context +'_record');
+  var record_attr = el.closest('.record_attribute');
+  var context_id = record.data(context + 'id');
+  var param_key = record_attr.data("name");
   $.ajax({
     method: 'PUT',
     url: '/basin_metrics/' + context + 's/' + context_id,
-    data: param_key + '=' + content,
+    data: param_key + '=' + new_content,
     dataType: 'script'
   });
 }
