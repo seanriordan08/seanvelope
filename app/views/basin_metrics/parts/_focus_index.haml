@@ -14,8 +14,8 @@
     data: {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       datasets: [{
-        label: 'Plugs Sold 2016',
-        data: #{get_monthly_plug_quantities},
+        label: "#{get_context} #{get_monthly_plug_quantities[:y_label]} by #{get_monthly_plug_quantities[:x_label]}",
+        data: #{get_monthly_plug_quantities[:array]},
         backgroundColor: #{get_background_colors},
         borderColor: #{get_border_colors},
         borderWidth: 1
@@ -28,6 +28,10 @@
       scaleFontColor: "#fff",
       scales: {
         xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "#{get_monthly_plug_quantities[:x_label]}"
+          },
           gridLines: {
             display: true,
           },
@@ -37,6 +41,10 @@
           }
         }],
         yAxes: [{
+            scaleLabel: {
+            display: true,
+            labelString: "#{get_monthly_plug_quantities[:y_label]}"
+          },
           ticks: {
             beginAtZero:true,
             fontColor: "#9faeaf"

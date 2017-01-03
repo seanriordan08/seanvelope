@@ -11,6 +11,8 @@ module PartsHelper
   end
 
   def get_monthly_plug_quantities
+    well_x_label = 'Month'
+    well_y_label = 'Count'
     quantity_by_month = []
     (1..12).each do |m|
       first_day = Date.civil(2016, m, 1).to_datetime.utc
@@ -19,7 +21,7 @@ module PartsHelper
       quantity = plugs.collect(&:quantity)
       quantity_by_month << quantity.sum
     end
-    quantity_by_month
+    {array: quantity_by_month, x_label: well_x_label, y_label: well_y_label}
   end
 
   private

@@ -21,7 +21,7 @@ module DashboardHelper
   end
 
   def get_customer_names
-    BasinMetrics::Customer.all.collect(&:name)
+    BasinMetrics::Customer.all.order(:name).collect(&:name)
   end
 
   def customers_missing?

@@ -1,8 +1,8 @@
 module WellsHelper
 
   def get_customers_options
-    customer_ids = BasinMetrics::Customer.all.map(&:id)
-    customer_names = BasinMetrics::Customer.all.map(&:name)
+    customer_ids = BasinMetrics::Customer.all.order(:name).map(&:id)
+    customer_names = BasinMetrics::Customer.all.order(:name).map(&:name)
 
     build_options(customer_ids, customer_names)
   end
@@ -10,7 +10,7 @@ module WellsHelper
   def get_customer_well_counts
     well_x_label = 'Customer'
     well_y_label = 'Count'
-    customers = BasinMetrics::Customer.all
+    customers = BasinMetrics::Customer.all.order(:name)
     well_count_array = customers.collect do |c|
       BasinMetrics::Well.where(customer_id: c).size
     end
@@ -18,14 +18,14 @@ module WellsHelper
   end
 
   def get_districts_options
-    district_ids = BasinMetrics::District.all.map(&:id)
-    district_names = BasinMetrics::District.all.map(&:name)
+    district_ids = BasinMetrics::District.all.order(:name).map(&:id)
+    district_names = BasinMetrics::District.all.order(:name).map(&:name)
 
     build_options(district_ids, district_names)
   end
 
   def get_background_colors
-    customer_count = BasinMetrics::Customer.all.collect(&:name).size
+    customer_count = BasinMetrics::Customer.all.order(:name).collect(&:name).size
     background_colors = []
     customer_count.times {background_colors << 'rgba(75, 192, 192, 0.2)'}
     background_colors
@@ -33,7 +33,7 @@ module WellsHelper
   end
 
   def get_border_colors
-    customer_count = BasinMetrics::Customer.all.collect(&:name).size
+    customer_count = BasinMetrics::Customer.all.order(:name).collect(&:name).size
     border_colors = []
     customer_count.times {border_colors << 'rgba(75, 192, 192, 1)'}
     border_colors
