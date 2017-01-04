@@ -11,7 +11,7 @@
   - elsif wells_exist?
     %table.list_table
       - get_well_headings.each do |heading|
-        %th.well_heading= heading
+        %th.well_heading= heading.include?('_id') ? heading.chomp('_id') : heading
       - wells.each_with_index do |well|
         %tr.well_record{'data-wellid': well['id']}
           %td.record_attribute{'data-name':'name'}
