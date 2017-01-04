@@ -15,8 +15,9 @@
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       datasets: [{
         label: "#{get_context} #{get_monthly_plug_quantities[:y_label]} by #{get_monthly_plug_quantities[:x_label]}",
+        fill: true,
         data: #{get_monthly_plug_quantities[:array]},
-        backgroundColor: #{get_background_colors},
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
         borderColor: #{get_border_colors},
         borderWidth: 1
       }]
