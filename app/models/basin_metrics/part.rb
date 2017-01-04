@@ -6,9 +6,7 @@ class BasinMetrics::Part < ActiveRecord::Base
   validates :name, presence: true
   validates :type, presence: true
   validates :number, presence: true
-  validates :order, presence: true
-  validates :quantity, presence: true
-  validates :revenue, presence: true
+  validates :order, presence: true, uniqueness: true
 
   validates :well_id, presence: { message: "number can't be blank" }
 

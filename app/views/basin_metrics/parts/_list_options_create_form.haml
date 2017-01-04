@@ -2,7 +2,7 @@
 .title PARTS
 
 = form_for BasinMetrics::Part.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
-  = f.select(:name, [['part name', ''],['plug', 'plug']])
+  = f.select(:name, [['part name', ''],['plug', 'plug'], ['pin_on_adapter', 'pin_on_adapter'], ['setting_sleeve', 'setting_sleeve']])
   = f.select(:type, [['part type', ''],['8k Trufrac', '8k_trufrak'], ['10k Trufrac', '10k_trufrac'], ['12k Fracshield', '12k_fracshield']])
   = f.text_field "number", placeholder: "part number"
   = f.select(:size, [['part size', ''],['none', 'NULL'], ['4.5 in', '4.5']])

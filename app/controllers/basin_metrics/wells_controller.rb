@@ -38,7 +38,7 @@ class BasinMetrics::WellsController < ApplicationController
     well_params[:name] = clean_name_param(well_params[:name])
     @well = BasinMetrics::Well.find(well_params[:id])
 
-    if valid_datetimes? && @well.update(well_params)
+    if @well.update(well_params)
       get_wells
       respond_to do |format|
         format.js { render 'index', layout: false }
@@ -83,16 +83,5 @@ class BasinMetrics::WellsController < ApplicationController
     @wells = @wells.map(&:attributes).to_json.html_safe
   end
 
-  def valid_datetimes?
-    datetimes = well_params.keys & DATETIME_FIELDS
-    datetimes.each do |field|
-      begin
-        datetimes << DateTime.parse(field).is_a?(DateTime)
-      rescue
-        datetimes << false
-      end
-    end
-    datetimes.all?
-  end
 
 end

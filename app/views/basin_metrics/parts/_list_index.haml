@@ -22,8 +22,8 @@
             %div= part['type']
           %td.record_attribute{'data-name':'number'}
             %div= part['number']
-          %td.record_attribute{'data-name':'size'}
-            %div= part['size']
+          %td.record_attribute.nullable{'data-name':'size'}
+            %div= part['size'].blank? ? 'none' : part['size']
           %td.record_attribute{'data-name':'quantity'}
             %div= part['quantity']
           %td.record_attribute{'data-name':'order'}
@@ -38,3 +38,6 @@
   - else
     .no_record
       No Parts Added yet - Go ahead and add some!
+
+:javascript
+  setNullableFieldColors();
