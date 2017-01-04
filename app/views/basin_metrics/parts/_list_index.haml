@@ -9,6 +9,8 @@
   - elsif parts_exist?
     %table.list_table
       - get_part_headings.each do |heading|
+        - heading = heading.include?('_id') ? heading.chomp('_id') : heading
+        - heading = (heading == 'well') ? 'well_number' : heading
         %th.part_heading= heading
       - parts.each_with_index do |part|
         %tr.part_record{'data-partid': part['id']}
