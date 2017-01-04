@@ -68,9 +68,9 @@ class BasinMetrics::PartsController < ApplicationController
 
   def part_params
     if params[:basin_metrics_part]
-      params.require(:basin_metrics_part).permit(:name, :type, :number, :size, :quantity, :revenue, :date_sold, :well_id)
+      params.require(:basin_metrics_part).permit(:name, :type, :number, :size, :order, :quantity, :revenue, :date_sold, :well_id)
     else
-      params.permit(:id, :name, :type, :number, :size, :quantity, :revenue, :date_sold, :well_id)
+      params.permit(:id, :name, :type, :number, :size, :order, :quantity, :revenue, :date_sold, :well_id)
     end
   end
 
