@@ -115,9 +115,9 @@ function getNonEditableAttributes() {
 
 function getContext(el) {
   var el_class = el.closest('tr').attr('class');
-  if (el_class.includes('well')){
+  if (el_class.indexOf('well') >= 0){
     return 'well';
-  } else if (el_class.includes('part')){
+  } else if (el_class.indexOf('part') >= 0){
     return 'part';
   }
 }
