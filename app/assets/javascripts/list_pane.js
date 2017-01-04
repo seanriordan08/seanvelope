@@ -1,5 +1,4 @@
 $(document).on('ready', function() {
-  setNullableFieldColors();
   listRecordHighlights();
   attributeRecordHighlights();
   attributeContentEditable();
@@ -97,6 +96,7 @@ function sendUpdate(el, new_content){
   var record_attr = el.closest('.record_attribute');
   var context_id = record.data(context + 'id');
   var param_key = record_attr.data("name");
+
   $.ajax({
     method: 'PUT',
     url: '/basin_metrics/' + context + 's/' + context_id,
