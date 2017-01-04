@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-notify
 //= require jquery-ui
-//= require turbolinks
+
 //= require Chart
 
 //= require self_stats

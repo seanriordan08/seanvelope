@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('ready', function() {
   setNullableFieldColors();
   listRecordHighlights();
   attributeRecordHighlights();
@@ -122,7 +122,6 @@ function getContext(el) {
 }
 
 function setNullableFieldColors() {
-  debugger;
   $('.record_attribute.nullable div').each(function(index){
     cleanNulls($(this), $(this).text());
   });

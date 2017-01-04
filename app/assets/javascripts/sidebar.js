@@ -1,5 +1,5 @@
 
-$(document).on('page:change', function() {
+$(document).on('ready', function() {
   $('.sidebar li').on('click', function() {
     var el = $(this);
     hideTabSelections(el);
