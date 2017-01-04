@@ -23,7 +23,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap-growl-rails'
 gem 'material_icons', '~> 2.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

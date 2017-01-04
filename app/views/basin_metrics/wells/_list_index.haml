@@ -18,10 +18,10 @@
             %div= well['name'].humanize
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
-          %td.record_attribute{'data-name':'work_start'}
-            %div= well['work_start']
-          %td.record_attribute{'data-name':'work_duration'}
-            %div= well['work_duration']
+          %td.record_attribute.nullable{'data-name':'work_start'}
+            %div= well['work_start'].present? ? well['work_start'].to_time.strftime("%Y %b %e,%l:%M %p") : 'none'
+          %td.record_attribute.nullable{'data-name':'work_duration'}
+            %div= well['work_duration'].present? ? well['work_duration'].to_time.strftime("%Y %b %e,%l:%M %p") : 'none'
           %td.record_attribute{'data-name':'pump_running'}
             = check_box_tag('well_pump_running', 'true', well['pump_running'].to_boolean)
             %span= well['pump_running'].humanize
@@ -31,7 +31,7 @@
           %td.record_attribute{'data-name':'complete'}
             = check_box_tag('well_complete', 'true', well['complete'].to_boolean)
             %span= well['complete'].humanize
-          %td.record_attribute.comment{'data-name':'comments'}
+          %td.record_attribute.nullable{'data-name':'comments'}
             %div= (well['comments'].nil?) ? 'none' : well['comments']
           %td.record_attribute{'data-name':'customer_id'}
             %div= get_customer(well['customer_id'].to_i).name.humanize

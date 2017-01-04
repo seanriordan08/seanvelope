@@ -1,10 +1,9 @@
-$(document).on('page:change', function() {
-
+$(document).on('turbolinks:load', function() {
+  setNullableFieldColors();
   listRecordHighlights();
   attributeRecordHighlights();
   attributeContentEditable();
   attributeContentCheckable();
-
 });
 
 function listRecordHighlights() {
@@ -30,7 +29,6 @@ function attributeContentEditable() {
   var all_ommitted_attributes = getNonEditableAttributes();
 
   $(document).on('click', 'td.record_attribute div', function() {
-    console.log('hit');
     if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0)
       return;
 
@@ -40,7 +38,7 @@ function attributeContentEditable() {
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
   }).on('blur', 'td.record_attribute div', function(){
     $(this).off("keydown");
-    var content = cleanNulls($(this).text());
+    var content = cleanNulls($(this), $(this).text());
     if (content != null){
       $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
     } else {
@@ -51,7 +49,6 @@ function attributeContentEditable() {
       sendUpdate($(this), content);
       changes_made = false;
     }
-    $('.comment').css({color:'#56717d'});
 
   });
 }
@@ -80,13 +77,15 @@ function attributeContentCheckable() {
 
 //Helpers
 
-function cleanNulls(text) {
+function cleanNulls(el, text) {
   var new_text = text;
   new_text = $.trim(new_text).toLowerCase();
   if ((new_text == 'none') || (new_text == '') || (new_text == 'n/a') || (new_text == 'na')){
     new_text = null;
+    el.css({color:'#56717d'});
     return new_text;
   } else {
+    el.css({color:'#CCDBDC'});
     return text;
   }
 
@@ -120,4 +119,11 @@ function getContext(el) {
   } else if (el_class.indexOf('part') >= 0){
     return 'part';
   }
+}
+
+function setNullableFieldColors() {
+  debugger;
+  $('.record_attribute.nullable div').each(function(index){
+    cleanNulls($(this), $(this).text());
+  });
 }
