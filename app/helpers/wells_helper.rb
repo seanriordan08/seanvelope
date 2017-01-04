@@ -1,5 +1,17 @@
 module WellsHelper
 
+  def get_well_headings
+    base_headings = BasinMetrics::Well.first
+    base_headings = base_headings.attribute_names
+    omission = %w(id revenue created_at updated_at)
+
+    omission.each do |omit_value|
+      base_headings.delete_at(base_headings.index(omit_value))
+    end
+
+    base_headings
+  end
+
   def get_customers_options
     customer_ids = BasinMetrics::Customer.all.order(:name).map(&:id)
     customer_names = BasinMetrics::Customer.all.order(:name).map(&:name)

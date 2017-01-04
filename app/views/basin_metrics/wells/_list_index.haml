@@ -10,17 +10,18 @@
     Please add some Districts first
   - elsif wells_exist?
     %table.list_table
-      - wells.first.keys.each do |key|
-        - if (key == 'id') || (key == 'revenue')
-          - next
-        - else
-          %th.list_heading= key
+      - get_well_headings.each do |heading|
+        %th.well_heading= heading
       - wells.each_with_index do |well|
         %tr.well_record{'data-wellid': well['id']}
           %td.record_attribute{'data-name':'name'}
             %div= well['name']
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
+          %td.record_attribute{'data-name':'work_start'}
+            %div= well['work_start']
+          %td.record_attribute{'data-name':'work_duration'}
+            %div= well['work_duration']
           %td.record_attribute{'data-name':'pump_running'}
             = check_box_tag('well_pump_running', 'true', well['pump_running'].to_boolean)
             %span= well['pump_running'].humanize
@@ -36,10 +37,6 @@
             %div= get_customer(well['customer_id'].to_i).name
           %td.record_attribute{'data-name':'district_id'}
             %div= get_district(well['district_id'].to_i).name
-          %td.record_attribute{'data-name':'created_at'}
-            %div= well['created_at'].to_time.strftime("%b %e,%l:%M %p")
-          %td.record_attribute{'data-name':'updated_at'}
-            %div= well['updated_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_well_delete_path(well['id']), method: :delete, remote: true)
   - else
     .no_record

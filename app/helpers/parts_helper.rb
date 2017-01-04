@@ -3,10 +3,10 @@ module PartsHelper
   def get_part_headings
     base_headings = BasinMetrics::Part.first
     base_headings = base_headings.attribute_names
-    omittions = %w(id created_at updated_at)
+    omission = %w(id created_at updated_at)
 
     base_headings.insert(1, 'customer')
-    omittions.each do |omit_value|
+    omission.each do |omit_value|
       base_headings.delete_at(base_headings.index(omit_value))
     end
 
