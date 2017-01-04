@@ -61,6 +61,7 @@ part_numbers.each_with_index do |number|
     number: part_numbers[rand(0..2)],
     size: '4.5',
     quantity: rand(2..70),
+    order: SecureRandom.hex(6),
     revenue: part_revenue[rand(0..2)],
     date_sold: (DateTime.now - (rand(1..340).days)),
     well_id: rand(1..3)
