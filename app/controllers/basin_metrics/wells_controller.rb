@@ -15,6 +15,7 @@ class BasinMetrics::WellsController < ApplicationController
   end
 
   def create
+    well_params[:name] = well_params[:name].strip.downcase.parameterize.underscore
     @well = BasinMetrics::Well.new(well_params)
 
     if @well.save
@@ -32,6 +33,7 @@ class BasinMetrics::WellsController < ApplicationController
   end
 
   def update
+    well_params[:name] = well_params[:name].strip.downcase.parameterize.underscore
     @well = BasinMetrics::Well.find(well_params[:id])
 
     if @well.update(well_params)

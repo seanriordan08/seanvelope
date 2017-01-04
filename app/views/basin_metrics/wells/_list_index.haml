@@ -15,7 +15,7 @@
       - wells.each_with_index do |well|
         %tr.well_record{'data-wellid': well['id']}
           %td.record_attribute{'data-name':'name'}
-            %div= well['name']
+            %div= well['name'].humanize
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
           %td.record_attribute{'data-name':'work_start'}
