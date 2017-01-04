@@ -21,7 +21,7 @@ module WellsHelper
 
   def get_customer_well_counts
     well_x_label = 'Customer'
-    well_y_label = 'Count'
+    well_y_label = 'Well Count'
     customers = BasinMetrics::Customer.all.order(:name)
     well_count_array = customers.collect do |c|
       BasinMetrics::Well.where(customer_id: c).size
