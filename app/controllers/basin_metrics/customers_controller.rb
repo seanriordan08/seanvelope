@@ -33,7 +33,7 @@ class BasinMetrics::CustomersController < ApplicationController
   end
 
   def update
-    customer_params[:name] = customer_params[:name].strip.downcase.parameterize.underscore
+    customer_params[:name] = clean_name_param(customer_params[:name])
     @customer = BasinMetrics::Customer.find(customer_params[:id])
 
     if @customer.update(customer_params)

@@ -33,7 +33,7 @@ class BasinMetrics::DistrictsController < ApplicationController
   end
 
   def update
-    district_params[:name] = district_params[:name].strip.downcase.parameterize.underscore
+    district_params[:name] = clean_name_param(district_params[:name])
     @district = BasinMetrics::District.find(district_params[:id])
 
     if @district.update(district_params)

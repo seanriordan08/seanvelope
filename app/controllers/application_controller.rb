@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     basin_metrics_dashboard_path
   end
 
+  def clean_name_param(name_param)
+    return if name_param.blank?
+    name_param.strip.downcase.parameterize.underscore
+  end
+
 end

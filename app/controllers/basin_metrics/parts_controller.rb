@@ -33,7 +33,7 @@ class BasinMetrics::PartsController < ApplicationController
   end
 
   def update
-    part_params[:name] = part_params[:name].strip.downcase.parameterize.underscore
+    part_params[:name] = clean_name_param(part_params[:name])
     @part = BasinMetrics::Part.find(part_params[:id])
 
     if @part.update(part_params)
