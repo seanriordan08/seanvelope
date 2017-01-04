@@ -13,7 +13,7 @@
           %th.list_heading= key
       - districts.each_with_index do |district|
         %tr.district_record{'data-districtid': district['id']}
-          %td.record_attribute{'data-name':'name'}= district['name']
+          %td.record_attribute{'data-name':'name'}= district['name'].humanize
           %td.record_attribute{'data-name':'created_at'}= district['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute{'data-name':'updated_at'}= district['updated_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_district_delete_path(district['id']), method: :delete, remote: true)

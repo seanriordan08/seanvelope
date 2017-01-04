@@ -34,9 +34,9 @@
           %td.record_attribute.comment{'data-name':'comments'}
             %div= (well['comments'].nil?) ? 'none' : well['comments']
           %td.record_attribute{'data-name':'customer_id'}
-            %div= get_customer(well['customer_id'].to_i).name
+            %div= get_customer(well['customer_id'].to_i).name.humanize
           %td.record_attribute{'data-name':'district_id'}
-            %div= get_district(well['district_id'].to_i).name
+            %div= get_district(well['district_id'].to_i).name.humanize
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_well_delete_path(well['id']), method: :delete, remote: true)
   - else
     .no_record

@@ -15,6 +15,7 @@ class BasinMetrics::DistrictsController < ApplicationController
   end
 
   def create
+    district_params[:name] = district_params[:name].strip.downcase.parameterize.underscore
     @district = BasinMetrics::District.new(district_params)
 
     if @district.save
@@ -32,6 +33,7 @@ class BasinMetrics::DistrictsController < ApplicationController
   end
 
   def update
+    district_params[:name] = district_params[:name].strip.downcase.parameterize.underscore
     @district = BasinMetrics::District.find(district_params[:id])
 
     if @district.update(district_params)

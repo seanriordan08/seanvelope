@@ -17,7 +17,7 @@
           %td.record_attribute
             %div= get_part_customer_name(part['id'])
           %td.record_attribute{'data-name':'name'}
-            %div= part['name']
+            %div= part['name'].humanize
           %td.record_attribute{'data-name':'type'}
             %div= part['type']
           %td.record_attribute{'data-name':'number'}

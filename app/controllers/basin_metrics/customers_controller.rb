@@ -15,6 +15,7 @@ class BasinMetrics::CustomersController < ApplicationController
   end
 
   def create
+    customer_params[:name] = customer_params[:name].strip.downcase.parameterize.underscore
     @customer = BasinMetrics::Customer.new(customer_params)
 
     if @customer.save
@@ -32,6 +33,7 @@ class BasinMetrics::CustomersController < ApplicationController
   end
 
   def update
+    customer_params[:name] = customer_params[:name].strip.downcase.parameterize.underscore
     @customer = BasinMetrics::Customer.find(customer_params[:id])
 
     if @customer.update(customer_params)
