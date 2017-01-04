@@ -31,7 +31,7 @@
           %td.record_attribute{'data-name':'revenue'}
             %div= part['revenue']
           %td.record_attribute{'data-name':'date_sold'}
-            %div= part['date_sold'].to_time.strftime("%Y %b %e,%l:%M %p")
+            %div= part['date_sold'].present? ? part['date_sold'].to_time.strftime("%Y %b %e,%l:%M %p") : 'none'
           %td.record_attribute{'data-name':'well_id'}
             %div= get_well(part['well_id'].to_i).number
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
