@@ -1,11 +1,14 @@
 
 var focusPartial = "<%= j(render partial: 'basin_metrics/dashboard/focus_pane') %>";
 var listPartial = "<%= j(render partial: 'basin_metrics/dashboard/list_pane') %>";
+var recordPartial = "<%= j(render partial: 'basin_metrics/dashboard/record_pane') %>";
 var indexFocusPartial = "<%= j(render partial: 'focus_index', locals: { wells: JSON.parse(@wells) }) %>";
 var indexListPartial = "<%= j(render partial: 'list_index', locals: { wells: JSON.parse(@wells) }) %>";
+var showRecordPartial = "<%= j(render partial: 'record_show', locals: { wells: JSON.parse(@wells) }) %>";
 
 // clear and build main pane
-$('.main_pane').html(focusPartial).append(listPartial);
+$('.main_pane').html(recordPartial).append(focusPartial).append(listPartial);
+//$('.record_pane').html(showRecordPartial);
 $('.list_pane').html(indexListPartial);
 $('.focus_pane').html(indexFocusPartial);
 
