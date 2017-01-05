@@ -84,6 +84,19 @@ $record_height: 25px;
           }
         }
 
+        .examine_circle {
+          visibility: hidden;
+          position: relative;
+          vertical-align: middle;
+          line-height: 100%;
+          border-bottom: none;
+          text-align: center;
+          a{
+            color: $basin_dkwhite;
+            &:hover {color: $basin_highlight;}
+          }
+        }
+
         .record_attribute {
           position: relative;
           vertical-align: middle;

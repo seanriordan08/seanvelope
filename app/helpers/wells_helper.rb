@@ -9,6 +9,7 @@ module WellsHelper
       base_headings.delete_at(base_headings.index(omit_value))
     end
 
+    base_headings.unshift('')
     base_headings
   end
 

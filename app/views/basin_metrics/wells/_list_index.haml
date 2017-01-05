@@ -14,6 +14,7 @@
         %th.well_heading= heading.include?('_id') ? heading.chomp('_id') : heading
       - wells.each_with_index do |well|
         %tr.well_record{'data-wellid': well['id']}
+          %td.examine_circle= link_to(material_icon.pie_chart, basin_metrics_well_delete_path(well['id']), method: :delete, remote: true)
           %td.record_attribute{'data-name':'name'}
             %div= well['name'].humanize
           %td.record_attribute{'data-name':'number'}
