@@ -64,7 +64,6 @@ $record_height: 25px;
       .list_record {
         @extend .no_record;
         padding-right: 10px;
-        border-bottom: 1px solid $basin_ltblack;
 
         &:hover {
           background-color: $basin_ltblack;
@@ -100,6 +99,7 @@ $record_height: 25px;
           position: relative;
           vertical-align: middle;
           background-color: transparent;
+          border-bottom: 1px solid $basin_ltblack;
         }
       }
 

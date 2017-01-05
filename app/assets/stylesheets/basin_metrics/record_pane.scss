@@ -5,7 +5,20 @@
   right: -25%;
   width: 25%;
   height: 100%;
-  background-color: $basin_gray;
+  background-color: $basin_ltblack;
   box-shadow: 0 0 3px 0 #000;
   z-index: 1;
+
+  .progress_pane {
+    position: absolute;
+    top:10px;right:10px;bottom:10px;left:10px;
+    height: 33%;
+    background-color: $basin_black;
+
+    .progress_content {
+      height: auto;
+      padding: 10px;
+    }
+  }
+
 }

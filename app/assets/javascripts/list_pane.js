@@ -9,12 +9,12 @@ function listRecordHighlights() {
   $(document).on("mouseenter", '.list_table tr', function (event) {
     var remove_circle = $(this).find('td.remove_circle');
     remove_circle.css("visibility", "visible");
-    var examine_circle = $(this).find('td.examine_circle');
+    var examine_circle = $(this).find('td div.examine_circle');
     examine_circle.css("visibility", "visible");
   }).on("mouseleave", '.list_table tr', function () {
     var remove_circle = $(this).find('td.remove_circle');
     remove_circle.css("visibility", "hidden");
-    var examine_circle = $(this).find('td.examine_circle');
+    var examine_circle = $(this).find('td div.examine_circle');
     examine_circle.css("visibility", "hidden");
   });
 }
