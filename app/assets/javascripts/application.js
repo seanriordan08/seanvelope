@@ -21,5 +21,6 @@
 //= require main_pane
 //= require list_pane
 //= require sidebar
+//= require record_pane
 
 //= require_tree .

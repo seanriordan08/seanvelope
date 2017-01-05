@@ -1,22 +1,74 @@
 //Prepare pane contents
-var showRecordPartial = "<%= j(render partial: 'record_show', locals: { well: JSON.parse(@well) }) %>";
-
 var record_pane = $('.record_pane');
+var current_well = JSON.parse("<%= j( @well ) %>");
+var well;
 
-//Fill pane contents
-record_pane.html(showRecordPartial);
+console.log("current_well: " + current_well.id + " well: " + well);
 
 //Animate exit/entry
-if (record_pane.hasClass('showing')) {
-  record_pane.animate({right: '-25%'},{duration: 200, easing: "easeInExpo"});
-  record_pane.removeClass('showing');
+if (well === undefined){ //initial state
+  console.log('initial state');
+  openRecordPane(record_pane);
+} else if ((current_well.id === well)){ //previously selected
+  console.log('same state');
+  toggleRecordPane(record_pane);
+} else if (record_pane.hasClass('showing')){
+  console.log('diff state showing');
+  replaceRecordPane(record_pane);
 } else {
-  record_pane.animate({right: 0},{duration: 300, easing: "easeOutExpo"});
-  record_pane.addClass('showing');
+  console.log('diff state hidden');
+  openRecordPane(record_pane);
+}
+well = current_well.id;
+
+function fillRecordPartial(){
+  var showRecordPartial = "<%= j(render partial: 'record_show', locals: { well: JSON.parse(@well) }) %>";
+  record_pane.html(showRecordPartial);
+  console.log('contents filled');
 }
 
-//var newView = "<%#= j(render partial: 'list_options_create_form') %>";
-//
-//$('.list_pane .list_options').empty().append(newView);
-//
-//triggerNotification("<%#=j(flash.now[:success])%>", "<%#=j(flash.now[:error])%>");
+function closeRecordPane(el){
+  console.log('closing...');
+  el.animate({
+    right: '-25%'
+  },{
+    duration: 200, easing: "easeInExpo"
+  },{
+    complete: function() {
+      fillRecordPartial();
+    }
+  });
+  el.removeClass('showing');
+}
+
+function replaceRecordPane(el){
+  console.log('closing..');
+  el.animate({
+      right: '-25%'
+    }, {
+    duration: 200,
+    easing: "easeInExpo",
+    complete: function () {
+      console.log('complete!');
+      fillRecordPartial();
+      el.removeClass('showing');
+      openRecordPane(el);
+    }
+  });
+}
+
+function openRecordPane(el){
+  fillRecordPartial();
+  console.log('animate');
+  el.animate({right: 0},{duration: 300, easing: "easeOutExpo"});
+  el.addClass('showing');
+}
+
+function toggleRecordPane(el){
+  if (el.hasClass('showing')) {
+    closeRecordPane(el);
+  } else {
+    openRecordPane(el);
+  }
+}
+
