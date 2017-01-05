@@ -34,6 +34,15 @@ class BasinMetrics::WellsController < ApplicationController
     end
   end
 
+  def show
+    @well = BasinMetrics::Well.find(well_params[:id])
+    @well = @well.attributes.to_json.html_safe
+
+    respond_to do |format|
+      format.js { render 'show', layout: false }
+    end
+  end
+
   def update
     well_params[:name] = clean_name_param(well_params[:name])
     @well = BasinMetrics::Well.find(well_params[:id])

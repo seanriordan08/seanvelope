@@ -71,13 +71,17 @@ $record_height: 25px;
           cursor: pointer;
         }
 
-        .remove_circle {
+        .action_circle {
           visibility: hidden;
           position: relative;
           vertical-align: middle;
           line-height: 100%;
           border-bottom: none;
           text-align: center;
+        }
+
+        .remove_circle {
+          @extend .action_circle;
           a{
             color: $basin_dkwhite;
             &:hover {color: $basin_red;}
@@ -85,12 +89,7 @@ $record_height: 25px;
         }
 
         .examine_circle {
-          visibility: hidden;
-          position: relative;
-          vertical-align: middle;
-          line-height: 100%;
-          border-bottom: none;
-          text-align: center;
+          @extend .action_circle;
           a{
             color: $basin_dkwhite;
             &:hover {color: $basin_highlight;}

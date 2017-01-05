@@ -1,7 +1,10 @@
 .option_pane {
+  position: relative;
   height: $option_height;
   color: $basin_white;
   text-align: right;
   padding: 10px;
   background-color: $basin_ltblack;
+  box-shadow: 0 0 3px 0 #000;
+  z-index: 2;
 }

@@ -1,0 +1,22 @@
+//Prepare pane contents
+var showRecordPartial = "<%= j(render partial: 'record_show', locals: { well: JSON.parse(@well) }) %>";
+
+var record_pane = $('.record_pane');
+
+//Fill pane contents
+record_pane.html(showRecordPartial);
+
+//Animate exit/entry
+if (record_pane.hasClass('showing')) {
+  record_pane.animate({right: '-25%'},{duration: 300, easing: "easeInExpo"});
+  record_pane.removeClass('showing');
+} else {
+  record_pane.animate({right: 0},{duration: 300, easing: "easeOutExpo"});
+  record_pane.addClass('showing');
+}
+
+//var newView = "<%#= j(render partial: 'list_options_create_form') %>";
+//
+//$('.list_pane .list_options').empty().append(newView);
+//
+//triggerNotification("<%#=j(flash.now[:success])%>", "<%#=j(flash.now[:error])%>");
