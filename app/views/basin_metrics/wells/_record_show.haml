@@ -1,5 +1,6 @@
 
 .progress_pane
+  %div.close_circle= link_to(material_icon.cancel, basin_metrics_well_show_path(well['id']), method: :get, remote: true)
   .progress_content
     well
     =well['id']
