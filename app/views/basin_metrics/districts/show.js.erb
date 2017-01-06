@@ -1,0 +1,67 @@
+//Prepare pane contents
+var record_pane = $('.record_pane');
+var current_district = JSON.parse("<%= j( @district ) %>");
+var district;
+
+console.log("current_district: " + current_district.id + " district: " + district);
+
+//Animate exit/entry
+if (district === undefined){ //initial state
+  openRecordPane(record_pane);
+} else if ((current_district.id === district)){ //previously selected
+  toggleRecordPane(record_pane);
+} else if (record_pane.hasClass('showing')){
+  replaceRecordPane(record_pane);
+} else {
+  openRecordPane(record_pane);
+}
+district = current_district.id;
+
+function fillRecordPartial(){
+  var showRecordPartial = "<%= j(render partial: 'record_show', locals: { district: JSON.parse(@district) }) %>";
+  record_pane.html(showRecordPartial);
+}
+
+function closeRecordPane(el){
+  el.animate({
+    right: '-25%'
+  },{
+    duration: 200, easing: "easeInExpo"
+  },{
+    complete: function() {
+      fillRecordPartial();
+    }
+  });
+  el.removeClass('showing');
+}
+
+function replaceRecordPane(el){
+  el.animate({
+      right: '-25%'
+    }, {
+    duration: 200,
+    easing: "easeInExpo",
+    complete: function () {
+      console.log('complete!');
+      fillRecordPartial();
+      el.removeClass('showing');
+      openRecordPane(el);
+    }
+  });
+}
+
+function openRecordPane(el){
+  fillRecordPartial();
+  console.log('animate');
+  el.animate({right: 0},{duration: 300, easing: "easeOutExpo"});
+  el.addClass('showing');
+}
+
+function toggleRecordPane(el){
+  if (el.hasClass('showing')) {
+    closeRecordPane(el);
+  } else {
+    openRecordPane(el);
+  }
+}
+

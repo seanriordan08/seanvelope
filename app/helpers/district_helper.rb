@@ -8,4 +8,17 @@ module DistrictHelper
     {array: array, x_label: x_label, y_label: y_label}
   end
 
+  def get_district_headings
+    base_headings = BasinMetrics::District.first
+    base_headings = base_headings.attribute_names
+    omission = %w(id)
+
+    omission.each do |omit_value|
+      base_headings.delete_at(base_headings.index(omit_value))
+    end
+
+    base_headings.unshift('')
+    base_headings
+  end
+
 end

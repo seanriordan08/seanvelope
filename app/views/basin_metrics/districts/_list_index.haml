@@ -6,13 +6,12 @@
 .list_content
   - if districts_exist?
     %table.list_table
-      - districts.first.keys.each do |key|
-        - if (key == 'id') || (key == 'revenue')
-          - next
-        - else
-          %th.list_heading= key
+      - get_district_headings.each do |heading|
+        %th.district_heading= heading.include?('_id') ? heading.chomp('_id') : heading
       - districts.each_with_index do |district|
         %tr.district_record{'data-districtid': district['id']}
+          %td
+            %div.examine_circle= link_to(material_icon.donut_large, basin_metrics_district_show_path(district['id']), method: :get, remote: true)
           %td.record_attribute{'data-name':'name'}= district['name'].humanize
           %td.record_attribute{'data-name':'created_at'}= district['created_at'].to_time.strftime("%b %e,%l:%M %p")
           %td.record_attribute{'data-name':'updated_at'}= district['updated_at'].to_time.strftime("%b %e,%l:%M %p")

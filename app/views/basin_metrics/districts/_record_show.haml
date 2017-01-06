@@ -1,0 +1,44 @@
+
+.progress_pane
+  %div.close_circle= link_to(material_icon.cancel, basin_metrics_district_show_path(district['id']), method: :get, remote: true)
+  .progress_content
+    %canvas(id="districtsRecordChart" width="150px" height="150px")
+.record_description
+  %ul
+    %li
+      .title Name:
+      .value #{district['name'].humanize}
+
+:javascript
+  var ctx = $("#districtsRecordChart");
+  var myPieChart = new Chart(ctx,{
+    type: 'doughnut',
+    data: {
+      labels: [
+        "Slawson",
+        "Oasis",
+        "Qep"
+      ],
+      datasets: [{
+        data: [1, 1, 1],
+        backgroundColor: [
+            "#2D3D47",
+            "#2D3D47",
+            "#298889"
+        ],
+        hoverBackgroundColor: [
+            "#364A56",
+            "#364A56",
+            "#33A8AA"
+        ]
+      }]
+    },
+    options: {
+      responsive: true,
+      responsiveAnimationDuration: 1000,
+      maintainAspectRatio: false,
+      tooltips: {
+        tooltipFontSize: 30
+      }
+    }
+  });

@@ -32,6 +32,15 @@ class BasinMetrics::DistrictsController < ApplicationController
     end
   end
 
+  def show
+    @district = BasinMetrics::District.find(district_params[:id])
+    @district = @district.attributes.to_json.html_safe
+
+    respond_to do |format|
+      format.js { render 'show', layout: false }
+    end
+  end
+
   def update
     district_params[:name] = clean_name_param(district_params[:name])
     @district = BasinMetrics::District.find(district_params[:id])
