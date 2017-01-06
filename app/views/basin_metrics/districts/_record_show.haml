@@ -14,23 +14,11 @@
   var myPieChart = new Chart(ctx,{
     type: 'doughnut',
     data: {
-      labels: [
-        "Slawson",
-        "Oasis",
-        "Qep"
-      ],
+      labels: #{get_district_customers(district['id'])[:labels]},
       datasets: [{
-        data: [1, 1, 1],
-        backgroundColor: [
-            "#2D3D47",
-            "#2D3D47",
-            "#298889"
-        ],
-        hoverBackgroundColor: [
-            "#364A56",
-            "#364A56",
-            "#33A8AA"
-        ]
+        data: #{get_district_customers(district['id'])[:data]},
+        backgroundColor: #{get_district_customers(district['id'])[:colors]},
+        hoverBackgroundColor: #{get_district_customers(district['id'])[:hovers]}
       }]
     },
     options: {

@@ -1,7 +1,7 @@
 class BasinMetrics::Well < ActiveRecord::Base
 
-  belongs_to :customers, :class_name => 'BasinMetrics::Customer'
-  belongs_to :districts, :class_name => 'BasinMetrics::District'
+  belongs_to :customer, :class_name => 'BasinMetrics::Customer'
+  belongs_to :district, :class_name => 'BasinMetrics::District'
 
   has_many :parts, :class_name => 'BasinMetrics::Part', dependent: :destroy
 
