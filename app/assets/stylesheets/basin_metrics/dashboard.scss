@@ -69,6 +69,10 @@ $option_height: 40px;
     text-align: center;
     a {
       text-decoration: none;
+      i {
+        display: block;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -79,9 +83,6 @@ $option_height: 40px;
       &:hover {
         color: $basin_red;
       }
-      i {
-        display: block;
-      }
     }
   }
 
@@ -91,9 +92,6 @@ $option_height: 40px;
       color: $basin_dkwhite;
       &:hover {
         color: $basin_highlight;
-      }
-      i {
-        display: block;
       }
     }
   }
