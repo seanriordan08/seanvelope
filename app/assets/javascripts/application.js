@@ -14,13 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap-notify
 //= require jquery-ui
-
 //= require Chart
-
 //= require self_stats
 //= require main_pane
 //= require list_pane
 //= require sidebar
 //= require record_pane
-
 //= require_tree .

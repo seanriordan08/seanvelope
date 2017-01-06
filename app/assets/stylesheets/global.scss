@@ -19,7 +19,11 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-html {min-height: 490px;}
+html {
+  min-height: 490px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 table    { display: table; width: 100% }
 tr       { display: table-row }

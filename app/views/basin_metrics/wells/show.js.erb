@@ -7,16 +7,12 @@ console.log("current_well: " + current_well.id + " well: " + well);
 
 //Animate exit/entry
 if (well === undefined){ //initial state
-  console.log('initial state');
   openRecordPane(record_pane);
 } else if ((current_well.id === well)){ //previously selected
-  console.log('same state');
   toggleRecordPane(record_pane);
 } else if (record_pane.hasClass('showing')){
-  console.log('diff state showing');
   replaceRecordPane(record_pane);
 } else {
-  console.log('diff state hidden');
   openRecordPane(record_pane);
 }
 well = current_well.id;
@@ -24,11 +20,9 @@ well = current_well.id;
 function fillRecordPartial(){
   var showRecordPartial = "<%= j(render partial: 'record_show', locals: { well: JSON.parse(@well) }) %>";
   record_pane.html(showRecordPartial);
-  console.log('contents filled');
 }
 
 function closeRecordPane(el){
-  console.log('closing...');
   el.animate({
     right: '-25%'
   },{
@@ -42,7 +36,6 @@ function closeRecordPane(el){
 }
 
 function replaceRecordPane(el){
-  console.log('closing..');
   el.animate({
       right: '-25%'
     }, {
