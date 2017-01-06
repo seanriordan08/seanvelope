@@ -1,2 +1,55 @@
 
-[empty for now]
+%canvas(id="customersChart" width="1500px" height="1500px")
+
+:javascript
+  var dyn_width = $('.focus_pane').width() + 'px'
+  $('canvas').attr('height', dyn_width);
+
+  var dyn_height = $('.focus_pane').height() + 'px'
+  $('canvas').attr('height', dyn_height);
+
+  var ctx = $("#customersChart");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: #{get_customer_names},
+      datasets: [{
+        label: "#{get_customer_well_counts[:y_label]} by #{get_customer_well_counts[:x_label]}",
+        data: #{get_customer_well_counts[:array]},
+        backgroundColor: #{get_background_colors},
+        borderColor: #{get_border_colors},
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      responsiveAnimationDuration: 1000,
+      maintainAspectRatio: false,
+      scaleFontColor: "#fff",
+      scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "#{get_customer_well_counts[:x_label]}"
+          },
+          gridLines: {
+            display: true,
+          },
+          ticks: {
+            beginAtZero:true,
+            fontColor: "#9faeaf"
+          }
+        }],
+        yAxes: [{
+            scaleLabel: {
+            display: true,
+            labelString: "#{get_customer_well_counts[:y_label]}"
+          },
+          ticks: {
+            beginAtZero:true,
+            fontColor: "#9faeaf"
+          }
+        }]
+      }
+    }
+  });
