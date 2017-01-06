@@ -29,6 +29,16 @@ $option_height: 40px;
     }
   }
 
+  table    { display: table; width: 100% }
+  tr       { display: table-row }
+  thead    { display: table-header-group }
+  tbody    { display: table-row-group; width: inherit }
+  tfoot    { display: table-footer-group }
+  col      { display: table-column }
+  colgroup { display: table-column-group }
+  td, th   { display: table-cell; padding: 1px 3px 0 3px; }
+  caption  { display: table-caption }
+
   .close_circle {
     position: absolute;
     top: -5px;
@@ -57,6 +67,9 @@ $option_height: 40px;
     line-height: 100%;
     border-bottom: none;
     text-align: center;
+    a {
+      text-decoration: none;
+    }
   }
 
   .remove_circle {
@@ -65,6 +78,9 @@ $option_height: 40px;
       color: $basin_dkwhite;
       &:hover {
         color: $basin_red;
+      }
+      i {
+        display: block;
       }
     }
   }
@@ -75,6 +91,9 @@ $option_height: 40px;
       color: $basin_dkwhite;
       &:hover {
         color: $basin_highlight;
+      }
+      i {
+        display: block;
       }
     }
   }

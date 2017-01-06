@@ -2,6 +2,44 @@
 .progress_pane
   %div.close_circle= link_to(material_icon.cancel, basin_metrics_well_show_path(well['id']), method: :get, remote: true)
   .progress_content
-    well
-    =well['id']
-    stuff
+    %div{id:"container"}
+.record_description
+  %ul
+    %li
+      .title Name:
+      .value #{well['name'].humanize}
+    %li
+      .title Number:
+      .value #{well['number']}
+
+:javascript
+  var bar = new ProgressBar.Circle(container, {
+    color: '#CCDBDC', //Text color
+    // This has to be the same size as the maximum width to
+    // prevent clipping
+    strokeWidth: 4,
+    trailWidth: 1,
+    easing: 'easeInOut',
+    duration: 1200,
+    text: {
+      autoStyleContainer: false
+    },
+    from: { color: '#243038', width: 1 },
+    to: { color: '#298889', width: 4 },
+    // Set default step function for all animate calls
+    step: function(state, circle) {
+      circle.path.setAttribute('stroke', state.color);
+      circle.path.setAttribute('stroke-width', state.width);
+
+      var value = Math.round(circle.value() * 100);
+      if (value === 0) {
+        circle.setText('');
+      } else {
+        circle.setText(value);
+      }
+
+    }
+  });
+  bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+  bar.text.style.fontSize = '2rem';
+  bar.animate(1.0);  // Number from 0.0 to 1.0
