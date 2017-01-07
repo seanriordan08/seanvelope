@@ -1,3 +1,6 @@
+$basin_ltblack_rgba: rgba(45,61,71,.95);
+$basin_grey_rgba: rgba(86,113,125,.95);
+
 .flatpickr-calendar {
   background: transparent;
   overflow: hidden;
@@ -12,15 +15,15 @@
   border: 0;
   font-size: 14px;
   line-height: 24px;
-  border-radius: 5px;
+  border-radius: 0;
   position: absolute;
   width: 293.75px;
   box-sizing: border-box;
   -webkit-transition: top .1s cubic-bezier(0, 1, .5, 1);
   transition: top .1s cubic-bezier(0, 1, .5, 1);
   z-index: 99999999;
-  background: rgba(35, 40, 60, .95);
-  box-shadow: 1px 0 0 #23283c, -1px 0 0 #23283c, 0 1px 0 #23283c, 0 -1px 0 #23283c, 0 3px 13px rgba(0, 0, 0, .08)
+  background: $basin_ltblack_rgba;
+  box-shadow: 1px 0 0 $basin_ltblack, -1px 0 0 $basin_ltblack, 0 1px 0 $basin_ltblack, 0 -1px 0 $basin_ltblack, 0 3px 13px rgba(0, 0, 0, .08)
 }
 .flatpickr-calendar.inline, .flatpickr-calendar.open {
   opacity: 1;
@@ -79,19 +82,19 @@
   bottom: 100%
 }
 .flatpickr-calendar.arrowTop:before {
-  border-bottom-color: #23283c
+  border-bottom-color: $basin_ltblack
 }
 .flatpickr-calendar.arrowTop:after {
-  border-bottom-color: rgba(35, 40, 60, .95)
+  border-bottom-color: $basin_ltblack_rgba
 }
 .flatpickr-calendar.arrowBottom:after, .flatpickr-calendar.arrowBottom:before {
   top: 100%
 }
 .flatpickr-calendar.arrowBottom:before {
-  border-top-color: #23283c
+  border-top-color: $basin_ltblack
 }
 .flatpickr-calendar.arrowBottom:after {
-  border-top-color: rgba(35, 40, 60, .95)
+  border-top-color: $basin_ltblack_rgba
 }
 .flatpickr-month {
   background: transparent;
@@ -127,7 +130,7 @@
   color: #eee
 }
 .flatpickr-next-month:hover svg, .flatpickr-prev-month:hover svg {
-  fill: #f64747
+  fill: $basin_highlight
 }
 .flatpickr-next-month svg, .flatpickr-prev-month svg {
   width: 14px
@@ -301,8 +304,8 @@
 .flatpickr-day.inRange, .flatpickr-day.nextMonthDay.inRange, .flatpickr-day.nextMonthDay.today.inRange, .flatpickr-day.nextMonthDay:focus, .flatpickr-day.nextMonthDay:hover, .flatpickr-day.prevMonthDay.inRange, .flatpickr-day.prevMonthDay.today.inRange, .flatpickr-day.prevMonthDay:focus, .flatpickr-day.prevMonthDay:hover, .flatpickr-day.today.inRange, .flatpickr-day:focus, .flatpickr-day:hover {
   cursor: pointer;
   outline: 0;
-  background: rgba(73, 84, 126, .95);
-  border-color: rgba(73, 84, 126, .95)
+  background: $basin_grey_rgba;
+  border-color: $basin_grey_rgba;
 }
 .flatpickr-day.today {
   border-color: #eee
@@ -310,12 +313,12 @@
 .flatpickr-day.today:focus, .flatpickr-day.today:hover {
   border-color: #eee;
   background: #eee;
-  color: #23283c
+  color: $basin_ltblack_rgba;
 }
 .flatpickr-day.endRange, .flatpickr-day.endRange.nextMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.endRange:focus, .flatpickr-day.endRange:hover, .flatpickr-day.selected, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.selected:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.startRange:focus, .flatpickr-day.startRange:hover {
-  background: #2f87ff;
+  background: $basin_primary;
   color: #fff;
-  border-color: #2f87ff
+  border-color: $basin_primary;
 }
 .flatpickr-day.endRange.startRange, .flatpickr-day.selected.startRange, .flatpickr-day.startRange.startRange {
   border-radius: 50px 0 0 50px
@@ -325,7 +328,7 @@
 }
 .flatpickr-day.inRange {
   border-radius: 0;
-  box-shadow: -3.75px 0 0 rgba(73, 84, 126, .95), 3.75px 0 0 rgba(73, 84, 126, .95)
+  box-shadow: -3.75px 0 0 $basin_grey_rgba, 3.75px 0 0 $basin_grey_rgba;
 }
 .flatpickr-day.disabled, .flatpickr-day.disabled:hover {
   pointer-events: none
@@ -360,7 +363,7 @@ span.flatpickr-weekday {
 }
 .flatpickr-weekwrapper .flatpickr-weeks {
   padding: 0 12px;
-  box-shadow: 1px 0 0 #23283c
+  box-shadow: 1px 0 0 $basin_ltblack;
 }
 .flatpickr-weekwrapper .flatpickr-weekday {
   float: none;
@@ -400,7 +403,7 @@ span.flatpickr-weekday {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-top: 1px solid #23283c
+  border-top: 1px solid $basin_ltblack;
 }
 .flatpickr-time:after {
   content: "";
@@ -474,7 +477,7 @@ span.flatpickr-weekday {
   font-weight: 400
 }
 .flatpickr-time .flatpickr-am-pm:focus, .flatpickr-time .flatpickr-am-pm:hover {
-  background: rgba(80, 93, 139, .95)
+  background: $basin_grey_rgba;
 }
 .hasTime .flatpickr-days, .hasWeeks .flatpickr-days {
   border-bottom: 0;
