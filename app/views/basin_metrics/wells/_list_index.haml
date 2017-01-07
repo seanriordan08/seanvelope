@@ -20,8 +20,8 @@
             %div= well['name'].humanize
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
-          %td.record_attribute.nullable{'data-name':'completed'}
-            %div= well['completed'].blank? ? 'pending' : well['completed']
+          %td.nullable{'data-name':'completed'}
+            %input.flatpickr= well['completed'].blank? ? 'pending' : well['completed']
           %td.record_attribute{'data-name':'customer_id'}
             %div= get_customer(well['customer_id'].to_i).name.humanize
           %td.record_attribute{'data-name':'district_id'}
@@ -33,3 +33,6 @@
 
 :javascript
   setNullableFieldColors();
+  flatpickr(".flatpickr", {
+    enableTime: true
+  });

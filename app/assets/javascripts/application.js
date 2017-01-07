@@ -20,4 +20,5 @@
 //= require list_pane
 //= require sidebar
 //= require record_pane
+//= require flatpickr
 //= require_tree .

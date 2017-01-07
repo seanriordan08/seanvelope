@@ -24,6 +24,6 @@ module Seanvelope
     config.active_record.raise_in_transactional_callbacks = true
 
     #Add fonts to asset path
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts', 'components')
   end
 end
