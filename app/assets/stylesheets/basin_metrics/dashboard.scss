@@ -40,9 +40,11 @@ $option_height: 40px;
   caption  { display: table-caption }
 
   .flatpickr {
+    width: 100%;
     height: 100%;
-    background-color: $basin_black;
+    background-color: inherit;
     border: none;
+    cursor: pointer;
   }
 
   .close_circle {
@@ -98,6 +100,9 @@ $option_height: 40px;
       color: $basin_dkwhite;
       &:hover {
         color: $basin_highlight;
+      }
+      i {
+        padding-top: 3px;
       }
     }
   }
