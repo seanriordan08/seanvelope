@@ -11,6 +11,20 @@
     %li
       .title Number:
       .value #{well['number']}
+    %li
+      .title Est. Start/End:
+      .value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
+      .value.comment= well['est_end'].blank? ? '' : well['est_end']
+    %li
+      .title Actual Start/End:
+      .value.comment= well['actual_start'].blank? ? 'pending' : well['actual_start']
+      .value.comment= well['completed'].blank? ? '' : "to" + well['completed']
+    %li
+      .title Directions:
+      .value.comment= well['directions'].blank? ? 'none' : well['directions']
+    %li
+      .title Comments:
+      .value.comment= well['comment'].blank? ? 'none' : well['comment']
 
 :javascript
   var bar = new ProgressBar.Circle(container, {

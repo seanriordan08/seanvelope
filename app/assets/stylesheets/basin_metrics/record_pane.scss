@@ -42,7 +42,7 @@
     top: 0;
     bottom: 0;
     left: 10px;
-    right: 0;
+    right: 5px;
     margin: auto;
     height: 29%;
     li {
@@ -58,6 +58,10 @@
         display: inline;
         padding-left: 10px;
         color: $basin_white;
+      }
+      .comment {
+        color: $basin_dkwhite;
+        font-size: 16px;
       }
     }
   }

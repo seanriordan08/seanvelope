@@ -3,8 +3,6 @@ var record_pane = $('.record_pane');
 var current_district = JSON.parse("<%= j( @district ) %>");
 var district;
 
-console.log("current_district: " + current_district.id + " district: " + district);
-
 //Animate exit/entry
 if (district === undefined){ //initial state
   openRecordPane(record_pane);
@@ -42,7 +40,6 @@ function replaceRecordPane(el){
     duration: 200,
     easing: "easeInExpo",
     complete: function () {
-      console.log('complete!');
       fillRecordPartial();
       el.removeClass('showing');
       openRecordPane(el);
@@ -52,7 +49,6 @@ function replaceRecordPane(el){
 
 function openRecordPane(el){
   fillRecordPartial();
-  console.log('animate');
   el.animate({right: 0},{duration: 300, easing: "easeOutExpo"});
   el.addClass('showing');
 }

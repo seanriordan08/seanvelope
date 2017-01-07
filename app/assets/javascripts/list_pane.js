@@ -83,7 +83,7 @@ function attributeContentCheckable() {
 function cleanNulls(el, text) {
   var new_text = text;
   new_text = $.trim(new_text).toLowerCase();
-  if ((new_text == 'none') || (new_text == '') || (new_text == 'n/a') || (new_text == 'na')){
+  if ((new_text == 'none') || (new_text == 'pending') || (new_text == '') || (new_text == 'n/a') || (new_text == 'na')){
     new_text = null;
     el.css({color:'#56717d'});
     return new_text;
@@ -110,7 +110,7 @@ function sendUpdate(el, new_content){
 }
 
 function getNonEditableAttributes() {
-  var omitted_well_attributes = ['pump_running','cemented', 'complete'];
+  var omitted_well_attributes = [];
 
   var omitted_global_attributes = ['customer_id','district_id', 'created_at', 'updated_at'];
   return omitted_global_attributes.concat(omitted_well_attributes);

@@ -1,16 +1,7 @@
 module WellsHelper
 
   def get_well_headings
-    base_headings = BasinMetrics::Well.first
-    base_headings = base_headings.attribute_names
-    omission = %w(id revenue created_at updated_at)
-
-    omission.each do |omit_value|
-      base_headings.delete_at(base_headings.index(omit_value))
-    end
-
-    base_headings.unshift('')
-    base_headings
+    %W(#{''} name number completed customer district)
   end
 
   def get_customers_options

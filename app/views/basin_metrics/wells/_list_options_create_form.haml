@@ -4,8 +4,7 @@
 = form_for BasinMetrics::Well.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
   = f.text_field "name", placeholder: "well name"
   = f.text_field "number", placeholder: "well number"
-  = f.label :pump_running, 'pump_running?'
-  = f.check_box :pump_running
+  = f.select(:pump_down_ring, [['pump down ring', ''],['none', ''],['3.70in', '3.70in'],['3.79in', '3.79in']])
   = f.label :cemented, 'cemented?'
   = f.check_box :cemented
   = f.select :customer_id, options_for_select(get_customers_options)

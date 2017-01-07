@@ -7,7 +7,6 @@ class BasinMetrics::Well < ActiveRecord::Base
 
   validates :name, presence: true
   validates :number, presence: true, uniqueness: true
-  validates :pump_running, inclusion: [ true, false ]
   validates :cemented, inclusion: [ true, false ]
   validates :customer_id, presence: true
   validates :district_id, presence: true

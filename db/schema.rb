@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104032434) do
+ActiveRecord::Schema.define(version: 20170107004611) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -78,19 +78,21 @@ ActiveRecord::Schema.define(version: 20170104032434) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wells", force: :cascade do |t|
-    t.string   "name",          limit: 255,                 null: false
-    t.string   "number",        limit: 255,                 null: false
-    t.datetime "work_start"
-    t.datetime "work_duration"
-    t.boolean  "pump_running",              default: false, null: false
-    t.boolean  "cemented",                  default: false, null: false
-    t.integer  "revenue",       limit: 4,   default: 0
-    t.boolean  "complete",                  default: false
-    t.string   "comments",      limit: 255
-    t.integer  "customer_id",   limit: 4
-    t.integer  "district_id",   limit: 4
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.string   "name",           limit: 255,                 null: false
+    t.string   "number",         limit: 255,                 null: false
+    t.datetime "est_start"
+    t.datetime "actual_start"
+    t.boolean  "cemented",                   default: false, null: false
+    t.integer  "revenue",        limit: 4,   default: 0
+    t.string   "comments",       limit: 255
+    t.integer  "customer_id",    limit: 4
+    t.integer  "district_id",    limit: 4
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "directions",     limit: 255
+    t.datetime "est_end"
+    t.datetime "completed"
+    t.string   "pump_down_ring", limit: 255
   end
 
   add_index "wells", ["customer_id"], name: "index_wells_on_customer_id", using: :btree
