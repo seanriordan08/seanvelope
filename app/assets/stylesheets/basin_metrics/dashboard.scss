@@ -36,8 +36,14 @@ $option_height: 40px;
   tfoot    { display: table-footer-group }
   col      { display: table-column }
   colgroup { display: table-column-group }
-  td, th   { display: table-cell; padding: 1px 3px 0 3px; }
+  td, th   { display: table-cell; height: 31px; padding: 1px 3px 0 3px; }
   caption  { display: table-caption }
+
+  .flatpickr {
+    height: 100%;
+    background-color: $basin_black;
+    border: none;
+  }
 
   .close_circle {
     position: absolute;
