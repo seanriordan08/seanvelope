@@ -31,7 +31,7 @@
           %td.record_attribute{'data-name':'revenue'}
             %div= part['revenue']
           %td.record_attribute.nullable{'data-name':'date_sold'}
-            %input.flatpickr{placeholder: 'pending'}= part['date_sold'].blank? ? '' : part['date_sold']
+            %input.date_selector{value: part['date_sold'], placeholder: "#{part['date_sold'].blank? ? 'pending' : part['date_sold']}"}
           %td.record_attribute{'data-name':'well_id'}
             %div= get_well(part['well_id'].to_i).number
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
@@ -41,6 +41,15 @@
 
 :javascript
   setNullableFieldColors();
-  flatpickr(".flatpickr", {
-    weekNumbers: true
+  flatpickr(".date_selector", {
+    utc: true,
+    enableTime: true,
+    weekNumbers: true,
+    altInput: true,
+    altFormat: "F j, Y h:i K"
+  });
+
+  $('input.date_selector').change(function(){
+    var new_content = $(this).val();
+    sendUpdate($(this), new_content);
   });

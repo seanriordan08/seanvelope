@@ -21,7 +21,7 @@
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
           %td.record_attribute.nullable{'data-name':'completed'}
-            %input.flatpickr{value: well['completed'],placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
+            %input.date_selector{value: well['completed'], placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
           %td.record_attribute{'data-name':'customer_id'}
             %div= get_customer(well['customer_id'].to_i).name.humanize
           %td.record_attribute{'data-name':'district_id'}
@@ -34,14 +34,15 @@
 :javascript
   var focused_input;
   setNullableFieldColors();
-  flatpickr(".flatpickr", {
+  flatpickr(".date_selector", {
+    utc: true,
     enableTime: true,
     weekNumbers: true,
     altInput: true,
     altFormat: "F j, Y h:i K"
   });
 
-  $('input.flatpickr').change(function(){
+  $('input.date_selector').change(function(){
     var new_content = $(this).val();
     sendUpdate($(this), new_content);
   });
