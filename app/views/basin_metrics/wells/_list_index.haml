@@ -21,7 +21,7 @@
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
           %td.record_attribute.nullable{'data-name':'completed'}
-            %input.flatpickr{placeholder: 'pending'}= well['completed'].blank? ? '' : well['completed']
+            %input.flatpickr{placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
           %td.record_attribute{'data-name':'customer_id'}
             %div= get_customer(well['customer_id'].to_i).name.humanize
           %td.record_attribute{'data-name':'district_id'}
@@ -32,8 +32,19 @@
       No Wells Added yet - Go ahead and add some!
 
 :javascript
+  var focused_input;
   setNullableFieldColors();
   flatpickr(".flatpickr", {
     enableTime: true,
     weekNumbers: true
+  });
+
+  $('input.flatpickr').click(function(){
+    focused_input = $(this);
+  })
+
+  $('.flatpickr-calendar').mouseleave(function(){
+    if (focused_input != 'undefined'){
+      sendUpdate(focused_input, focused_input.val());
+    }
   });

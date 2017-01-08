@@ -3,6 +3,7 @@ $(document).on('ready', function() {
   attributeRecordHighlights();
   attributeContentEditable();
   attributeContentCheckable();
+
 });
 
 function listRecordHighlights() {
@@ -21,9 +22,9 @@ function listRecordHighlights() {
 
 function attributeRecordHighlights() {
   $(document).on("mouseenter", '.record_attribute', function (event) {
-    $(this).css({backgroundColor: '#364A56'})
+    $(this).css({backgroundColor: '#364A56'});
   }).on("mouseleave", '.record_attribute', function() {
-    $(this).css({backgroundColor: 'transparent'})
+    $(this).css({backgroundColor: 'transparent'});
   });
 }
 
@@ -100,7 +101,6 @@ function sendUpdate(el, new_content){
   var record_attr = el.closest('.record_attribute');
   var context_id = record.data(context + 'id');
   var param_key = record_attr.data("name");
-
   $.ajax({
     method: 'PUT',
     url: '/basin_metrics/' + context + 's/' + context_id,
