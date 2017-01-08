@@ -107,6 +107,7 @@ function sendUpdate(el, new_content){
     data: param_key + '=' + new_content,
     dataType: 'script'
   });
+  cleanNulls(el, new_content);
 }
 
 function getNonEditableAttributes() {
