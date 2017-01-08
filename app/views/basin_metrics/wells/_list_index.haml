@@ -44,7 +44,7 @@
   })
 
   $('.flatpickr-calendar').mouseleave(function(){
-    if (focused_input != 'undefined'){
+    if (focused_input !== undefined){
       sendUpdate(focused_input, focused_input.val());
     }
   });
