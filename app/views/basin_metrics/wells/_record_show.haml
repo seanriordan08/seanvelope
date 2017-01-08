@@ -6,11 +6,8 @@
 .record_description
   %ul
     %li
-      .title Name:
-      .value #{well['name'].humanize}
-    %li
-      .title Number:
-      .value #{well['number']}
+      .title Well:
+      .value #{well['name'].humanize} #{well['number']}
     %li
       .title Est. Start/End:
       .value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
@@ -27,20 +24,20 @@
       .value.comment= well['comment'].blank? ? 'none' : well['comment']
 
 :javascript
-
+  var stroke_width = 16;
   var bar = new ProgressBar.Circle(container, {
     color: '#CCDBDC', //Text color
     // This has to be the same size as the maximum width to
     // prevent clipping
-    strokeWidth: 4,
-    trailWidth: 1,
+    strokeWidth: stroke_width,
+    trailWidth: 10,
     easing: 'easeInOut',
     duration: 1200,
     text: {
       autoStyleContainer: false
     },
-    from: { color: '#243038', width: 1 },
-    to: { color: '#298889', width: 4 },
+    from: { color: '#243038', width: 10 },
+    to: { color: '#298889', width: stroke_width },
     // Set default step function for all animate calls
     step: function(state, circle) {
       circle.path.setAttribute('stroke', state.color);
