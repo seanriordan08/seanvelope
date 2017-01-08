@@ -41,15 +41,21 @@
 
 :javascript
   setNullableFieldColors();
-  flatpickr(".date_selector", {
-    utc: true,
-    enableTime: true,
-    weekNumbers: true,
-    altInput: true,
-    altFormat: "F j, Y h:i K"
-  });
 
-  $('input.date_selector').change(function(){
-    var new_content = $(this).val();
-    sendUpdate($(this), new_content);
+  $(document).ready(function(){
+    var date_selectors = $('.date_selector');
+    flatpickr(".date_selector", {
+      utc: true,
+      enableTime: true,
+      weekNumbers: true,
+      altInput: true,
+      altFormat: "F j, Y h:i K",
+
+      onClose: function(selectedDates, dateStr, instance) {
+        var $el = $(instance.element._flatpickr.altInput);
+        var new_content = $el.val();
+        sendUpdate($el, new_content);
+      }
+    });
+    date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
   });
