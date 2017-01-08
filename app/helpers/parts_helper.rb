@@ -30,12 +30,13 @@ module PartsHelper
   end
 
   def get_monthly_plug_quantities
+    current_year = Time.zone.now.strftime('%Y').to_i
     well_x_label = 'Month'
-    well_y_label = 'Plug Count'
+    well_y_label = 'Plugs Sold'
     quantity_by_month = []
     (1..12).each do |m|
-      first_day = Date.civil(2016, m, 1).to_datetime.utc
-      last_day = Date.civil(2016, m, -1).to_datetime.utc
+      first_day = Date.civil(current_year, m, 1).to_datetime.utc
+      last_day = Date.civil(current_year, m, -1).to_datetime.utc
       plugs = BasinMetrics::Part.where(name: 'plug', date_sold: first_day..last_day)
       quantity = plugs.collect(&:quantity)
       quantity_by_month << quantity.sum

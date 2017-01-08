@@ -9,6 +9,9 @@
       .title Well:
       .value #{well['name'].humanize} #{well['number']}
     %li
+      .title Percent Complete:
+      .value #{well['percent_complete']}
+    %li
       .title Est. Start/End:
       .value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
       .value.comment= well['est_end'].blank? ? '' : well['est_end']
@@ -24,6 +27,7 @@
       .value.comment= well['comment'].blank? ? 'none' : well['comment']
 
 :javascript
+  var percent_complete = (parseFloat("#{well['percent_complete']}"))/100;
   var stroke_width = 16;
   var bar = new ProgressBar.Circle(container, {
     color: '#CCDBDC', //Text color
@@ -36,7 +40,7 @@
     text: {
       autoStyleContainer: false
     },
-    from: { color: '#243038', width: 10 },
+    from: { color: '#9faeaf', width: 10 },
     to: { color: '#298889', width: stroke_width },
     // Set default step function for all animate calls
     step: function(state, circle) {
@@ -45,13 +49,13 @@
 
       var value = Math.round(circle.value() * 100);
       if (value === 0) {
-        circle.setText('');
+        circle.setText('0' + '%');
       } else {
-        circle.setText(value);
+        circle.setText(value + '%');
       }
 
     }
   });
   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
   bar.text.style.fontSize = '2rem';
-  bar.animate(1.0);  // Number from 0.0 to 1.0
+  bar.animate(percent_complete);  // Number from 0.0 to 1.0
