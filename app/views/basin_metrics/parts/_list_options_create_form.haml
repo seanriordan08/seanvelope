@@ -1,5 +1,5 @@
 
-.title PARTS
+.title= BasinMetrics::PartsController::PARTS_LIST_TITLE
 
 = form_for BasinMetrics::Part.new, :method => :post, html: {class: 'create_line_form'}, remote: true do |f|
   = f.select(:name, [['part name', ''],['plug', 'plug'], ['pin_on_adapter', 'pin_on_adapter'], ['setting_sleeve', 'setting_sleeve']])

@@ -2,6 +2,8 @@ class BasinMetrics::PartsController < ApplicationController
 
   before_action :get_parts
 
+  PARTS_LIST_TITLE = 'INVENTORY'
+
   def index
     respond_to do |format|
       format.js { render layout: false }

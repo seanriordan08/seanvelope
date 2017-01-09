@@ -37,12 +37,14 @@ $record_height: 25px;
       }
 
       a {
+        height: 30px;
         float: left;
       }
 
       .create_line_form {
         float: left;
         margin-left: 25px;
+        height: 30px;
         .inline_fields {
           position: relative;
           height: 23px;

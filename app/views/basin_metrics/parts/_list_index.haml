@@ -1,6 +1,6 @@
 
 .list_options
-  .title PARTS
+  .title= BasinMetrics::PartsController::PARTS_LIST_TITLE
   = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless wells_missing?
 
 .list_content
