@@ -27,6 +27,10 @@
       responsiveAnimationDuration: 1000,
       maintainAspectRatio: false,
       scaleFontColor: "#fff",
+      tooltips: {
+        mode: 'index',
+        intersect: false
+      },
       scales: {
         xAxes: [{
           scaleLabel: {
@@ -37,7 +41,7 @@
             display: true,
           },
           ticks: {
-            beginAtZero:true,
+            beginAtZero: true,
             fontColor: "#9faeaf"
           }
         }],
@@ -48,8 +52,9 @@
             labelString: "#{get_monthly_plugs_sold[:y_label]}"
           },
           ticks: {
-            beginAtZero:true,
-            fontColor: "#9faeaf"
+            beginAtZero: true,
+            fontColor: "#9faeaf",
+            suggestedMin: 0
           }
         }]
       }
