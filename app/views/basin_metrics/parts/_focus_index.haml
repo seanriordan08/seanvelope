@@ -9,14 +9,16 @@
   $('canvas').attr('height', dyn_height);
   var ctx = $("#partsChart");
   var myChart = new Chart(ctx, {
-    type: 'line',
     data: {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       datasets: [{
-        label: "#{get_monthly_plug_quantities[:y_label]} by #{get_monthly_plug_quantities[:x_label]}",
-        data: #{get_monthly_plug_quantities[:array]},
+        type: 'line',
+        label: 'Plugs Sold',
+        data: #{get_monthly_plugs_sold[:array]},
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         borderColor: "rgba(75, 192, 192, 1)",
+        pointRadius: 3,
+        pointHoverRadius: 5,
         borderWidth: 1
       }]
     },
@@ -29,7 +31,7 @@
         xAxes: [{
           scaleLabel: {
             display: true,
-            labelString: "#{get_monthly_plug_quantities[:x_label]}"
+            labelString: "#{get_monthly_plugs_sold[:x_label]}"
           },
           gridLines: {
             display: true,
@@ -40,9 +42,10 @@
           }
         }],
         yAxes: [{
+            stacked: true,
             scaleLabel: {
             display: true,
-            labelString: "#{get_monthly_plug_quantities[:y_label]}"
+            labelString: "#{get_monthly_plugs_sold[:y_label]}"
           },
           ticks: {
             beginAtZero:true,

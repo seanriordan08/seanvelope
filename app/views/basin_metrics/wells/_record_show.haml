@@ -9,14 +9,14 @@
       .title Well:
       .value #{well['name'].humanize} #{well['number']}
     %li
-      .title Percent Complete:
-      input.value #{well['percent_complete']}
+      .title % Complete:
+      .record_attribute.value{placeholder: "#{well['percent_complete']}"}
     %li
-      .title Est. Start/End:
+      .title Start/End Est:
       .value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
       .value.comment= well['est_end'].blank? ? '' : well['est_end']
     %li
-      .title Actual Start/End:
+      .title Start/End Actual:
       .value.comment= well['actual_start'].blank? ? 'pending' : well['actual_start']
       .value.comment= well['completed'].blank? ? '' : "to" + well['completed']
     %li
@@ -27,7 +27,7 @@
       .value.comment= well['comment'].blank? ? 'none' : well['comment']
 
 :javascript
-  var percent_complete = (parseFloat("#{well['percent_complete']}"))/100;
+  var percent_complete = getWellPercentComplete();
   var stroke_width = 16;
   var bar = new ProgressBar.Circle(container, {
     color: '#CCDBDC', //Text color
@@ -59,3 +59,7 @@
   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
   bar.text.style.fontSize = '2rem';
   bar.animate(percent_complete);  // Number from 0.0 to 1.0
+
+  function getWellPercentComplete(){
+    return (parseFloat("#{well['percent_complete']}"))/100;
+  }
