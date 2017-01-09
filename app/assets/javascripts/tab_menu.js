@@ -16,7 +16,6 @@ function toggleTabMenu(el){
   var panel = el.find('.tab_panel');
 
   if (el.hasClass('selected')){
-    //debugger;
     if (panel.hasClass('shown')){
       panel.animate({opacity: 0}, 30).hide();
       panel.removeClass('shown');

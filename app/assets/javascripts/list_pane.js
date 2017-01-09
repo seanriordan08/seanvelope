@@ -3,7 +3,7 @@ $(document).on('ready', function() {
   attributeRecordHighlights();
   attributeContentEditable();
   attributeContentCheckable();
-
+  attributeContentSelectable();
 });
 
 function listRecordHighlights() {
@@ -79,6 +79,13 @@ function attributeContentCheckable() {
   });
 }
 
+function attributeContentSelectable() {
+  $(document).on('change', "select", function() {
+    var new_content = $(this).val();
+    sendUpdate($(this), new_content);
+  });
+}
+
 //Helpers
 
 function cleanNulls(el, text) {
@@ -111,7 +118,7 @@ function sendUpdate(el, new_content){
 }
 
 function getNonEditableAttributes() {
-  var omitted_well_attributes = [];
+  var omitted_well_attributes = ['pump_down_ring'];
 
   var omitted_global_attributes = ['customer_id','district_id', 'created_at', 'updated_at'];
   return omitted_global_attributes.concat(omitted_well_attributes);

@@ -21,7 +21,7 @@
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
           %td.record_attribute.nullable{'data-name':'pump_down_ring'}
-            %div= well['pump_down_ring'].blank? ? 'none' : well['pump_down_ring']
+            = select_options_tag('pump_down_ring',[['select size', ''],['none', ''], ['3.70', '3.70'], ['3.79', '3.79']], value: well['pump_down_ring'])
           %td.record_attribute.nullable{'data-name':'completed'}
             %input.date_selector{value: well['completed'], placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
           %td.record_attribute{'data-name':'customer_id'}

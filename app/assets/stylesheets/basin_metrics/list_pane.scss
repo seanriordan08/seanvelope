@@ -10,6 +10,15 @@ $record_height: 25px;
     margin: 0 0 0 2%;
     padding: 10px 2% 0 0;
 
+    select {
+      width: 100%;
+      height: 100%;
+      color: #CCDBDC;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+    }
+
     .list_options {
       display: inline-block;
       width: 100%;
@@ -34,11 +43,6 @@ $record_height: 25px;
       .create_line_form {
         float: left;
         margin-left: 25px;
-        input, select {
-          color: $basin_white;
-          background-color: $basin_ltblack;
-          border: 1px solid $basin_gray;
-        }
         a, input {
           position: relative;
           vertical-align: middle;
