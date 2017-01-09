@@ -13,7 +13,7 @@
         - heading = (heading == 'well') ? 'well_number'.titleize : heading.titleize
         %th.part_heading= heading
       - parts.each_with_index do |part|
-        %tr.part_record{'data-partid': part['id']}
+        %tr.record.part_record{'data-partid': part['id']}
           %td.record_attribute
             %div= get_part_customer_name(part['id'])
           %td.record_attribute{'data-name':'name'}

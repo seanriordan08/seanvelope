@@ -42,7 +42,6 @@ function attributeContentEditable() {
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
   }).on('blur', '.record_attribute div', function(){
     $(this).off("keydown");
-
     var content = cleanNulls($(this), $(this).text());
     if (content != null){
       $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
