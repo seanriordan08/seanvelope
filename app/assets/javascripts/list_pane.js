@@ -86,6 +86,7 @@ function attributeContentSelectable() {
   });
 }
 
+
 //Helpers
 
 function cleanNulls(el, text) {

@@ -45,16 +45,13 @@ $record_height: 25px;
         float: left;
         margin-left: 25px;
         height: 30px;
-        .inline_fields {
+        a, .inline_fields {
           position: relative;
           height: 23px;
           width: auto;
           vertical-align: middle;
           float: none;
           line-height: 100%;
-        }
-        a {
-          @extend .inline_fields;
         }
         input {
           @extend .inline_fields;

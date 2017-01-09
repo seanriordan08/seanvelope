@@ -47,6 +47,9 @@
     height: 29%;
     li {
       list-style-type: none;
+      .record_attribute {
+       display: inline-block;
+      }
       .title {
         font-size: 1em;
         display: inline;
@@ -58,6 +61,10 @@
         display: inline-block;
         padding-left: 10px;
         color: $basin_white;
+      }
+      input {
+        display: inline-block;
+        width: auto;
       }
       .comment {
         color: $basin_dkwhite;

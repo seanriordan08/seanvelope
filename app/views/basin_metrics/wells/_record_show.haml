@@ -14,8 +14,10 @@
         %div #{well['percent_complete']}
     %li
       .title Start/End Est:
-      .value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
-      .value.comment= well['est_end'].blank? ? '' : well['est_end']
+      .record_attribute.nullable{'data-name':'est_range_concatenated'}
+        %input.date_selector{value: well['est_range_concatenated'], placeholder: "#{well['est_range_concatenated'].blank? ? 'pending' : well['est_range_concatenated']}"}
+      -#.value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
+      -#.value.comment= well['est_end'].blank? ? '' : well['est_end']
     %li
       .title Start/End Actual:
       .value.comment= well['actual_start'].blank? ? 'pending' : well['actual_start']
