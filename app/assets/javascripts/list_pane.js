@@ -32,7 +32,7 @@ function attributeContentEditable() {
   var changes_made = false;
   var all_ommitted_attributes = getNonEditableAttributes();
 
-  $(document).on('click', 'td.record_attribute div', function() {
+  $(document).on('click', '.record_attribute div', function() {
     if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0)
       return;
 
@@ -40,8 +40,9 @@ function attributeContentEditable() {
       changes_made = true;
     });
     $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
-  }).on('blur', 'td.record_attribute div', function(){
+  }).on('blur', '.record_attribute div', function(){
     $(this).off("keydown");
+
     var content = cleanNulls($(this), $(this).text());
     if (content != null){
       $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
@@ -125,7 +126,7 @@ function getNonEditableAttributes() {
 }
 
 function getContext(el) {
-  var el_class = el.closest('tr').attr('class');
+  var el_class = el.closest('.record').attr('class');
   if (el_class.indexOf('well') >= 0){
     return 'well';
   } else if (el_class.indexOf('part') >= 0){

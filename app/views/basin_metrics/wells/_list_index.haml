@@ -13,7 +13,7 @@
       - get_well_headings.each do |heading|
         %th.well_heading= heading.titleize
       - wells.each_with_index do |well|
-        %tr.well_record{'data-wellid': well['id']}
+        %tr.record.well_record{'data-wellid': well['id']}
           %td
             %div.examine_circle= link_to(material_icon.donut_large, basin_metrics_well_show_path(well['id']), method: :get, remote: true)
           %td.record_attribute{'data-name':'name'}
