@@ -1,3 +1,4 @@
+-# *_range represents "#{start_date} to #{end_date}"
 
 .progress_pane
   %div.close_circle= link_to(material_icon.cancel, basin_metrics_well_show_path(well['id']), method: :get, remote: true)
@@ -14,14 +15,12 @@
         %div #{well['percent_complete']}
     %li
       .title Start/End Est:
-      .record_attribute.nullable{'data-name':'est_range_concatenated'}
-        %input.date_selector{value: well['est_range_concatenated'], placeholder: "#{well['est_range_concatenated'].blank? ? 'pending' : well['est_range_concatenated']}"}
-      -#.value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']
-      -#.value.comment= well['est_end'].blank? ? '' : well['est_end']
+      .record_attribute.nullable{'data-name':'est_schedule_range'}
+        %input.date_selector{value: well['est_schedule_range'], placeholder: "#{well['est_schedule_range'].blank? ? 'pending' : well['est_schedule_range']}"}
     %li
       .title Start/End Actual:
-      .value.comment= well['actual_start'].blank? ? 'pending' : well['actual_start']
-      .value.comment= well['completed'].blank? ? '' : "to" + well['completed']
+      .record_attribute.nullable{'data-name':'actual_schedule_range'}
+        %input.date_selector{value: well['actual_schedule_range'], placeholder: "#{well['actual_schedule_range'].blank? ? 'pending' : well['actual_schedule_range']}"}
     %li
       .title Directions:
       .value.comment= well['directions'].blank? ? 'none' : well['directions']
@@ -66,3 +65,21 @@
   function getWellPercentComplete(){
     return (parseFloat("#{well['percent_complete']}"))/100;
   }
+
+  $(document).ready(function(){
+    var date_selectors = $('.date_selector');
+    flatpickr(".date_selector", {
+      utc: true,
+      enableTime: true,
+      weekNumbers: true,
+      altInput: true,
+      altFormat: "F j, Y h:i K",
+
+      onClose: function(selectedDates, dateStr, instance) {
+        var $el = $(instance.element._flatpickr.altInput);
+        var new_content = $el.val();
+        sendUpdate($el, new_content);
+      }
+    });
+    date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
+  });
