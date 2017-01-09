@@ -20,7 +20,7 @@ $record_height: 25px;
     }
 
     .list_options {
-      display: inline-block;
+      display: inline;
       width: 100%;
       margin-bottom: 5px;
       height: $record_height;
@@ -43,12 +43,26 @@ $record_height: 25px;
       .create_line_form {
         float: left;
         margin-left: 25px;
-        a, input {
+        .inline_fields {
           position: relative;
+          height: 23px;
+          width: auto;
           vertical-align: middle;
           float: none;
-          height: 23px;
           line-height: 100%;
+        }
+        a {
+          @extend .inline_fields;
+        }
+        input {
+          @extend .inline_fields;
+          color: $basin_white;
+          background-color: $basin_ltblack;
+          border: none;
+        }
+        select {
+          @extend .inline_fields;
+          background-color: $basin_ltblack;
         }
       }
     }
