@@ -1,7 +1,7 @@
 module WellsHelper
 
   def get_well_headings
-    %W(#{''} name number completed customer district)
+    %W(#{''} name number pump_down_ring completed customer district)
   end
 
   def get_customers_options

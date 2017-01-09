@@ -3,14 +3,14 @@
   %div.close_circle= link_to(material_icon.cancel, basin_metrics_well_show_path(well['id']), method: :get, remote: true)
   .progress_content
     %div{id:"container"}
-.record_description
+.record_description.well_record{'data-wellid': well['id']}
   %ul
     %li
       .title Well:
       .value #{well['name'].humanize} #{well['number']}
     %li
       .title Percent Complete:
-      .value #{well['percent_complete']}
+      input.value #{well['percent_complete']}
     %li
       .title Est. Start/End:
       .value.comment= well['est_start'].blank? ? 'pending' : "to" + well['est_start']

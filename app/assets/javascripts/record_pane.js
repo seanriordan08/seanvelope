@@ -1,5 +1,7 @@
 $(document).on('ready', function() {
 
+  recordAttributeContentEditable();
+
   $('.close_circle a').on("record_pane:close", function (e) {
     e.preventDefault();
     closeRecordPaneDirectly();
@@ -18,6 +20,35 @@ function closeRecordPaneDirectly(el){
     duration: 200, easing: "easeInExpo"
   });
   el.removeClass('showing');
+}
+
+function recordAttributeContentEditable() {
+  var changes_made = false;
+  var all_ommitted_attributes = getNonEditableAttributes();
+
+  $(document).on('click', 'td.record_attribute div', function() {
+    if ($.inArray($(this).data("name"), all_ommitted_attributes) >= 0)
+      return;
+
+    $(this).keydown(function(){
+      changes_made = true;
+    });
+    $(this).attr({contenteditable:'true',spellcheck:'false'}).focus().css({color: '#9faeaf'});
+  }).on('blur', 'td.record_attribute div', function(){
+    $(this).off("keydown");
+    var content = cleanNulls($(this), $(this).text());
+    if (content != null){
+      $(this).removeAttr('contenteditable').css({color: '#CCDBDC'});
+    } else {
+      content = 'none';
+    }
+
+    if (changes_made) {
+      sendUpdate($(this), content);
+      changes_made = false;
+    }
+
+  });
 }
 
 function sendRecordUpdate(el, new_content){
@@ -42,10 +73,4 @@ function getRecordContext(el) {
   } else if (el_class.indexOf('part') >= 0){
     return 'part';
   }
-}
-
-function setNullableRecordFieldColors() {
-  //$('.record_attribute.nullable div').each(function(index){
-  //  cleanNulls($(this), $(this).text());
-  //});
 }

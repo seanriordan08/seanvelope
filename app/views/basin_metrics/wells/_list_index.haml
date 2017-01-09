@@ -11,7 +11,7 @@
   - elsif wells_exist?
     %table.list_table
       - get_well_headings.each do |heading|
-        %th.well_heading= heading
+        %th.well_heading= heading.titleize
       - wells.each_with_index do |well|
         %tr.well_record{'data-wellid': well['id']}
           %td
@@ -20,6 +20,8 @@
             %div= well['name'].humanize
           %td.record_attribute{'data-name':'number'}
             %div= well['number']
+          %td.record_attribute.nullable{'data-name':'pump_down_ring'}
+            %div= well['pump_down_ring'].blank? ? 'none' : well['pump_down_ring']
           %td.record_attribute.nullable{'data-name':'completed'}
             %input.date_selector{value: well['completed'], placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
           %td.record_attribute{'data-name':'customer_id'}
