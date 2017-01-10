@@ -11,9 +11,7 @@
   - elsif current_user.company.parts.exists?
     %table.list_table
       - get_part_headings.each do |heading|
-        - heading = heading.include?('_id') ? heading.chomp('_id') : heading
-        - heading = (heading == 'well') ? 'well_number'.titleize : heading.titleize
-        %th.part_heading= heading
+        %th.part_heading= heading.titleize
       - parts.each_with_index do |part|
         %tr.record.part_record{'data-partid': part['id']}
           %td.record_attribute

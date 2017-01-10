@@ -1,8 +1,8 @@
 
 .list_options
   .title WELLS
-  - if current_user.company.wells.exists?
-    = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true) unless (!current_user.company.customers.exists? || !current_user.company.districts.exists?)
+  - if current_user.company.customers.exists? && current_user.company.districts.exists?
+    = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true)
 
 .list_content
   - if !current_user.company.customers.exists?
