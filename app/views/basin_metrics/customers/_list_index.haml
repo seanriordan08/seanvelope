@@ -4,13 +4,10 @@
   = link_to(material_icon.add_circle_outline, basin_metrics_customers_new_path, remote: true)
 
 .list_content
-  - if customers_exist?
+  - if current_user.company.customers.exists?
     %table.list_table
-      - customers.first.keys.each do |key|
-        - if (key == 'id') || (key == 'revenue')
-          - next
-        - else
-          %th.list_heading= key
+      - get_customer_headings.each do |heading|
+        %th.customer_heading= heading.titleize
       - customers.each_with_index do |customer|
         %tr.customer_record{'data-customerid': customer['id']}
           %td.record_attribute{'data-name':'name'}= customer['name'].humanize

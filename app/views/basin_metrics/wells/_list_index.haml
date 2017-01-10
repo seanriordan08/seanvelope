@@ -1,14 +1,17 @@
 
 .list_options
   .title WELLS
-  = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true) unless (customers_missing? || districts_missing?)
+  - if current_user.company.wells.exists?
+    = link_to(material_icon.add_circle_outline, basin_metrics_wells_new_path, remote: true) unless (customers_missing? || districts_missing?)
 
 .list_content
-  - if customers_missing?
-    Please add some Customers first
-  - elsif districts_missing?
-    Please add some Districts first
-  - elsif wells_exist?
+  - if !current_user.company.customers.exists?
+    .no_record
+      Please add some Customers first
+  - elsif !current_user.company.districts.exists?
+    .no_record
+      Please add some Districts first
+  - elsif current_user.company.wells.exists?
     %table.list_table
       - get_well_headings.each do |heading|
         %th.well_heading= heading.titleize

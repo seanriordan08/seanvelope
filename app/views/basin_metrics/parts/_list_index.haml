@@ -1,12 +1,14 @@
 
 .list_options
   .title= BasinMetrics::PartsController::PARTS_LIST_TITLE
-  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless wells_missing?
+  - if current_user.company.wells.exists?
+    = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless wells_missing?
 
 .list_content
-  - if wells_missing?
-    Please add some Wells first
-  - elsif parts_exist?
+  - if !current_user.company.wells.exists?
+    .no_record
+      Please add some Wells first
+  - elsif current_user.company.parts.exists?
     %table.list_table
       - get_part_headings.each do |heading|
         - heading = heading.include?('_id') ? heading.chomp('_id') : heading

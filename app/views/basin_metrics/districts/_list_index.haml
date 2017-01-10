@@ -4,7 +4,7 @@
   = link_to(material_icon.add_circle_outline, basin_metrics_districts_new_path, remote: true)
 
 .list_content
-  - if districts_exist?
+  - if current_user.company.districts.exists?
     %table.list_table
       - get_district_headings.each do |heading|
         %th.district_heading= heading.include?('_id') ? heading.chomp('_id') : heading
