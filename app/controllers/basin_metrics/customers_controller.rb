@@ -15,7 +15,8 @@ class BasinMetrics::CustomersController < ApplicationController
   end
 
   def create
-    customer_params[:name] = customer_params[:name].strip.downcase.parameterize.underscore
+    params[:basin_metrics_customer][:name] = params[:basin_metrics_customer][:name].strip.downcase.parameterize.underscore
+    params[:basin_metrics_customer].merge!(company_id: "#{current_user.company.id}")
     @customer = BasinMetrics::Customer.new(customer_params)
 
     if @customer.save
@@ -71,9 +72,9 @@ class BasinMetrics::CustomersController < ApplicationController
 
   def customer_params
     if params[:basin_metrics_customer]
-      params.require(:basin_metrics_customer).permit(:name)
+      params.require(:basin_metrics_customer).permit(:name, :company_id)
     else
-      params.permit(:id, :name)
+      params.permit(:id, :name, :company_id)
     end
   end
 

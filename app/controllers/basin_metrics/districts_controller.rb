@@ -15,7 +15,8 @@ class BasinMetrics::DistrictsController < ApplicationController
   end
 
   def create
-    district_params[:name] = district_params[:name].strip.downcase.parameterize.underscore
+    params[:basin_metrics_district][:name] = params[:basin_metrics_district][:name].strip.downcase.parameterize.underscore
+    params[:basin_metrics_district].merge!(company_id: "#{current_user.company.id}")
     @district = BasinMetrics::District.new(district_params)
 
     if @district.save
@@ -80,9 +81,9 @@ class BasinMetrics::DistrictsController < ApplicationController
 
   def district_params
     if params[:basin_metrics_district]
-      params.require(:basin_metrics_district).permit(:name)
+      params.require(:basin_metrics_district).permit(:name, :company_id)
     else
-      params.permit(:id, :name)
+      params.permit(:id, :name, :company_id)
     end
   end
 

@@ -2,7 +2,7 @@
 .list_options
   .title= BasinMetrics::PartsController::PARTS_LIST_TITLE
   - if current_user.company.wells.exists?
-    = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true) unless wells_missing?
+    = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
 
 .list_content
   - if !current_user.company.wells.exists?
