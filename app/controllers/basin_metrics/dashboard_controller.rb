@@ -6,4 +6,5 @@ class BasinMetrics::DashboardController < ApplicationController
     @customers = BasinMetrics::Customer.all
     @districts = BasinMetrics::District.all
   end
+
 end
