@@ -1,6 +1,7 @@
 class BasinMetrics::WellsController < ApplicationController
 
   before_action :get_wells
+  before_action :set_est_schedule_attributes, only: [:update]
 
   DATETIME_FIELDS = %w(work_start work_duration)
 
@@ -44,7 +45,7 @@ class BasinMetrics::WellsController < ApplicationController
   end
 
   def update
-    well_params[:name] = clean_name_param(well_params[:name])
+    well_params[:name] = clean_name_param(well_params[:name]) if well_params[:name].present?
     @well = BasinMetrics::Well.find(well_params[:id])
 
     if @well.update(well_params)
@@ -81,15 +82,31 @@ class BasinMetrics::WellsController < ApplicationController
 
   def well_params
     if params[:basin_metrics_well]
-      params.require(:basin_metrics_well).permit(:name, :number, :est_start, :actual_start, :est_end, :completed, :pump_down_ring, :cemented, :customer_id, :district_id, :percent_complete)
+      params.require(:basin_metrics_well).permit!
     else
-      params.permit(:id, :name, :number, :est_start, :actual_start, :est_end, :completed, :pump_down_ring, :cemented, :customer_id, :district_id, :comments, :percent_complete)
+      params.permit(:id, :name, :number, :est_schedule_range, :est_start, :actual_start, :est_end, :completed, :pump_down_ring, :cemented, :customer_id, :district_id, :comments, :percent_complete)
     end
   end
 
   def get_wells
     @wells = BasinMetrics::Well.all
     @wells = @wells.map(&:attributes).to_json.html_safe
+  end
+
+  def set_est_schedule_attributes
+    return if well_params[:est_schedule_range].blank?
+
+    est_sch_range = params[:est_schedule_range]
+
+    if est_sch_range.present?
+      params.merge!(parseEstDateRange(est_sch_range))
+      params.delete('est_schedule_range')
+    end
+  end
+
+  def parseEstDateRange(sch_range)
+    ranges = sch_range.split(' to ')
+    {est_start: ranges.first, est_end: ranges.last}
   end
 
 

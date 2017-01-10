@@ -16,7 +16,7 @@
     %li
       .title Start/End Est:
       .record_attribute.nullable{'data-name':'est_schedule_range'}
-        %input.date_selector{value: well['est_schedule_range'], placeholder: "#{well['est_schedule_range'].blank? ? 'pending' : well['est_schedule_range']}"}
+        %input.date_selector{value: "#{well['est_start']} to #{well['est_end']}", placeholder: well['est_start'].blank? ? 'pending' : "#{well['est_start']} to #{well['est_end']}"}
     %li
       .title Start/End Actual:
       .record_attribute.nullable{'data-name':'actual_schedule_range'}
@@ -70,10 +70,10 @@
     var date_selectors = $('.date_selector');
     flatpickr(".date_selector", {
       utc: true,
-      enableTime: true,
+      mode: 'range',
       weekNumbers: true,
       altInput: true,
-      altFormat: "F j, Y h:i K",
+      altFormat: "M j, Y",
 
       onClose: function(selectedDates, dateStr, instance) {
         var $el = $(instance.element._flatpickr.altInput);
