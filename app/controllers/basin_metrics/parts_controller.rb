@@ -79,7 +79,7 @@ class BasinMetrics::PartsController < ApplicationController
   end
 
   def get_parts
-    @parts = BasinMetrics::Part.all
+    @parts = current_user.reload.company.parts
     @parts = @parts.map(&:attributes).to_json.html_safe
   end
 

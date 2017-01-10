@@ -87,7 +87,7 @@ class BasinMetrics::DistrictsController < ApplicationController
   end
 
   def get_districts
-    @districts = BasinMetrics::District.all
+    @districts = current_user.reload.company.districts
     @districts = @districts.map(&:attributes).to_json.html_safe
   end
 end

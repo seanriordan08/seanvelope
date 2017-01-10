@@ -78,7 +78,7 @@ class BasinMetrics::CustomersController < ApplicationController
   end
 
   def get_customers
-    @customers = BasinMetrics::Customer.all
+    @customers = current_user.reload.company.customers
     @customers = @customers.map(&:attributes).to_json.html_safe
   end
 
