@@ -89,7 +89,7 @@ class BasinMetrics::WellsController < ApplicationController
   end
 
   def get_wells
-    @wells = current_user.company.wells
+    @wells = current_user.reload.company.wells
     @wells = @wells.map(&:attributes).to_json.html_safe
   end
 

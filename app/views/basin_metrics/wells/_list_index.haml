@@ -23,7 +23,7 @@
           %td.record_attribute.nullable{'data-name':'pump_down_ring'}
             = select_options_tag('pump_down_ring',[['3.70', '3.70'], ['3.79', '3.79']], value: well['pump_down_ring'], prompt: "none")
           %td.record_attribute.nullable{'data-name':'completed'}
-            %input.list_date_selector{value: well['completed'], placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
+            %input.list_date_selector{value: well['completed'].blank? ? '' : "#{format_date(well['completed'])}", placeholder: 'pending'}
           %td.record_attribute{'data-name':'customer_id'}
             %div= get_customer(well['customer_id'].to_i).name.humanize
           %td.record_attribute{'data-name':'district_id'}
@@ -43,7 +43,7 @@
       utc: true,
       weekNumbers: true,
       altInput: true,
-      altFormat: "F j, Y h:i K",
+      altFormat: "F j, Y",
 
       onClose: function(selectedDates, dateStr, instance) {
         var $el = $(instance.element._flatpickr.altInput);
