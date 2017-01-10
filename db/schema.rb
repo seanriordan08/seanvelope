@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108224349) do
+ActiveRecord::Schema.define(version: 20170110065953) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -21,17 +21,29 @@ ActiveRecord::Schema.define(version: 20170108224349) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "customers", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "company_id", limit: 4
+  end
+
+  add_index "customers", ["company_id"], name: "index_customers_on_company_id", using: :btree
+
   create_table "districts", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "company_id", limit: 4
   end
+
+  add_index "districts", ["company_id"], name: "index_districts_on_company_id", using: :btree
 
   create_table "parts", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
@@ -72,8 +84,10 @@ ActiveRecord::Schema.define(version: 20170108224349) do
     t.datetime "updated_at",                                      null: false
     t.string   "first_name",             limit: 255,              null: false
     t.string   "last_name",              limit: 255,              null: false
+    t.integer  "company_id",             limit: 4
   end
 
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -99,7 +113,10 @@ ActiveRecord::Schema.define(version: 20170108224349) do
   add_index "wells", ["customer_id"], name: "index_wells_on_customer_id", using: :btree
   add_index "wells", ["district_id"], name: "index_wells_on_district_id", using: :btree
 
+  add_foreign_key "customers", "companies"
+  add_foreign_key "districts", "companies"
   add_foreign_key "parts", "wells"
+  add_foreign_key "users", "companies"
   add_foreign_key "wells", "customers"
   add_foreign_key "wells", "districts"
 end

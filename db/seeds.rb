@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Add companies
+BasinMetrics::Company.create_with(name:'test_company').find_or_create_by!(name:'test_company')
+
 # Add users
 first_names = %w(example jim bob tom sally)
 last_names = %w(example_last_name smith johnson reynolds shears)
@@ -18,7 +21,8 @@ first_names.each_with_index do |first_name, index|
     last_name: last_names[index],
     email: "#{first_name}@example.com",
     password: 'password',
-    role: user_role
+    role: user_role,
+    company_id: BasinMetrics::Company.all.first.id
   ).find_or_create_by!(email: "#{first_name}@example.com")
 end
 
@@ -26,7 +30,8 @@ end
 customer_names = %w(slawson oxy spotted_hawk oasis wpx whiting qep stat_oil)
 customer_names.each do |n|
   BasinMetrics::Customer.create_with(
-    name: n
+    name: n,
+    company_id: BasinMetrics::Company.all.first.id
   ).find_or_create_by!(name: "#{n}")
 end
 
@@ -34,7 +39,8 @@ end
 district_names = %w(williston rock_springs vernal farmington longmont casper powell riverton)
 district_names.each do |name|
   BasinMetrics::District.create_with(
-    name: name
+    name: name,
+    company_id: BasinMetrics::Company.all.first.id
   ).find_or_create_by!(name: "#{name}")
 end
 
