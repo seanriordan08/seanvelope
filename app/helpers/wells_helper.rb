@@ -20,7 +20,7 @@ module WellsHelper
     well_y_label = 'Well Count'
     customers = BasinMetrics::Customer.all.order(:name)
     well_count_array = customers.collect do |c|
-      BasinMetrics::Well.where(customer_id: c).size
+      current_user.company.wells.where(customer_id: c).size
     end
     {array: well_count_array, x_label: well_x_label, y_label: well_y_label}
   end

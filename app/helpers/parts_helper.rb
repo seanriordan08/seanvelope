@@ -53,7 +53,7 @@ module PartsHelper
     (1..12).each do |m|
       first_day = Date.civil(current_year, m, 1).to_datetime.utc
       last_day = Date.civil(current_year, m, -1).to_datetime.utc
-      plugs = BasinMetrics::Part.where(name: 'plug', "#{target_attribute}": first_day..last_day)
+      plugs = current_user.company.parts.where(name: 'plug', "#{target_attribute}": first_day..last_day)
       quantity = plugs.collect(&:quantity)
       quantity_by_month << quantity.sum
     end
