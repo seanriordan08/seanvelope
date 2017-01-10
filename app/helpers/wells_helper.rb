@@ -9,8 +9,8 @@ module WellsHelper
   end
 
   def get_customers_options
-    customer_ids = BasinMetrics::Customer.all.order(:name).map(&:id)
-    customer_names = BasinMetrics::Customer.all.order(:name).map(&:name)
+    customer_ids = current_user.company.customers.order(:name).map(&:id)
+    customer_names = current_user.company.customers.order(:name).map(&:name)
 
     build_options(customer_ids, customer_names)
   end
@@ -26,8 +26,8 @@ module WellsHelper
   end
 
   def get_districts_options
-    district_ids = BasinMetrics::District.all.order(:name).map(&:id)
-    district_names = BasinMetrics::District.all.order(:name).map(&:name)
+    district_ids = current_user.company.districts.order(:name).map(&:id)
+    district_names = current_user.company.districts.order(:name).map(&:name)
 
     build_options(district_ids, district_names)
   end

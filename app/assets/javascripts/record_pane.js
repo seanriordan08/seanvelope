@@ -1,6 +1,6 @@
 $(document).on('ready', function() {
 
-  recordAttributeContentEditable();
+  //recordAttributeContentEditable();
 
   $('.close_circle a').on("record_pane:close", function (e) {
     e.preventDefault();
@@ -44,33 +44,10 @@ function recordAttributeContentEditable() {
     }
 
     if (changes_made) {
+      debugger;
       sendUpdate($(this), content);
       changes_made = false;
     }
 
   });
-}
-
-function sendRecordUpdate(el, new_content){
-  var context = getRecordContext(el);
-  //var record = el.closest('.'+ context +'_record');
-  //var record_attr = el.closest('.record_attribute');
-  //var context_id = record.data(context + 'id');
-  //var param_key = record_attr.data("name");
-  //$.ajax({
-  //  method: 'PUT',
-  //  url: '/basin_metrics/' + context + 's/' + context_id,
-  //  data: param_key + '=' + new_content,
-  //  dataType: 'script'
-  //});
-  //cleanNulls(el, new_content);
-}
-
-function getRecordContext(el) {
-  var el_class = el.closest('tr').attr('class');
-  if (el_class.indexOf('well') >= 0){
-    return 'well';
-  } else if (el_class.indexOf('part') >= 0){
-    return 'part';
-  }
 }
