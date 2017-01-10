@@ -1,4 +1,3 @@
--# *_range represents "#{start_date} to #{end_date}"
 
 .progress_pane
   %div.close_circle= link_to(material_icon.cancel, basin_metrics_well_show_path(well['id']), method: :get, remote: true)
@@ -18,7 +17,7 @@
       .record_attribute.nullable{'data-name':'est_schedule_range'}
         %input.date_selector_range{value: well['est_start'].blank? ? '' : "#{format_date(well['est_start'])} to #{format_date(well['est_end'])}", placeholder: 'pending'}
     %li
-      .title Start/End Actual:
+      .title Start Actual:
       .record_attribute.nullable{'data-name':'actual_start'}
         %input.date_selector{value: well['actual_start'].blank? ? '' : format_date(well['actual_start']), placeholder: 'pending'}
     %li
@@ -33,7 +32,6 @@
     var date_selectors = $('.date_selector');
     flatpickr(".date_selector", {
       utc: true,
-      mode: 'range',
       weekNumbers: true,
       altInput: true,
       altFormat: "M j, Y",

@@ -23,7 +23,7 @@
           %td.record_attribute.nullable{'data-name':'pump_down_ring'}
             = select_options_tag('pump_down_ring',[['select size', ''],['none', ''], ['3.70', '3.70'], ['3.79', '3.79']], value: well['pump_down_ring'])
           %td.record_attribute.nullable{'data-name':'completed'}
-            %input.datetime_selector{value: well['completed'], placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
+            %input.date_selector{value: well['completed'], placeholder: "#{well['completed'].blank? ? 'pending' : well['completed']}"}
           %td.record_attribute{'data-name':'customer_id'}
             %div= get_customer(well['customer_id'].to_i).name.humanize
           %td.record_attribute{'data-name':'district_id'}
@@ -38,10 +38,9 @@
   setNullableFieldColors();
 
   $(document).ready(function(){
-    var datetime_selectors = $('.datetime_selector');
-    flatpickr(".datetime_selector", {
+    var list_date_selectors = $('.date_selector');
+    flatpickr(".date_selector", {
       utc: true,
-      enableTime: true,
       weekNumbers: true,
       altInput: true,
       altFormat: "F j, Y h:i K",
@@ -52,5 +51,5 @@
         sendUpdate($el, new_content);
       }
     });
-    datetime_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
+    list_date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
   });
