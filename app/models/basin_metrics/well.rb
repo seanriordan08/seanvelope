@@ -15,11 +15,20 @@ class BasinMetrics::Well < ActiveRecord::Base
   validates :est_start, date: { after_or_equal_to: Proc.new { Date.today }, message: 'must be after today' }, on: :update
   validates :est_end, date: { after_or_equal_to: :est_start }, on: :update
 
-  validates :actual_start, date: { after_or_equal_to: Proc.new { Date.today }, message: 'must be after today' }, on: :update
-  validates :completed, date: { allow_blank: true, after_or_equal_to: :actual_start, message: 'must be ON or AFTER the Actual Start Date'}, on: :update
+  validates :actual_start, date: { allow_blank: true, before_or_equal_to: Proc.new { Date.today }, message: 'must ON or BEFORE today' }, on: :update
+  validate :completion, on: :update
 
   def self.human_attribute_name(attr, options = {})
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
+
+  def completion
+    return if completed.blank?
+    if completed < actual_start
+      errors.add(:completed, 'must be ON or AFTER the Actual Start Date')
+    elsif completed > Date.today
+      errors.add(:completed, 'must ON or BEFORE today')
+    end
   end
 
 end
