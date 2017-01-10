@@ -16,11 +16,11 @@
     %li
       .title Start/End Est:
       .record_attribute.nullable{'data-name':'est_schedule_range'}
-        %input.date_selector{value: "#{well['est_start']} to #{well['est_end']}", placeholder: well['est_start'].blank? ? 'pending' : "#{well['est_start']} to #{well['est_end']}"}
+        %input.date_selector_range{value: well['est_start'].blank? ? '' : "#{format_date(well['est_start'])} to #{format_date(well['est_end'])}", placeholder: 'pending'}
     %li
       .title Start/End Actual:
-      .record_attribute.nullable{'data-name':'actual_schedule_range'}
-        %input.date_selector{value: well['actual_schedule_range'], placeholder: "#{well['actual_schedule_range'].blank? ? 'pending' : well['actual_schedule_range']}"}
+      .record_attribute.nullable{'data-name':'actual_start'}
+        %input.date_selector{value: well['actual_start'].blank? ? '' : format_date(well['actual_start']), placeholder: 'pending'}
     %li
       .title Directions:
       .value.comment= well['directions'].blank? ? 'none' : well['directions']
@@ -29,6 +29,40 @@
       .value.comment= well['comment'].blank? ? 'none' : well['comment']
 
 :javascript
+  $(document).ready(function(){
+    var date_selectors = $('.date_selector');
+    flatpickr(".date_selector", {
+      utc: true,
+      mode: 'range',
+      weekNumbers: true,
+      altInput: true,
+      altFormat: "M j, Y",
+
+      onClose: function(selectedDates, dateStr, instance) {
+        var $el = $(instance.element._flatpickr.altInput);
+        var new_content = $el.val();
+        sendUpdate($el, new_content);
+      }
+    });
+    date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
+
+    var date_range_selectors = $('.date_selector_range');
+    flatpickr(".date_selector_range", {
+      utc: true,
+      mode: 'range',
+      weekNumbers: true,
+      altInput: true,
+      altFormat: "M j, Y",
+
+      onClose: function(selectedDates, dateStr, instance) {
+        var $el = $(instance.element._flatpickr.altInput);
+        var new_content = $el.val();
+        sendUpdate($el, new_content);
+      }
+    });
+    date_range_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
+  });
+
   var percent_complete = getWellPercentComplete();
   var stroke_width = 16;
   var bar = new ProgressBar.Circle(container, {
@@ -65,21 +99,3 @@
   function getWellPercentComplete(){
     return (parseFloat("#{well['percent_complete']}"))/100;
   }
-
-  $(document).ready(function(){
-    var date_selectors = $('.date_selector');
-    flatpickr(".date_selector", {
-      utc: true,
-      mode: 'range',
-      weekNumbers: true,
-      altInput: true,
-      altFormat: "M j, Y",
-
-      onClose: function(selectedDates, dateStr, instance) {
-        var $el = $(instance.element._flatpickr.altInput);
-        var new_content = $el.val();
-        sendUpdate($el, new_content);
-      }
-    });
-    date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
-  });

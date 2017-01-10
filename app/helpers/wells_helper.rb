@@ -1,5 +1,9 @@
 module WellsHelper
 
+  def format_date(time)
+    DateTime.parse(time).strftime('%b %d, %Y')
+  end
+
   def get_well_headings
     %W(#{''} name number pump_down_ring completed customer district)
   end
