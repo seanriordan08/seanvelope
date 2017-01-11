@@ -15,7 +15,7 @@ function emptyMainPane(){
 
 function closeRecordPaneDirectly(el){
   el.animate({
-    right: '-25%'
+    right: '-45%'
   },{
     duration: 200, easing: "easeInExpo"
   });

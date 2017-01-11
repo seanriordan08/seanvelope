@@ -80,7 +80,7 @@ function attributeContentCheckable() {
 }
 
 function attributeContentSelectable() {
-  $(document).on('change', "select", function() {
+  $(document).on('change', ".list_options select", function() {
     var new_content = $(this).val();
     sendUpdate($(this), new_content);
   });

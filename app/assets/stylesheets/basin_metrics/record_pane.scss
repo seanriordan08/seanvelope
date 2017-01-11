@@ -2,8 +2,9 @@
 .record_pane {
   position: absolute;
   top: 0;
-  right: -25%;
+  right: -45%;
   width: 25%;
+  min-width: 355px;
   min-height: 100%;
   height: auto;
   background-color: $basin_ltblack;
@@ -50,6 +51,10 @@
       list-style-type: none;
       .record_attribute {
        display: inline-block;
+        input {
+          display: inline-block;
+          width: calc(100% + 40px);
+        }
       }
       .title {
         font-size: 1em;
@@ -64,9 +69,45 @@
         color: $basin_white;
         line-height: 100%;
       }
-      input {
+      select.number_selector {
         display: inline-block;
-        width: calc(100% + 40px);
+        width: auto;
+        height: 100%;
+        color: $basin_black;
+        background-color: $basin_dkwhite;
+        border: none;
+        border-radius: 0;
+      }
+      input.number_selector {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 100%;
+        vertical-align: middle;
+        color: $basin_black;
+        background-color: $basin_dkwhite;
+        border: none;
+        border-radius: 5px;
+      }
+      span {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        cursor: pointer;
+        i {
+          position: relative;
+          top: 1px;
+          left: 2px;
+        }
+      }
+      .locked {
+        color: $basin_primary;
+        &:hover { color: $basin_highlight; }
+      }
+      .unlocked {
+        color: $basin_dkwhite;
+        &:hover { color: $basin_highlight; }
       }
       .comment {
         color: $basin_dkwhite;

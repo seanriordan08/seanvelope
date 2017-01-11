@@ -48,6 +48,21 @@ module WellsHelper
     get_completion_revenue_quantities('completed')
   end
 
+  def get_reservation_options
+    part_types = current_user.company.parts.order(:type).map(&:type).uniq
+    part_types.zip(part_types)
+  end
+
+  def get_reserved_type(well_id)
+    well_parts = BasinMetrics::Well.find(well_id).parts
+    well_parts.blank? ? 'none' : well_parts.where(name: 'plug').first.type
+  end
+
+  def get_reserved_qty(well_id)
+    reserved_qty = BasinMetrics::Well.find(well_id).reservations.map(&:quantity)
+    reserved_qty.first.blank? ? 0 : reserved_qty.first
+  end
+
   private
 
   def build_options(ids, names)

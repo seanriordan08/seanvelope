@@ -20,6 +20,15 @@
       .title Start Actual:
       .record_attribute.nullable{'data-name':'actual_start'}
         %input.date_selector{value: well['actual_start'].blank? ? '' : format_date(well['actual_start']), placeholder: 'pending'}
+    %li.reservation
+      .title Reserve Inventory:
+      = select_options_tag('Inventory', get_reservation_options, value: get_reserved_type(well['id']), prompt: "none", class: 'number_selector')
+      .title Qty:
+      %input.number_selector{type:'number', min:0, value: get_reserved_qty(well['id'])}
+      - if BasinMetrics::Well.find(well['id']).reservations.present?
+        %span.locked= material_icon.lock
+      - else
+        %span.unlocked= material_icon.lock_open
     %li
       .title Directions:
       .value.comment= well['directions'].blank? ? 'none' : well['directions']
