@@ -45,11 +45,7 @@ module WellsHelper
   end
 
   def get_monthly_wells_completed
-    get_completion_quantities('completed')
-  end
-
-  def get_monthly_revenues
-    # get_revenue_quantities('completed')
+    get_completion_revenue_quantities('completed')
   end
 
   private
@@ -62,37 +58,25 @@ module WellsHelper
     options
   end
 
-  def get_completion_quantities(target_attribute)
+  def get_completion_revenue_quantities(target_attribute)
     current_year = Time.zone.now.strftime('%Y').to_i
     last_year = Time.zone.now.last_year.strftime('%Y').to_i
     well_x_label = "#{last_year} to #{current_year}"
     well_y_label = 'Quantity'
-    quantity_by_month = []
+    completions_by_month = []
+    revenues_by_month = []
     [last_year,current_year].each do |y|
       (1..12).each do |m|
         first_day = Date.civil(y, m, 1).to_datetime.utc
         last_day = Date.civil(y, m, -1).to_datetime.utc
         completions = current_user.company.wells.where("#{target_attribute}": first_day..last_day)
-        quantity_by_month << completions.size
+        revenues = current_user.company.wells.where("#{target_attribute}": first_day..last_day, revenue: 0..Float::INFINITY).map(&:revenue)
+        completions_by_month << completions.size
+        revenues_by_month << revenues.sum
       end
     end
-    {array: quantity_by_month, x_label: well_x_label, y_label: well_y_label}
+    revenues_by_month.map!{|r| r/1000}
+    {completion_array: completions_by_month, revenue_array: revenues_by_month, x_label: well_x_label, y_label: well_y_label}
   end
 
-  # def get_revenue_quantities(target_attribute)
-  #   current_year = Time.zone.now.strftime('%Y').to_i
-  #   last_year = Time.zone.now.last_year.strftime('%Y').to_i
-  #   well_x_label = "#{last_year} to #{current_year}"
-  #   well_y_label = 'Quantity'
-  #   quantity_by_month = []
-  #   [last_year,current_year].each do |y|
-  #     (1..12).each do |m|
-  #       first_day = Date.civil(y, m, 1).to_datetime.utc
-  #       last_day = Date.civil(y, m, -1).to_datetime.utc
-  #       completions = current_user.company.wells.where("#{target_attribute}": first_day..last_day)
-  #       quantity_by_month << completions.size
-  #     end
-  #   end
-  #   {array: quantity_by_month, x_label: well_x_label, y_label: well_y_label}
-  # end
 end
