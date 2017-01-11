@@ -1,7 +1,7 @@
 .navbar
   .overview
     = material_icon.arrow_back.md_36
-  .title BASIN_METRICS
+  .title= "BASIN_METRICS : #{current_user.company.name.titleize}"
   .logout
     .user_name
       - if current_user

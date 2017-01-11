@@ -9,7 +9,7 @@ module PartsHelper
   end
 
   def get_part_district(part_id)
-    current_user.company.parts.where(id: part_id).first.district.name.titleize
+    current_user.reload.company.parts.where(id: part_id).first.district.name.titleize
   end
 
   def get_well(id)

@@ -27,7 +27,7 @@
           %td.record_attribute.nullable{'data-name':'date_sold'}
             %input.date_selector{value: part['date_sold'], placeholder: "#{part['date_sold'].blank? ? 'pending' : part['date_sold']}"}
           %td.record_attribute{'data-name':'district_id'}
-            %div= get_part_district(part['district_id'])
+            %div= get_part_district(part['id'])
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
   - else
     .no_record
