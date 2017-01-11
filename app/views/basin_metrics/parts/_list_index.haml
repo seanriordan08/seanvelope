@@ -1,10 +1,14 @@
 
 .list_options
   .title= BasinMetrics::PartsController::PARTS_LIST_TITLE
-  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
+  - if current_user.company.districts.exists?
+    = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
 
 .list_content
-  - if current_user.company.parts.exists?
+  - if !current_user.company.districts.exists?
+    .no_record
+      Please add some Districts first
+  - elsif current_user.company.parts.exists?
     %table.list_table
       - get_part_headings.each do |heading|
         %th.part_heading= heading.titleize
