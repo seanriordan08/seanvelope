@@ -46,7 +46,7 @@ end
 
 # Add wells
 well_names = %w(iron_bank golden saetz_fed nordeng ames cheryl stenjhem still_water ninefold federal breck)
-200.times do
+100.times do
   actual_date = (DateTime.now - (rand(10..340).days))
   complete_date = actual_date + 5.days
   BasinMetrics::Well.create!(
