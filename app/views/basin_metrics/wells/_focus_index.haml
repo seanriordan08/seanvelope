@@ -9,16 +9,15 @@
   $('canvas').attr('height', dyn_height);
   var ctx = $("#wellsChart");
   var myChart = new Chart(ctx, {
+    type: 'bar',
     data: {
       labels: #{%W(jan'16 feb'16 mar'16 apr'16 may'16 jun'16 jul'16 aug'16 sep'16 oct'16 nov'16 dec'16 jan'17 feb'17 mar'17 apr'17 may'17 jun'17 jul'17 aug'17 sep'17 oct'17 nov'17 dec'17)},
       datasets: [{
         label: 'Wells Completed',
-        type: 'line',
+        type: 'bar',
         data: #{get_monthly_wells_completed[:completion_array]},
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        borderColor: "rgba(75, 192, 192, 1)",
-        pointRadius: 3,
-        pointHoverRadius: 5,
+        backgroundColor: #{get_background_colors},
+        borderColor: #{get_border_colors},
         borderWidth: 1
       },{
         label: 'Revenue (k)',
