@@ -22,6 +22,23 @@ function closeRecordPaneDirectly(el){
   el.removeClass('showing');
 }
 
+function setLockTrigger(well_id){
+  $(document).on('click', '.record_pane .unlocked', function() {
+    console.log('unlocked');
+    var inventory_value = $(this).siblings('select.number_selector').find('option:selected').text();
+    var qty_value = $(this).siblings('input.number_selector').val();
+    if ((inventory_value && qty_value) && (qty_value > 0)) {
+      $.ajax({
+        method: 'POST',
+        url: "/basin_metrics/reservations/" + well_id,
+        dataType: 'script',
+        data: {inventory_value: inventory_value, qty_value: qty_value}
+      })
+    }
+  });
+}
+
+
 function recordAttributeContentEditable() {
   var changes_made = false;
   var all_ommitted_attributes = getNonEditableAttributes();
