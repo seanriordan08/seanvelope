@@ -12,8 +12,8 @@
     data: {
       labels: #{%W(jan'16 feb'16 mar'16 apr'16 may'16 jun'16 jul'16 aug'16 sep'16 oct'16 nov'16 dec'16 jan'17 feb'17 mar'17 apr'17 may'17 jun'17 jul'17 aug'17 sep'17 oct'17 nov'17 dec'17)},
       datasets: [{
-        type: 'line',
         label: 'Wells Completed',
+        type: 'line',
         data: #{get_monthly_wells_completed[:completion_array]},
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         borderColor: "rgba(75, 192, 192, 1)",
@@ -21,9 +21,11 @@
         pointHoverRadius: 5,
         borderWidth: 1
       },{
-        type: 'line',
         label: 'Revenue (k)',
+        type: 'line',
         data: #{get_monthly_wells_completed[:revenue_array]},
+        fill: false,
+        borderDash: [5, 4],
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         borderColor: "rgba(75, 192, 192, 1)",
         pointRadius: 3,
