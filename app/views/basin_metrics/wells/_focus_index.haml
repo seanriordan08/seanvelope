@@ -7,17 +7,27 @@
 
   var dyn_height = $('.focus_pane').height() + 'px'
   $('canvas').attr('height', dyn_height);
-
   var ctx = $("#wellsChart");
   var myChart = new Chart(ctx, {
-    type: 'bar',
     data: {
-      labels: #{get_customer_names},
+      labels: #{%W(jan'16 feb'16 mar'16 apr'16 may'16 jun'16 jul'16 aug'16 sep'16 oct'16 nov'16 dec'16 jan'17 feb'17 mar'17 apr'17 may'17 jun'17 jul'17 aug'17 sep'17 oct'17 nov'17 dec'17)},
       datasets: [{
-        label: "#{get_customer_well_counts[:y_label]} by #{get_customer_well_counts[:x_label]}",
-        data: #{get_customer_well_counts[:array]},
-        backgroundColor: #{get_background_colors},
-        borderColor: #{get_border_colors},
+        type: 'line',
+        label: 'Wells Completed',
+        data: #{get_monthly_wells_completed[:array]},
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        borderWidth: 1
+      },{
+        type: 'line',
+        label: 'Revenue (k)',
+        data: [12,25,67,45,87,213,34,56,98,23],
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        pointRadius: 3,
+        pointHoverRadius: 5,
         borderWidth: 1
       }]
     },
@@ -26,11 +36,15 @@
       responsiveAnimationDuration: 1000,
       maintainAspectRatio: false,
       scaleFontColor: "#fff",
+      tooltips: {
+        mode: 'index',
+        intersect: false
+      },
       scales: {
         xAxes: [{
           scaleLabel: {
             display: true,
-            labelString: "#{get_customer_well_counts[:x_label]}"
+            labelString: "#{get_monthly_wells_completed[:x_label]}"
           },
           gridLines: {
             display: true,
@@ -41,13 +55,15 @@
           }
         }],
         yAxes: [{
+            stacked: true,
             scaleLabel: {
             display: true,
-            labelString: "#{get_customer_well_counts[:y_label]}"
+            labelString: "#{get_monthly_wells_completed[:y_label]}"
           },
           ticks: {
-            beginAtZero:true,
-            fontColor: "#9faeaf"
+            beginAtZero: true,
+            fontColor: "#9faeaf",
+            suggestedMin: 0
           }
         }]
       }

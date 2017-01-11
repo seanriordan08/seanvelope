@@ -1,9 +1,5 @@
 module PartsHelper
 
-  def get_part_headings
-    %W(name type number size quantity order_number revenue date_sold district_id)
-  end
-
   def get_part_customer_name(part_id)
     # current_user.company.parts.where(id: part_id).first.district.customer.name.titleize
   end

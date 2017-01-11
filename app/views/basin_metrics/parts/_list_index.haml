@@ -10,7 +10,7 @@
       Please add some Districts first
   - elsif current_user.company.parts.exists?
     %table.list_table
-      - get_part_headings.each do |heading|
+      - %W(name type number size quantity order_number revenue date_sold district_id).each do |heading|
         %th.part_heading= heading.titleize
       - parts.each_with_index do |part|
         %tr.record.part_record{'data-partid': part['id']}
