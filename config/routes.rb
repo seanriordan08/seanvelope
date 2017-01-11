@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   put 'basin_metrics/wells/:id' => 'basin_metrics/wells#update'
   delete 'basin_metrics/wells/:id' => 'basin_metrics/wells#destroy', as: 'basin_metrics_well_delete'
 
+  post 'basin_metrics/reservations/:id' => 'basin_metrics/reservations#create'
+
   get 'basin_metrics/parts' => 'basin_metrics/parts#index'
   get 'basin_metrics/parts/new' => 'basin_metrics/parts#new'
   post 'basin_metrics/parts' => 'basin_metrics/parts#create'

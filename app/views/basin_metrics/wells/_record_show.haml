@@ -37,38 +37,6 @@
       .value.comment= well['comment'].blank? ? 'none' : well['comment']
 
 :javascript
-  $(document).ready(function(){
-    var date_selectors = $('.date_selector');
-    flatpickr(".date_selector", {
-      utc: true,
-      weekNumbers: true,
-      altInput: true,
-      altFormat: "M j, Y",
-
-      onClose: function(selectedDates, dateStr, instance) {
-        var $el = $(instance.element._flatpickr.altInput);
-        var new_content = $el.val();
-        sendUpdate($el, new_content);
-      }
-    });
-    date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
-
-    var date_range_selectors = $('.date_selector_range');
-    flatpickr(".date_selector_range", {
-      utc: true,
-      mode: 'range',
-      weekNumbers: true,
-      altInput: true,
-      altFormat: "M j, Y",
-
-      onClose: function(selectedDates, dateStr, instance) {
-        var $el = $(instance.element._flatpickr.altInput);
-        var new_content = $el.val();
-        sendUpdate($el, new_content);
-      }
-    });
-    date_range_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
-  });
 
   var percent_complete = getWellPercentComplete();
   var stroke_width = 16;
@@ -102,6 +70,41 @@
   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
   bar.text.style.fontSize = '2rem';
   bar.animate(percent_complete);  // Number from 0.0 to 1.0
+
+  $(document).ready(function(){
+    var date_selectors = $('.date_selector');
+    flatpickr(".date_selector", {
+      utc: true,
+      weekNumbers: true,
+      altInput: true,
+      altFormat: "M j, Y",
+
+      onClose: function(selectedDates, dateStr, instance) {
+        var $el = $(instance.element._flatpickr.altInput);
+        var new_content = $el.val();
+        sendUpdate($el, new_content);
+      }
+    });
+    date_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
+
+    var date_range_selectors = $('.date_selector_range');
+    flatpickr(".date_selector_range", {
+      utc: true,
+      mode: 'range',
+      weekNumbers: true,
+      altInput: true,
+      altFormat: "M j, Y",
+
+      onClose: function(selectedDates, dateStr, instance) {
+        var $el = $(instance.element._flatpickr.altInput);
+        var new_content = $el.val();
+        sendUpdate($el, new_content);
+      }
+    });
+    date_range_selectors.each(function(){$(this).remove()}); //Remove duplicate inputs
+
+    setLockTrigger(#{well['id']});
+  });
 
   function getWellPercentComplete(){
     return (parseFloat("#{well['percent_complete']}"))/100;
