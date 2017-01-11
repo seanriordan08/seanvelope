@@ -45,22 +45,26 @@ district_names.each do |name|
 end
 
 # Add wells
-well_names = %w(iron_bank golden saetz_fed)
-well_numbers = %w(6-14-56 3-45-75H 432-1-1HTF)
-well_names.each_with_index do |name, index|
-  BasinMetrics::Well.create_with(
-    name: name,
-    number: well_numbers[index],
+well_names = %w(iron_bank golden saetz_fed nordeng ames cheryl stenjhem still_water ninefold federal breck)
+200.times do
+  actual_date = (DateTime.now - (rand(10..340).days))
+  complete_date = actual_date + 5.days
+  BasinMetrics::Well.create!(
+    name: well_names[rand(0..9)],
+    number: "#{rand(10..90)}-#{rand(345..789)}-#{rand(100..200)}",
     customer_id: rand(1..customer_names.size),
-    district_id: rand(1..district_names.size)
-  ).find_or_create_by!(name: "#{name}")
+    district_id: rand(1..district_names.size),
+    actual_start: actual_date,
+    completed: complete_date,
+    revenue: rand(1000..3000)
+  )
 end
 
 # Add parts
 part_numbers = %w(1234 5678 9876 6543 8076 2837 8374 9374 6996 3636 9797 4545)
 part_types = %w(8k_trufrak 10k_trufrac 12k_fracshield)
 part_revenue = %w(500 1000 1500)
-part_numbers.each_with_index do |number|
+part_numbers.each do |number|
   BasinMetrics::Part.create_with(
     name: 'plug',
     type: part_types[rand(0..2)],
