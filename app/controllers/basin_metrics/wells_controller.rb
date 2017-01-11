@@ -1,5 +1,5 @@
 class BasinMetrics::WellsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :get_wells
   before_action :set_est_schedule_attributes, only: [:update]
 

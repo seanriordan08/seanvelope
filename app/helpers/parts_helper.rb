@@ -1,21 +1,25 @@
 module PartsHelper
 
   def get_part_headings
-    %W(customer name type number size quantity order_number revenue date_sold well_id)
+    %W(name type number size quantity order_number revenue date_sold district_id)
   end
 
   def get_part_customer_name(part_id)
-    current_user.company.parts.where(id: part_id).first.well.customer.name.titleize
+    # current_user.company.parts.where(id: part_id).first.district.customer.name.titleize
+  end
+
+  def get_part_district(part_id)
+    current_user.company.parts.where(id: part_id).first.district.name.titleize
   end
 
   def get_well(id)
     BasinMetrics::Well.where(id: id).first
   end
 
-  def get_parts_options
-    well_ids = current_user.company.wells.map(&:id)
-    well_numbers = current_user.company.wells.map(&:number)
-    wells_build_options(well_ids, well_numbers)
+  def get_district_options
+    district_ids = current_user.company.districts.map(&:id)
+    district_numbers = current_user.company.districts.map(&:name)
+    districts_build_options(district_ids, district_numbers)
   end
 
   def get_monthly_plugs_sold
@@ -49,10 +53,10 @@ module PartsHelper
     {array: quantity_by_month, x_label: well_x_label, y_label: well_y_label}
   end
 
-  def wells_build_options(ids, numbers)
-    options = [['well number', '']]
+  def districts_build_options(ids, name)
+    options = [['district', '']]
     ids.each_with_index do |part_id, index|
-      options << [numbers[index], part_id]
+      options << [name[index], part_id]
     end
     options
   end

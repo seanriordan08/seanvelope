@@ -7,6 +7,7 @@
   = f.text_field "number", placeholder: "part number"
   = f.select(:size, [['part size', ''],['none', 'NULL'], ['4.5 in', '4.5']])
   = f.text_field "order", placeholder: "order number"
-  = f.select(:well_id, options_for_select(get_parts_options))
+  = f.text_field "quantity", placeholder: "quantity"
+  = f.select(:district_id, options_for_select(get_district_options))
   = f.submit "Submit"
   = link_to "cancel", '/basin_metrics/parts', remote: true

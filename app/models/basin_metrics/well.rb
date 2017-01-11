@@ -3,7 +3,8 @@ class BasinMetrics::Well < ActiveRecord::Base
   belongs_to :customer, :class_name => 'BasinMetrics::Customer'
   belongs_to :district, :class_name => 'BasinMetrics::District'
 
-  has_many :parts, :class_name => 'BasinMetrics::Part', dependent: :destroy
+  has_many :reservations, :class_name => 'BasinMetrics::Reservation'
+  has_many :parts, :class_name => 'BasinMetrics::Part', through: :reservations
 
   HUMANIZED_ATTRIBUTES = {est_start: 'Estimated Start Date', est_end: 'Estimated End Date', actual_start: 'Actual Start Date', completed: 'Completion Date'}
 

@@ -69,7 +69,6 @@ part_numbers.each_with_index do |number|
     quantity: rand(2..70),
     order: SecureRandom.hex(6),
     revenue: part_revenue[rand(0..2)],
-    date_sold: (DateTime.now - (rand(1..340).days)),
-    well_id: rand(1..3)
+    date_sold: (DateTime.now - (rand(1..340).days))
   ).find_or_create_by!(number: "#{number}")
 end

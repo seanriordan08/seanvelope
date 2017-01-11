@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110065953) do
+ActiveRecord::Schema.define(version: 20170111001735) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -46,20 +46,20 @@ ActiveRecord::Schema.define(version: 20170110065953) do
   add_index "districts", ["company_id"], name: "index_districts_on_company_id", using: :btree
 
   create_table "parts", force: :cascade do |t|
-    t.string   "name",       limit: 255,             null: false
-    t.string   "type",       limit: 255,             null: false
-    t.string   "number",     limit: 255,             null: false
-    t.string   "size",       limit: 255
-    t.integer  "quantity",   limit: 4,   default: 1
-    t.string   "order",      limit: 255,             null: false
-    t.integer  "revenue",    limit: 4,   default: 0
+    t.string   "name",        limit: 255,             null: false
+    t.string   "type",        limit: 255,             null: false
+    t.string   "number",      limit: 255,             null: false
+    t.string   "size",        limit: 255
+    t.integer  "quantity",    limit: 4,   default: 1
+    t.string   "order",       limit: 255,             null: false
+    t.integer  "revenue",     limit: 4,   default: 0
     t.datetime "date_sold"
-    t.integer  "well_id",    limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "district_id", limit: 4
   end
 
-  add_index "parts", ["well_id"], name: "index_parts_on_well_id", using: :btree
+  add_index "parts", ["district_id"], name: "index_parts_on_district_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "email",      limit: 255
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 20170110065953) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "well_id",    limit: 4
+    t.integer  "part_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "quantity",   limit: 4
+  end
+
+  add_index "reservations", ["part_id"], name: "index_reservations_on_part_id", using: :btree
+  add_index "reservations", ["well_id"], name: "index_reservations_on_well_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -115,7 +126,9 @@ ActiveRecord::Schema.define(version: 20170110065953) do
 
   add_foreign_key "customers", "companies"
   add_foreign_key "districts", "companies"
-  add_foreign_key "parts", "wells"
+  add_foreign_key "parts", "districts"
+  add_foreign_key "reservations", "parts"
+  add_foreign_key "reservations", "wells"
   add_foreign_key "users", "companies"
   add_foreign_key "wells", "customers"
   add_foreign_key "wells", "districts"

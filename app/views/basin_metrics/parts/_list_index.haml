@@ -1,21 +1,15 @@
 
 .list_options
   .title= BasinMetrics::PartsController::PARTS_LIST_TITLE
-  - if current_user.company.wells.exists?
-    = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
+  = link_to(material_icon.add_circle_outline, basin_metrics_parts_new_path, remote: true)
 
 .list_content
-  - if !current_user.company.wells.exists?
-    .no_record
-      Please add some Wells first
-  - elsif current_user.company.parts.exists?
+  - if current_user.company.parts.exists?
     %table.list_table
       - get_part_headings.each do |heading|
         %th.part_heading= heading.titleize
       - parts.each_with_index do |part|
         %tr.record.part_record{'data-partid': part['id']}
-          %td.record_attribute
-            %div= get_part_customer_name(part['id'])
           %td.record_attribute{'data-name':'name'}
             %div= part['name'].humanize
           %td.record_attribute{'data-name':'type'}
@@ -32,8 +26,8 @@
             %div= part['revenue']
           %td.record_attribute.nullable{'data-name':'date_sold'}
             %input.date_selector{value: part['date_sold'], placeholder: "#{part['date_sold'].blank? ? 'pending' : part['date_sold']}"}
-          %td.record_attribute{'data-name':'well_id'}
-            %div= get_well(part['well_id'].to_i).number
+          %td.record_attribute{'data-name':'district_id'}
+            %div= get_part_district(part['district_id'])
           %td.remove_circle= link_to(material_icon.remove_circle_outline, basin_metrics_part_delete_path(part['id']), method: :delete, remote: true)
   - else
     .no_record
